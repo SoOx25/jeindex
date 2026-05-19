@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon de Jeindex.cl -->
+    <link rel="icon" type="image/png" href="https://iili.io/BymSB8g.png">
+    <title>Jeindex.cl | Portafolio de Páginas Web en Código HTML Puro</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter (SANS) & Fira Code (MONO) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                            dark: '#090D16',
+                            card: '#111827',
+                            border: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom animations & scroll styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090D16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b5cf6;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.2);
+        }
+        .glow-purple {
+            box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased overflow-x-hidden">
+
+    <!-- Custom Notification Popup (No alert() used) -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 pointer-events-none flex flex-col gap-3"></div>
+
+    <!-- Navigation / Header -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/120x40/8b5cf6/ffffff?text=Jeindex.cl'">
+                <span class="text-xl font-black tracking-tight text-white hidden sm:block">Jeindex.cl</span>
+            </a>
+
+            <!-- Menu Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-300">
+                <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#por-que-codigo" class="hover:text-white transition-colors">Código vs WordPress</a>
+                <a href="#showcase" class="hover:text-white transition-colors">Visor de Plantillas</a>
+                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#calculadora" class="hover:text-white transition-colors">Calculadora</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20 transform hover:-translate-y-0.5">
+                    Cotizar Web HTML
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none" aria-label="Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-brand-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-slate-300 hover:text-white font-medium">Inicio</a>
+            <a href="#por-que-codigo" class="block py-2 text-slate-300 hover:text-white font-medium">Código vs WordPress</a>
+            <a href="#showcase" class="block py-2 text-slate-300 hover:text-white font-medium">Visor de Plantillas</a>
+            <a href="#servicios" class="block py-2 text-slate-300 hover:text-white font-medium">Servicios</a>
+            <a href="#calculadora" class="block py-2 text-slate-300 hover:text-white font-medium">Calculadora</a>
+            <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold">Cotizar Proyecto</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="pt-32 pb-24 relative overflow-hidden min-h-screen flex items-center">
+        <!-- Abstract gradient shapes in background -->
+        <div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 text-violet-400 border border-violet-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span> Código 100% Hecho a Mano
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6.5xl font-black tracking-tight leading-none text-white">
+                    Páginas web a medida <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400">
+                        en código HTML limpio
+                    </span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#showcase" class="px-8 py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30 text-center text-sm">
+                        Probar Visor e Inspeccionar Diseños <i class="fa-solid fa-terminal ml-2"></i>
+                    </a>
+                    <a href="#calculadora" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition-all border border-slate-700 text-center text-sm">
+                        Simular Presupuesto <i class="fa-solid fa-calculator ml-2"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-brand-border max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <span class="block text-3xl font-black text-white">100%</span>
+                        <span class="text-xs text-slate-500 font-bold">Velocidad Móvil</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-white">0.3s</span>
+                        <span class="text-xs text-slate-500 font-bold">Carga Inicial</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-white">Inmune</span>
+                        <span class="text-xs text-slate-500 font-bold font-sans">A Virus de Plugins</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Graphic Mockup -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-[420px] lg:max-w-none bg-gradient-to-tr from-violet-600/50 to-indigo-500/50 p-[1.5px] rounded-2xl glow-purple">
+                    <div class="bg-brand-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-brand-border pb-4">
+                            <div class="flex space-x-1.5">
+                                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-500 font-mono">estudio-de-codigo.html</span>
+                        </div>
+                        <div class="font-mono text-xs text-violet-300 space-y-2 select-none overflow-x-auto">
+                            <p class="text-slate-600">&lt;!DOCTYPE html&gt;</p>
+                            <p class="text-indigo-400">&lt;html <span class="text-cyan-400">class="high-performance"</span>&gt;</p>
+                            <p class="text-indigo-400 ml-4">&lt;body <span class="text-cyan-400">class="bg-dark-mode"</span>&gt;</p>
+                            <p class="text-emerald-400 ml-8">&lt;header&gt;</p>
+                            <p class="text-slate-300 ml-12">&lt;h1&gt;Tu Negocio al Siguiente Nivel&lt;/h1&gt;</p>
+                            <p class="text-emerald-400 ml-8">&lt;/header&gt;</p>
+                            <p class="text-indigo-400 ml-4">&lt;/body&gt;</p>
+                            <p class="text-indigo-400">&lt;/html&gt;</p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-border flex items-center justify-between text-xs">
+                            <span class="text-slate-400"><i class="fa-solid fa-server mr-1 text-cyan-400 animate-pulse"></i> Servidor Optimizado</span>
+                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded font-bold border border-emerald-500/20">W3C Estándar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comparative Section -->
+    <section id="por-que-codigo" class="py-24 bg-slate-900/60 relative border-y border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-violet-500 font-bold uppercase tracking-wider text-xs">La Realidad Técnica</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Código HTML vs Creadores de Plantillas</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Advantage CARD -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Velocidad Increíble</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.
+                    </p>
+                </div>
+                <!-- Advantage CARD -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Cero Vulnerabilidades</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.
+                    </p>
+                </div>
+                <!-- Advantage CARD -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Estructura SEO Limpia</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SPEED BAR SIMULATOR WIDGET -->
+            <div class="mt-16 bg-brand-card rounded-2xl p-6 sm:p-10 border border-brand-border max-w-3xl mx-auto">
+                <h3 class="text-lg font-bold text-white text-center mb-6"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i> Simulador de Velocidad de Servidor</h3>
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-emerald-400"><i class="fa-solid fa-code mr-1"></i> Nuestra Programación HTML</span>
+                            <span class="text-emerald-400" id="html-timer">0.3 Segundos</span>
+                        </div>
+                        <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden">
+                            <div id="html-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-0 rounded-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-rose-500"><i class="fa-brands fa-wordpress mr-1"></i> WordPress con Plugins / Elementor</span>
+                            <span class="text-rose-500" id="wp-timer">0.0 Segundos</span>
+                        </div>
+                        <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden">
+                            <div id="wp-bar" class="bg-gradient-to-r from-rose-500 to-amber-500 h-full w-0 rounded-full transition-all"></div>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button onclick="startSpeedTest()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-bold border border-slate-700 transition-colors">
+                            <i class="fa-solid fa-circle-play mr-2"></i> Ejecutar Test de Carga
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BROWSER SIMULATOR / WEB PREVIEW ONLY SECTION -->
+    <section id="showcase" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-violet-500 font-bold uppercase tracking-wider text-xs">Visor de previsualización en vivo</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Prueba mis Diseños Interactivos Completos</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    A continuación puedes interactuar y navegar por cinco de nuestras maquetas profesionales diseñadas con código HTML limpio de alto rendimiento. Selecciona una plantilla para cargarla instantáneamente en el navegador simulado y prueba su funcionalidad real.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Sidebar Controls -->
+                <div class="lg:col-span-4 space-y-3">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Modelos Disponibles</h3>
+                    
+                    <div class="space-y-2">
+                        <!-- Template Button 1 -->
+                        <button onclick="loadTemplate('restaurant')" id="btn-restaurant" class="w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-card hover:border-violet-500/50 text-left transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xs sm:text-sm">Restaurante Gourmet</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium block">Parrilla premium, carta elegante</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-angle-right text-slate-500 text-xs"></i>
+                        </button>
+
+                        <!-- Template Button 2 -->
+                        <button onclick="loadTemplate('gym')" id="btn-gym" class="w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-dark hover:border-violet-500/50 text-left transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-lg bg-rose-500/10 text-rose-500 flex items-center justify-center">
+                                    <i class="fa-solid fa-dumbbell"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xs sm:text-sm">Gimnasio Alto Rendimiento</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium block">Deportivo, neón, dinámico</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-angle-right text-slate-500 text-xs"></i>
+                        </button>
+
+                        <!-- Template Button 3 -->
+                        <button onclick="loadTemplate('lawyer')" id="btn-lawyer" class="w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-dark hover:border-violet-500/50 text-left transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xs sm:text-sm">Estudio de Abogados</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium block">Corporativo, confiable y limpio</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-angle-right text-slate-500 text-xs"></i>
+                        </button>
+
+                        <!-- Template Button 4 -->
+                        <button onclick="loadTemplate('dentist')" id="btn-dentist" class="w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-dark hover:border-violet-500/50 text-left transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-tooth"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xs sm:text-sm">Clínica Dental</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium block">Salud dental, moderna y limpia</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-angle-right text-slate-500 text-xs"></i>
+                        </button>
+
+                        <!-- Template Button 5 -->
+                        <button onclick="loadTemplate('barber')" id="btn-barber" class="w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-dark hover:border-violet-500/50 text-left transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-scissors"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xs sm:text-sm">Barbería Leyendas</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium block">Estilo clásico y perfilados</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-angle-right text-slate-500 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Simulator Preview Container -->
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden shadow-2xl">
+                        <!-- Simulator Browser Controls -->
+                        <div class="bg-slate-900/90 p-4 border-b border-brand-border flex items-center justify-between">
+                            <div class="flex items-center space-x-3 w-full">
+                                <div class="flex space-x-1.5 shrink-0">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                </div>
+                                <div class="bg-brand-dark px-3 py-1.5 rounded-lg text-xs font-mono text-slate-400 flex items-center space-x-2 w-full max-w-md border border-brand-border ml-2">
+                                    <i class="fa-solid fa-lock text-emerald-400 text-[9px]"></i>
+                                    <span id="mock-address" class="truncate">https://jeindex.cl/gourmet-preview</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-slate-500 font-bold shrink-0 uppercase tracking-wider hidden sm:inline"><i class="fa-solid fa-eye text-violet-400 mr-1.5"></i> Vista Previa en Vivo</span>
+                        </div>
+
+                        <!-- Main Screen Area -->
+                        <div class="relative bg-white h-[650px]">
+                            <!-- Loading Spinner Overlay -->
+                            <div id="sandbox-loader" class="absolute inset-0 bg-brand-dark/95 flex flex-col items-center justify-center z-20 hidden transition-opacity duration-300">
+                                <div class="w-10 h-10 rounded-full border-4 border-slate-800 border-t-violet-500 animate-spin mb-3"></div>
+                                <span class="text-xs font-semibold text-slate-400">Compilando vista de simulación...</span>
+                            </div>
+
+                            <!-- Live preview iframe block -->
+                            <div id="sandbox-preview-container" class="w-full h-full">
+                                <iframe id="sandbox-iframe" class="w-full h-full bg-white border-none rounded-b-2xl" srcdoc=""></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-slate-900/60 relative border-y border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-violet-500 font-bold uppercase tracking-wider text-xs">Desarrollo Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Nuestras Soluciones para Negocios</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Creamos estructuras digitales ligeras que destacan sobre competidores locales, diseñadas con un alto enfoque comercial.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-violet-500/10 text-violet-400 flex items-center justify-center text-lg"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-lg font-bold text-white">Landings de Captación</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Optimizadas para anuncios en Facebook e Instagram Ads. Ideales para conversión directa de leads.</p>
+                    <div class="pt-2 text-violet-400 font-bold text-sm" id="serv-price-1">Desde $40.000 CLP</div>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 class="text-lg font-bold text-white">Web Multi-Sección</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Hasta 5 páginas dedicadas de servicios, portafolio y formulario comercial con código estático ultra-seguro.</p>
+                    <div class="pt-2 text-cyan-400 font-bold text-sm" id="serv-price-2">Desde $88.000 CLP</div>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-brand-dark border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-store"></i></div>
+                    <h3 class="text-lg font-bold text-white">Catálogo Digital Ligero</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Venta de productos sin el peso de bases de datos lentas. Envío automatizado de pedidos a WhatsApp.</p>
+                    <div class="pt-2 text-emerald-400 font-bold text-sm" id="serv-price-3">Desde $136.000 CLP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Area with Currency Switcher -->
+    <section id="calculadora" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-violet-500 font-bold uppercase tracking-wider text-xs">Precios Honestos</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Calculadora Inteligente de Cotización</h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Evita sorpresas de costos extra. Evalúa e integra las funciones críticas que requiere tu proyecto y obtén un presupuesto de desarrollo de forma inmediata en la moneda de tu preferencia.
+                    </p>
+                    <div class="p-6 bg-brand-card rounded-2xl border border-brand-border space-y-3.5">
+                        <div class="flex items-center space-x-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Nuestra Garantía Estándar</span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-400">
+                            <li><i class="fa-solid fa-bolt text-emerald-400 mr-2"></i> Optimización máxima para dispositivos móviles</li>
+                            <li><i class="fa-solid fa-bug-slash text-emerald-400 mr-2"></i> Código limpio validado por W3C</li>
+                            <li><i class="fa-solid fa-gauge text-emerald-400 mr-2"></i> Puntuación de velocidad de carga superior a 95+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Form Calculator slider & Currency selection -->
+                <div class="lg:col-span-7 bg-brand-card rounded-3xl p-6 sm:p-10 border border-brand-border shadow-2xl space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border">
+                        <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-sliders text-violet-500 mr-2"></i> Parámetros de la Web</h3>
+                        
+                        <!-- Premium Currency Switcher -->
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Moneda:</span>
+                            <div class="flex bg-brand-dark p-1 rounded-lg border border-brand-border text-xs">
+                                <button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button>
+                                <button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all text-slate-400 hover:text-white">USD ($)</button>
+                                <button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all text-slate-400 hover:text-white">MXN ($)</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sections slider -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs sm:text-sm font-semibold">
+                            <span class="text-slate-300">Secciones del Sitio:</span>
+                            <span class="text-violet-400 font-bold" id="calc-pages-text">1 Página (Landing)</span>
+                        </div>
+                        <input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg bg-slate-900 accent-violet-600 cursor-pointer">
+                    </div>
+
+                    <!-- Addon Toggles -->
+                    <div class="space-y-3">
+                        <span class="text-xs sm:text-sm font-semibold text-slate-300 block">Funciones de Integración:</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-3 p-3 bg-brand-dark/50 border border-brand-border rounded-xl cursor-pointer hover:border-slate-800">
+                                <input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded">
+                                <span class="text-xs text-slate-300" id="label-addon-form">Reservaciones Online (+$9.000)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-brand-dark/50 border border-brand-border rounded-xl cursor-pointer hover:border-slate-800">
+                                <input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded">
+                                <span class="text-xs text-slate-300" id="label-addon-whatsapp">Boton WhatsApp Pro (+$6.000)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-brand-dark/50 border border-brand-border rounded-xl cursor-pointer hover:border-slate-800">
+                                <input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded">
+                                <span class="text-xs text-slate-300" id="label-addon-seo">SEO Avanzado Integrado (+$16.000)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-brand-dark/50 border border-brand-border rounded-xl cursor-pointer hover:border-slate-800">
+                                <input onchange="updatePriceEstimate()" type="checkbox" id="add-dark" class="w-4 h-4 accent-violet-600 rounded">
+                                <span class="text-xs text-slate-300" id="label-addon-dark">Modo Claro/Oscuro (+$10.000)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Hosting plan select -->
+                    <div class="space-y-3">
+                        <span class="text-xs sm:text-sm font-semibold text-slate-300 block">Plan de Infraestructura y Servidor:</span>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label onclick="selectHostingPlan('eco')" id="plan-eco-card" class="p-3 bg-brand-dark border border-violet-500 rounded-xl cursor-pointer text-center block transition-all">
+                                <span class="block text-xs font-bold text-white">Económico</span>
+                                <span class="text-[9px] text-slate-500" id="label-plan-eco">Netlify (Gratuito)</span>
+                            </label>
+                            <label onclick="selectHostingPlan('pro')" id="plan-pro-card" class="p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer text-center block transition-all">
+                                <span class="block text-xs font-bold text-white">Global CDN</span>
+                                <span class="text-[9px] text-slate-500" id="label-plan-pro">Cloudflare (+$8.000)</span>
+                            </label>
+                            <label onclick="selectHostingPlan('edge')" id="plan-edge-card" class="p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer text-center block transition-all">
+                                <span class="block text-xs font-bold text-white">Vercel Edge</span>
+                                <span class="text-[9px] text-slate-500" id="label-plan-edge">Premium (+$16.000)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Calculated output -->
+                    <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Presupuesto Estimado</span>
+                            <span class="text-3xl sm:text-4xl font-black text-white" id="calc-final-price">$40.000 CLP</span>
+                        </div>
+                        <button onclick="transferBudgetToForm()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20">
+                            Aplicar Presupuesto <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact form container -->
+    <section id="contacto" class="py-24 bg-slate-900/60 relative border-t border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-4 mb-12">
+                <span class="text-violet-500 font-bold uppercase tracking-wider text-xs">Pide tu Sitio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¡Inicia tu Proyecto Web Hoy Mismo!</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Completa el formulario inferior y crearemos el diseño perfecto en código para tu marca comercial.</p>
+            </div>
+
+            <form onsubmit="submitContactForm(event)" class="bg-brand-dark border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tu Nombre</label>
+                        <input type="text" id="form-name" required class="w-full bg-slate-900 border border-brand-border rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-violet-500" placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Correo Electrónico</label>
+                        <input type="email" id="form-email" required class="w-full bg-slate-900 border border-brand-border rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-violet-500" placeholder="juan@negocio.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">WhatsApp o Teléfono</label>
+                        <input type="tel" id="form-phone" class="w-full bg-slate-900 border border-brand-border rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-violet-500" placeholder="+56 9 1234 5678">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Rubro Comercial</label>
+                        <select id="form-rubro" class="w-full bg-slate-900 border border-brand-border rounded-xl px-4 py-3 text-slate-400 text-sm focus:outline-none focus:border-violet-500">
+                            <option value="Gastronomía">Gastronomía y Alimentos</option>
+                            <option value="Servicios">Abogados, Médicos y Consultores</option>
+                            <option value="Fitness">Gimnasios y Entrenadores</option>
+                            <option value="Odontología">Clínica Dental / Salud</option>
+                            <option value="Estética">Barbería / Belleza</option>
+                            <option value="Otro">Otros rubros comerciales</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cotización Vinculada</label>
+                    <input type="text" id="form-pricing" readonly class="w-full bg-slate-950 border border-brand-border rounded-xl px-4 py-3 text-violet-400 font-mono font-bold text-sm cursor-not-allowed" value="$40.000 CLP (Configuración Inicial)">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Breve descripción de los requisitos</label>
+                    <textarea id="form-description" required rows="4" class="w-full bg-slate-900 border border-brand-border rounded-xl p-4 text-slate-200 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30">
+                    Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer block -->
+    <footer class="bg-brand-dark border-t border-brand-border py-12 text-slate-600 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-8 w-auto object-contain" onerror="this.src='https://placehold.co/80x30/8b5cf6/ffffff?text=Jeindex.cl'">
+                <span class="font-extrabold text-white">Jeindex.cl</span>
+            </div>
+            <p>&copy; 2026 Jeindex.cl. Todos los derechos reservados. Desarrollado con HTML5 estático puro de alto rendimiento.</p>
+            <div class="flex space-x-4">
+                <a href="https://github.com/joseespinozaf" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/jose-espinoza-figueroa" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Colección de plantillas HTML para renderizar en el simulador.
+        const templates = {
+            restaurant: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-stone-900 text-stone-100 font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 bg-stone-950 shadow-lg border-b border-stone-800">
+        <span class="text-xl font-bold tracking-wider text-amber-500"><i class="fa-solid fa-pizza-slice mr-2"></i>Don Peppe Gourmet</span>
+        <button onclick="openBookingModal()" class="px-4 py-2 bg-amber-600 text-stone-950 rounded-lg text-xs font-extrabold tracking-wide cursor-pointer hover:bg-amber-500 transition-colors">Reservar Mesa</button>
+    </nav>
+
+    <!-- Main Section with Hero Image -->
+    <main class="flex-grow flex flex-col py-12 px-4 max-w-5xl mx-auto space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 text-left">
+                <span class="text-xs font-black uppercase tracking-widest text-amber-400">Desde 1994 en tu mesa</span>
+                <h1 class="text-4xl md:text-5xl font-serif font-black text-white leading-tight">Sabores Tradicionales de la Toscana</h1>
+                <p class="text-stone-400 text-sm sm:text-base">Disfruta de pastas artesanales y pizzas a la leña preparadas al momento con ingredientes 100% orgánicos importados de Italia.</p>
+                <div class="pt-2">
+                    <button onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})" class="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-stone-950 rounded-lg text-xs font-bold transition-all">Explorar Menú</button>
+                </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-800 h-64 sm:h-80">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Toscana Food" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/292524/e7e5e4?text=Gourmet+Dish'">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/40 to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Menu Filter Section (Dynamic Filter) -->
+        <div id="menu-section" class="bg-stone-950 p-6 rounded-2xl border border-stone-800 shadow-xl space-y-6">
+            <div class="flex flex-wrap justify-between items-center gap-4 border-b border-stone-800 pb-4">
+                <h3 class="text-md font-bold text-white"><i class="fa-solid fa-utensils text-amber-500 mr-2"></i>Nuestra Selección</h3>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterMenu('all')" id="tab-all" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-600 text-stone-950">Todos</button>
+                    <button onclick="filterMenu('pasta')" id="tab-pasta" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-400 hover:text-white">Pastas</button>
+                    <button onclick="filterMenu('pizza')" id="tab-pizza" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-400 hover:text-white">Pizzas</button>
+                    <button onclick="filterMenu('postre')" id="tab-postre" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-400 hover:text-white">Postres</button>
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left" id="menu-grid">
+                <!-- Pasta 1 -->
+                <div class="menu-item p-3 bg-stone-900 rounded-xl border border-stone-800/80 hover:border-amber-500/30 transition-all flex space-x-4 items-center" data-category="pasta">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=150&q=80" alt="Alfredo" class="w-16 h-16 rounded-lg object-cover border border-stone-800 shrink-0" onerror="this.src='https://placehold.co/150x150/292524/e7e5e4?text=Pasta'">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-white text-sm">Fettuccine Alfredo con Trufa</h4>
+                            <span class="text-xs font-black text-amber-400 ml-2">$14.500</span>
+                        </div>
+                        <p class="text-[11px] text-stone-500 mt-1 line-clamp-2">Pasta fresca al huevo con crema de Parmigiano y aceite de trufa negra.</p>
+                    </div>
+                </div>
+                <!-- Pizza 1 -->
+                <div class="menu-item p-3 bg-stone-900 rounded-xl border border-stone-800/80 hover:border-amber-500/30 transition-all flex space-x-4 items-center" data-category="pizza">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=150&q=80" alt="Margherita" class="w-16 h-16 rounded-lg object-cover border border-stone-800 shrink-0" onerror="this.src='https://placehold.co/150x150/292524/e7e5e4?text=Pizza'">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-white text-sm">Pizza Margherita Di Bufala</h4>
+                            <span class="text-xs font-black text-amber-400 ml-2">$11.900</span>
+                        </div>
+                        <p class="text-[11px] text-stone-500 mt-1 line-clamp-2">Salsa pomodoro, mozzarella de búfala fresca, albahaca y aceite de oliva.</p>
+                    </div>
+                </div>
+                <!-- Pasta 2 -->
+                <div class="menu-item p-3 bg-stone-900 rounded-xl border border-stone-800/80 hover:border-amber-500/30 transition-all flex space-x-4 items-center" data-category="pasta">
+                    <img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=150&q=80" alt="Lasagna" class="w-16 h-16 rounded-lg object-cover border border-stone-800 shrink-0" onerror="this.src='https://placehold.co/150x150/292524/e7e5e4?text=Pasta'">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-white text-sm">Lasagna de Asado de Tira</h4>
+                            <span class="text-xs font-black text-amber-400 ml-2">$13.800</span>
+                        </div>
+                        <p class="text-[11px] text-stone-500 mt-1 line-clamp-2">Capas de pasta artesanal con carne desmenuzada y salsa bechamel.</p>
+                    </div>
+                </div>
+                <!-- Postre 1 -->
+                <div class="menu-item p-3 bg-stone-900 rounded-xl border border-stone-800/80 hover:border-amber-500/30 transition-all flex space-x-4 items-center" data-category="postre">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=150&q=80" alt="Tiramisu" class="w-16 h-16 rounded-lg object-cover border border-stone-800 shrink-0" onerror="this.src='https://placehold.co/150x150/292524/e7e5e4?text=Dessert'">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-white text-sm">Tiramisú al Mascarpone</h4>
+                            <span class="text-xs font-black text-amber-400 ml-2">$6.200</span>
+                        </div>
+                        <p class="text-[11px] text-stone-500 mt-1 line-clamp-2">Receta tradicional con café espresso, licor amaretto y cacao puro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Interactive Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-stone-950 border border-stone-800 max-w-md w-full rounded-2xl p-6 space-y-4">
+            <div class="flex justify-between items-center border-b border-stone-800 pb-3">
+                <h3 class="text-md font-bold text-white"><i class="fa-solid fa-calendar-days text-amber-500 mr-2"></i>Reservar tu Mesa</h3>
+                <button onclick="closeBookingModal()" class="text-stone-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="confirmReservation(event)" class="space-y-3 text-left">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-stone-400 uppercase block">Nombre de la Reserva</label>
+                    <input type="text" required id="book-name" class="w-full bg-stone-900 border border-stone-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold text-stone-400 uppercase block">Fecha</label>
+                        <input type="date" required id="book-date" class="w-full bg-stone-900 border border-stone-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold text-stone-400 uppercase block">N° de Personas</label>
+                        <select id="book-guests" class="w-full bg-stone-900 border border-stone-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+                            <option value="2">2 Personas</option>
+                            <option value="4">4 Personas</option>
+                            <option value="6">6 Personas</option>
+                            <option value="8">8 Personas</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-amber-600 hover:bg-amber-500 text-stone-950 rounded-lg text-xs font-black uppercase tracking-wider transition-colors mt-2">Confirmar Reserva en Vivo</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="booking-success" class="hidden p-4 bg-emerald-950/80 border border-emerald-800 rounded-xl text-center space-y-2">
+                <i class="fa-solid fa-circle-check text-2xl text-emerald-400"></i>
+                <h4 class="text-xs font-bold text-white">¡Reserva Confirmada!</h4>
+                <p class="text-[10px] text-emerald-300" id="success-desc">Mesa reservada para 2 personas el día de hoy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live JS logic -->
+    <script>
+        function filterMenu(category) {
+            ['all', 'pasta', 'pizza', 'postre'].forEach(cat => {
+                const btn = document.getElementById('tab-' + cat);
+                if (cat === category) {
+                    btn.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-600 text-stone-950";
+                } else {
+                    btn.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-400 hover:text-white";
+                }
+            });
+
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('hidden');
+        }
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function confirmReservation(e) {
+            e.preventDefault();
+            const name = document.getElementById('book-name').value;
+            const date = document.getElementById('book-date').value;
+            const guests = document.getElementById('book-guests').value;
+
+            document.getElementById('success-desc').innerText = "¡Mesa agendada con éxito para " + name + "! Te esperamos el " + date + " para " + guests + " personas.";
+            document.getElementById('booking-success').classList.remove('hidden');
+            e.target.reset();
+        }
+    <\/script>
+</body>
+</html>`,
+
+            gym: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-zinc-950 text-white font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 border-b border-zinc-800 bg-zinc-900 shadow-xl">
+        <span class="text-xl font-black text-red-500 italic tracking-wider"><i class="fa-solid fa-dumbbell mr-2"></i>IRONFIT</span>
+        <a href="#imc-section" class="px-4 py-2 bg-red-600 text-white rounded-lg text-xs font-black italic tracking-wide cursor-pointer hover:bg-red-500 transition-colors">Medir mi IMC</a>
+    </nav>
+
+    <!-- Main Hero -->
+    <main class="flex-grow flex flex-col py-12 px-4 max-w-5xl mx-auto space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 text-left">
+                <h1 class="text-4xl sm:text-5xl font-black italic uppercase leading-none">SUPERA TUS PROPIOS <span class="text-red-500 block mt-2">LÍMITES DIARIOS</span></h1>
+                <p class="text-zinc-400 text-xs sm:text-sm">Entrenamiento de alto rendimiento con entrenadores certificados, planes nutricionales personalizados e instalaciones de última generación.</p>
+                <div class="pt-2">
+                    <button onclick="document.getElementById('planes-section').scrollIntoView({behavior: 'smooth'})" class="px-5 py-2.5 bg-red-650 hover:bg-red-500 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-all">Ver Membresías</button>
+                </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-zinc-800 h-64 sm:h-80">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="IronFit Warrior" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/09090b/ffffff?text=IronFit+Warrior'">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- BMI Calculator Integrated (Functional) -->
+        <div id="imc-section" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl max-w-md mx-auto w-full text-left space-y-4">
+            <h3 class="text-sm font-black italic uppercase text-red-500"><i class="fa-solid fa-heart-pulse mr-2"></i>Calculadora Inteligente de IMC</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-zinc-400 block">Tu Peso (kg)</label>
+                    <input type="number" id="bmi-weight" placeholder="Ej: 75" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-zinc-400 block">Tu Estatura (cm)</label>
+                    <input type="number" id="bmi-height" placeholder="Ej: 175" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+                </div>
+            </div>
+            <button onclick="calculateBMI()" class="w-full py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg text-xs font-black uppercase italic tracking-wide transition-colors">Calcular Estado Físico</button>
+
+            <!-- BMI Result Display -->
+            <div id="bmi-result-box" class="hidden p-4 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white" id="bmi-label">Tu IMC es: 22.4 (Normal)</h4>
+                    <p class="text-[10px] text-zinc-400" id="bmi-suggestion">Te sugerimos el Plan Fitness Standard para mantenerte en forma.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fares / Pricing dynamic model -->
+        <div id="planes-section" class="space-y-6">
+            <div class="flex items-center justify-between max-w-sm mx-auto">
+                <span class="text-xs font-bold text-zinc-400">Planes de Suscripción:</span>
+                <div class="flex bg-zinc-900 border border-zinc-800 p-1 rounded-lg text-[10px] font-black italic">
+                    <button id="toggle-monthly" onclick="toggleBilling('monthly')" class="px-3 py-1.5 rounded-md bg-red-600 text-white">MENSUAL</button>
+                    <button id="toggle-annual" onclick="toggleBilling('annual')" class="px-3 py-1.5 rounded-md text-zinc-400 hover:text-white">ANUAL (20% OFF)</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800 text-left space-y-3">
+                    <h4 class="text-xs font-black italic text-zinc-400 uppercase">Plan Basic</h4>
+                    <span class="text-2xl font-black block text-white" id="price-basic">$19.900 <span class="text-[10px] text-zinc-500 font-sans">/mes</span></span>
+                    <ul class="space-y-1 text-[10px] text-zinc-400">
+                        <li><i class="fa-solid fa-check text-red-500 mr-2"></i>Acceso libre de Lunes a Viernes</li>
+                        <li><i class="fa-solid fa-check text-red-500 mr-2"></i>Evaluación física inicial</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-zinc-900 rounded-xl border border-red-500/30 text-left space-y-3 relative overflow-hidden">
+                    <span class="absolute top-2 right-2 bg-red-500 text-white text-[8px] font-black italic px-2 py-0.5 rounded uppercase">PRO</span>
+                    <h4 class="text-xs font-black italic text-red-500 uppercase">Plan Premium</h4>
+                    <span class="text-2xl font-black block text-white" id="price-premium">$29.900 <span class="text-[10px] text-zinc-500 font-sans">/mes</span></span>
+                    <ul class="space-y-1 text-[10px] text-zinc-400">
+                        <li><i class="fa-solid fa-check text-red-500 mr-2"></i>Acceso libre 24/7 sin límites</li>
+                        <li><i class="fa-solid fa-check text-red-500 mr-2"></i>Clases grupales ilimitadas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('bmi-weight').value);
+            const height = parseFloat(document.getElementById('bmi-height').value) / 100;
+
+            if (!weight || !height) return;
+
+            const imc = (weight / (height * height)).toFixed(1);
+            let category = '';
+            let suggestion = '';
+
+            if (imc < 18.5) {
+                category = 'Bajo Peso';
+                suggestion = 'Te recomendamos un Plan de Aumento de Masa Muscular de alta ingesta calórica.';
+            } else if (imc < 24.9) {
+                category = 'Normal';
+                suggestion = 'Excelente estado de salud. Recomendamos entrenamientos de cardio combinados con pesas.';
+            } else {
+                category = 'Sobrepeso';
+                suggestion = 'Te recomendamos enfocar en circuitos metabólicos de alta intensidad (HIIT).';
+            }
+
+            document.getElementById('bmi-label').innerText = "Tu IMC es: " + imc + " (" + category + ")";
+            document.getElementById('bmi-suggestion').innerText = suggestion;
+            document.getElementById('bmi-result-box').classList.remove('hidden');
+        }
+
+        function toggleBilling(type) {
+            const basic = document.getElementById('price-basic');
+            const premium = document.getElementById('price-premium');
+            const btnMonthly = document.getElementById('toggle-monthly');
+            const btnAnnual = document.getElementById('toggle-annual');
+
+            if (type === 'monthly') {
+                btnMonthly.className = "px-3 py-1.5 rounded-md bg-red-600 text-white";
+                btnAnnual.className = "px-3 py-1.5 rounded-md text-zinc-400 hover:text-white";
+                basic.innerHTML = "$19.900 <span class='text-[10px] text-zinc-500 font-sans'>/mes</span>";
+                premium.innerHTML = "$29.900 <span class='text-[10px] text-zinc-500 font-sans'>/mes</span>";
+            } else {
+                btnAnnual.className = "px-3 py-1.5 rounded-md bg-red-600 text-white";
+                btnMonthly.className = "px-3 py-1.5 rounded-md text-zinc-400 hover:text-white";
+                basic.innerHTML = "$15.920 <span class='text-[10px] text-zinc-500 font-sans'>/mes (Anual)</span>";
+                premium.innerHTML = "$23.920 <span class='text-[10px] text-zinc-500 font-sans'>/mes (Anual)</span>";
+            }
+        }
+    <\/script>
+</body>
+</html>`,
+
+            lawyer: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 bg-slate-900 text-white shadow-md border-b border-slate-800">
+        <span class="text-lg font-bold tracking-widest uppercase"><i class="fa-solid fa-scale-balanced mr-2"></i>GÓMEZ & ASOCIADOS</span>
+        <button onclick="scrollToDiagnostic()" class="px-4 py-2 bg-amber-500 text-slate-950 rounded-lg text-xs font-bold cursor-pointer hover:bg-amber-450 transition-colors">Evaluar Caso</button>
+    </nav>
+
+    <!-- Main -->
+    <main class="flex-grow flex flex-col py-12 px-4 max-w-5xl mx-auto space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 text-left">
+                <h1 class="text-3xl sm:text-4xl font-serif text-slate-900 font-bold leading-snug">Defensa Legal Confiable y Estratégica</h1>
+                <p class="text-slate-600 text-sm">Somos un bufete de abogados experto en derecho corporativo, civil y laboral con más de 15 años de trayectoria profesional de éxito.</p>
+                <div class="pt-2">
+                    <button onclick="scrollToDiagnostic()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition-all">Iniciar Diagnóstico Express</button>
+                </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 h-64 sm:h-80">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Gómez & Asociados" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Gómez+%26+Asociados'">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Interactive FAQ Accordion -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-left space-y-4">
+            <h3 class="text-sm font-bold text-slate-900 uppercase"><i class="fa-solid fa-circle-question text-amber-500 mr-2"></i>Áreas de Asesoría Frecuentes</h3>
+            
+            <div class="space-y-2">
+                <button onclick="toggleAccordion(1)" class="w-full flex justify-between items-center p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-all">
+                    <span class="text-xs font-bold text-slate-800">1. ¿Cómo constituir una empresa rápida en Chile?</span>
+                    <i id="acc-icon-1" class="fa-solid fa-plus text-xs text-slate-400"></i>
+                </button>
+                <div id="acc-content-1" class="hidden p-4 bg-white border border-slate-100 rounded-xl text-[11px] text-slate-500 leading-relaxed">
+                    Nuestra firma asiste de forma integral mediante "Tu Empresa en un Día" o escritura tradicional, gestionando desde la redacción de estatutos hasta la iniciación de actividades comerciales frente al SII.
+                </div>
+
+                <button onclick="toggleAccordion(2)" class="w-full flex justify-between items-center p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-all">
+                    <span class="text-xs font-bold text-slate-800">2. ¿Qué ocurre ante un despido injustificado?</span>
+                    <i id="acc-icon-2" class="fa-solid fa-plus text-xs text-slate-400"></i>
+                </button>
+                <div id="acc-content-2" class="hidden p-4 bg-white border border-slate-100 rounded-xl text-[11px] text-slate-500 leading-relaxed">
+                    Si eres despedido sin causales legales objetivas, tienes derecho a demandar un recargo legal sobre tu indemnización por años de servicio. Te asistimos en la Inspección del Trabajo y Tribunales Laborales.
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Case Diagnostic (Assessment step by step) -->
+        <div id="diag-section" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 text-left space-y-4">
+            <h3 class="text-md font-bold text-amber-400 uppercase tracking-wide"><i class="fa-solid fa-clipboard-question mr-2"></i>Evaluador de Urgencia Legal</h3>
+            
+            <div id="diag-step-1" class="space-y-3">
+                <p class="text-xs text-slate-300">Paso 1: ¿De qué área es su conflicto legal?</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="nextStep(1, 'Empresa')" class="p-3 bg-slate-850 hover:bg-slate-800 border border-slate-700 rounded-xl text-center text-xs font-bold transition-all">Laboral</button>
+                    <button onclick="nextStep(1, 'Civil')" class="p-3 bg-slate-850 hover:bg-slate-800 border border-slate-700 rounded-xl text-center text-xs font-bold transition-all">Civil</button>
+                    <button onclick="nextStep(1, 'Familiar')" class="p-3 bg-slate-850 hover:bg-slate-800 border border-slate-700 rounded-xl text-center text-xs font-bold transition-all">Empresas</button>
+                </div>
+            </div>
+
+            <div id="diag-step-2" class="space-y-3 hidden">
+                <p class="text-xs text-slate-300">Paso 2: ¿Tiene alguna citación a tribunales o plazo en curso?</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="nextStep(2, 'SI')" class="p-3 bg-slate-850 hover:bg-slate-800 border border-slate-700 rounded-xl text-center text-xs font-bold transition-all">Sí, tengo un plazo encima</button>
+                    <button onclick="nextStep(2, 'NO')" class="p-3 bg-slate-850 hover:bg-slate-800 border border-slate-700 rounded-xl text-center text-xs font-bold transition-all">No, es preventivo</button>
+                </div>
+            </div>
+
+            <div id="diag-result" class="hidden p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl space-y-2">
+                <h4 class="text-xs font-bold text-amber-400" id="result-title">Diagnóstico: Nivel de Atención Crítico</h4>
+                <p class="text-[11px] text-slate-300 leading-relaxed" id="result-desc">Usted requiere representación inmediata. Por favor presione el botón de contacto para agendar de forma urgente.</p>
+                <button onclick="resetDiag()" class="text-[9px] text-slate-400 underline hover:text-white">Volver a Evaluar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleAccordion(num) {
+            const content = document.getElementById('acc-content-' + num);
+            const icon = document.getElementById('acc-icon-' + num);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.className = "fa-solid fa-minus text-xs text-amber-500";
+            } else {
+                content.classList.add('hidden');
+                icon.className = "fa-solid fa-plus text-xs text-slate-400";
+            }
+        }
+
+        function scrollToDiagnostic() {
+            document.getElementById('diag-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let answers = {};
+        function nextStep(step, val) {
+            answers[step] = val;
+            if (step === 1) {
+                document.getElementById('diag-step-1').classList.add('hidden');
+                document.getElementById('diag-step-2').classList.remove('hidden');
+            } else if (step === 2) {
+                document.getElementById('diag-step-2').classList.add('hidden');
+                
+                const title = document.getElementById('result-title');
+                const desc = document.getElementById('result-desc');
+
+                if (answers[2] === 'SI') {
+                    title.innerText = "¡Atención Crítica! Representación Inmediata Requerida";
+                    desc.innerText = "Debido a que posee plazos de juzgado activos para la rama de " + answers[1] + ", es vital que hable con un abogado dentro de las próximas 12 horas para salvaguardar sus derechos.";
+                } else {
+                    title.innerText = "Atención Recomendada / Preventiva";
+                    desc.innerText = "Su caso de materia " + answers[1] + " no presenta riesgos de plazos vencidos inmediatos. Agende una consulta regular para estructurar su estrategia de defensa corporativa.";
+                }
+
+                document.getElementById('diag-result').classList.remove('hidden');
+            }
+        }
+
+        function resetDiag() {
+            document.getElementById('diag-result').classList.add('hidden');
+            document.getElementById('diag-step-1').classList.remove('hidden');
+            answers = {};
+        }
+    <\/script>
+</body>
+</html>`,
+
+            dentist: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 bg-white shadow-sm border-b border-cyan-100">
+        <span class="text-xl font-bold text-cyan-600 flex items-center gap-2"><i class="fa-solid fa-tooth text-cyan-500"></i>OdontoSana</span>
+        <button onclick="scrollToBooking()" class="px-4 py-2 bg-cyan-600 text-white rounded-lg text-xs font-bold cursor-pointer hover:bg-cyan-700 transition-colors">Agendar Cita</button>
+    </nav>
+
+    <!-- Main -->
+    <main class="flex-grow flex flex-col py-12 px-4 max-w-5xl mx-auto space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 text-left">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">Tu Sonrisa en Manos de Profesionales Certificados</h1>
+                <p class="text-slate-600 text-sm">Ofrecemos tratamientos modernos con tecnología de vanguardia y un equipo altamente capacitado para tu total tranquilidad.</p>
+                <div class="pt-2">
+                    <button onclick="scrollToBooking()" class="px-5 py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-xs font-bold transition-all">Ver Tratamientos</button>
+                </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 h-64 sm:h-80">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="OdontoSana Dental" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/f8fafc/0284c7?text=OdontoSana+Dental'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cyan-600/10 to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Dentist Appointment Booking Flow (Functional) -->
+        <div id="booking-flow" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-lg text-left max-w-md mx-auto w-full space-y-4">
+            <h3 class="text-xs font-bold text-cyan-600 uppercase tracking-widest"><i class="fa-solid fa-clock-rotate-left mr-1"></i>Agenda en 3 Clics Rápidos</h3>
+            
+            <div id="flow-step-1" class="space-y-3">
+                <label class="text-[10px] font-bold text-slate-400 block">1. Elija el tratamiento médico</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="selectTreatment('Ortodoncia', '$35.000')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Ortodoncia General</button>
+                    <button onclick="selectTreatment('Limpieza Profunda', '$18.000')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Limpieza Ultrasonido</button>
+                    <button onclick="selectTreatment('Blanqueamiento Láser', '$45.000')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Blanqueamiento Dental</button>
+                    <button onclick="selectTreatment('Implantes Dentales', '$120.000')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Implante Fijo</button>
+                </div>
+            </div>
+
+            <div id="flow-step-2" class="space-y-3 hidden">
+                <label class="text-[10px] font-bold text-slate-400 block" id="step-2-label">2. Seleccione un especialista disponible</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="selectDoctor('Dra. Carolina Castro')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Dra. Carolina Castro</button>
+                    <button onclick="selectDoctor('Dr. Sebastián Soto')" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs font-bold hover:border-cyan-500 transition-all">Dr. Sebastián Soto</button>
+                </div>
+            </div>
+
+            <div id="flow-step-3" class="space-y-3 hidden">
+                <label class="text-[10px] font-bold text-slate-400 block">3. Ingrese su Nombre completo para agendar</label>
+                <input type="text" id="patient-name" placeholder="Ej: Marcela González" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 focus:outline-none focus:border-cyan-500">
+                <button onclick="finalizeAppointment()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-bold uppercase transition-colors">Generar Cita Médica</button>
+            </div>
+
+            <!-- Receipt Appointment display -->
+            <div id="flow-receipt" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
+                <i class="fa-solid fa-square-check text-2xl text-emerald-500"></i>
+                <h4 class="text-xs font-bold text-emerald-800">¡Cita Médica Bloqueada!</h4>
+                <p class="text-[11px] text-slate-600" id="receipt-text">Paciente agendado con el especialista Dr. Sebastián para Limpieza.</p>
+                <button onclick="resetFlow()" class="text-[9px] text-slate-400 underline hover:text-slate-600">Nueva Cita</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function scrollToBooking() {
+            document.getElementById('booking-flow').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let bookingData = {};
+
+        function selectTreatment(name, price) {
+            bookingData.treatment = name;
+            bookingData.price = price;
+            document.getElementById('flow-step-1').classList.add('hidden');
+            document.getElementById('flow-step-2').classList.remove('hidden');
+        }
+
+        function selectDoctor(doc) {
+            bookingData.doctor = doc;
+            document.getElementById('flow-step-2').classList.add('hidden');
+            document.getElementById('flow-step-3').classList.remove('hidden');
+        }
+
+        function finalizeAppointment() {
+            const patient = document.getElementById('patient-name').value;
+            if (!patient.trim()) return;
+
+            document.getElementById('flow-step-3').classList.add('hidden');
+            document.getElementById('receipt-text').innerHTML = "<b>Paciente:</b> " + patient + "<br><b>Especialista:</b> " + bookingData.doctor + "<br><b>Tratamiento:</b> " + bookingData.treatment + " (" + bookingData.price + ")<br><span class='text-xs text-cyan-600 mt-2 block font-semibold'>¡Te llamaremos para confirmar el bloque horario!</span>";
+            document.getElementById('flow-receipt').classList.remove('hidden');
+        }
+
+        function resetFlow() {
+            document.getElementById('flow-receipt').classList.add('hidden');
+            document.getElementById('flow-step-1').classList.remove('hidden');
+            document.getElementById('patient-name').value = '';
+            bookingData = {};
+        }
+    <\/script>
+</body>
+</html>`,
+
+            barber: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-neutral-950 text-amber-100 font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 border-b border-neutral-800 bg-neutral-900 shadow-lg">
+        <span class="text-lg font-black tracking-widest text-amber-400 uppercase"><i class="fa-solid fa-scissors mr-2"></i>Barbería Leyendas</span>
+        <button onclick="scrollToPricing()" class="px-4 py-2 border border-amber-400 text-amber-400 rounded-lg text-xs font-bold cursor-pointer hover:bg-amber-400 hover:text-neutral-950 transition-colors">Cotizar Estilo</button>
+    </nav>
+
+    <!-- Main -->
+    <main class="flex-grow flex flex-col py-12 px-4 max-w-5xl mx-auto space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 text-left">
+                <span class="text-[10px] text-amber-400 tracking-widest font-black uppercase">Tradición en cada tijeretazo</span>
+                <h1 class="text-4xl font-extrabold uppercase tracking-tight">Estilo y Cortes Clásicos</h1>
+                <p class="text-neutral-400 text-xs max-w-md">Cortes de autor, perfilados de barba a toalla caliente y tratamientos de cuidado capilar masculino.</p>
+                <div class="pt-2">
+                    <button onclick="scrollToPricing()" class="px-5 py-2.5 bg-neutral-900 border border-amber-450 hover:bg-amber-450 hover:text-neutral-950 text-amber-400 rounded-lg text-xs font-bold uppercase transition-all">Ver Servicios</button>
+                </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-850 h-64 sm:h-80">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Barbería Leyendas" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/0a0a0a/fbbf24?text=Barber%C3%ADa+Leyendas'">
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/40 to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Barber Service Cost Calculator Cart (Functional) -->
+        <div id="pricing-calculator" class="p-6 bg-neutral-900 rounded-2xl border border-neutral-800 text-left space-y-4 max-w-md mx-auto w-full">
+            <h3 class="text-xs font-black uppercase tracking-wider text-amber-400"><i class="fa-solid fa-list-check mr-2"></i>Selecciona tus servicios y calcula en vivo</h3>
+            
+            <div class="space-y-2">
+                <label class="flex items-center justify-between p-3 bg-neutral-950 border border-neutral-800 rounded-xl cursor-pointer hover:border-neutral-700">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" onchange="calculateBarberTotal()" value="12000" id="srv-cut" class="w-4 h-4 accent-amber-400">
+                        <span class="text-xs font-bold text-white">Corte de Cabello Premium</span>
+                    </div>
+                    <span class="text-xs text-amber-400 font-bold">$12.000</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3 bg-neutral-950 border border-neutral-800 rounded-xl cursor-pointer hover:border-neutral-700">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" onchange="calculateBarberTotal()" value="8000" id="srv-beard" class="w-4 h-4 accent-amber-400">
+                        <span class="text-xs font-bold text-white">Perfilado de Barba + Toalla Caliente</span>
+                    </div>
+                    <span class="text-xs text-amber-400 font-bold">$8.000</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3 bg-neutral-950 border border-neutral-800 rounded-xl cursor-pointer hover:border-neutral-700">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" onchange="calculateBarberTotal()" value="3000" id="srv-shampoo" class="w-4 h-4 accent-amber-400">
+                        <span class="text-xs font-bold text-white">Lavado de Cabello + Masaje</span>
+                    </div>
+                    <span class="text-xs text-amber-400 font-bold">$3.000</span>
+                </label>
+            </div>
+
+            <!-- Total display block -->
+            <div class="pt-4 border-t border-neutral-800 flex justify-between items-center">
+                <div>
+                    <span class="text-[9px] text-neutral-500 uppercase font-bold block">Total de tu visita</span>
+                    <span class="text-xl font-black text-white" id="barber-total">$0 CLP</span>
+                </div>
+                <button onclick="bookBarber()" class="px-5 py-2 bg-amber-400 text-neutral-950 rounded-lg text-xs font-black uppercase tracking-wider transition-colors hover:bg-amber-300">Reservar Bloque</button>
+            </div>
+
+            <!-- Booking Confirmation Alert -->
+            <div id="barber-alert" class="hidden p-3 bg-amber-400/10 border border-amber-400/20 text-amber-400 text-center rounded-xl text-xs">
+                ¡Tu cita de servicios fue agendada! Te esperamos en nuestro local con toalla caliente y café de cortesía.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function scrollToPricing() {
+            document.getElementById('pricing-calculator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateBarberTotal() {
+            let total = 0;
+            const cut = document.getElementById('srv-cut');
+            const beard = document.getElementById('srv-beard');
+            const shampoo = document.getElementById('srv-shampoo');
+
+            if (cut.checked) total += parseInt(cut.value);
+            if (beard.checked) total += parseInt(beard.value);
+            if (shampoo.checked) total += parseInt(shampoo.value);
+
+            document.getElementById('barber-total').innerText = "$" + total.toLocaleString('es-CL') + " CLP";
+        }
+
+        function bookBarber() {
+            document.getElementById('barber-alert').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('barber-alert').classList.add('hidden');
+            }, 5000);
+        }
+    <\/script>
+</body>
+</html>`
+        };
+
+        // Speed Test Simulator logic
+        let testActive = false;
+        function startSpeedTest() {
+            if (testActive) return;
+            testActive = true;
+
+            const hBar = document.getElementById('html-bar');
+            const wBar = document.getElementById('wp-bar');
+            const hTimer = document.getElementById('html-timer');
+            const wTimer = document.getElementById('wp-timer');
+
+            hBar.style.width = '0%';
+            wBar.style.width = '0%';
+            hTimer.innerText = '0.0 Segundos';
+            wTimer.innerText = '0.0 Segundos';
+
+            // Fast rendering simulation
+            setTimeout(() => {
+                hBar.style.width = '100%';
+                hTimer.innerText = '0.3 Segundos (Excelente)';
+            }, 100);
+
+            // Slow rendering simulation
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 4;
+                if (progress <= 100) {
+                    wBar.style.width = `${progress}%`;
+                    wTimer.innerText = `${(progress * 0.034).toFixed(1)} Segundos`;
+                } else {
+                    clearInterval(interval);
+                    wTimer.innerText = '3.4 Segundos (Fallo de caché)';
+                    testActive = false;
+                }
+            }, 120);
+        }
+
+        // Sandbox Active State
+        let currentSelectedTemplate = 'restaurant';
+
+        // Load active template in simulation browser frame
+        function loadTemplate(key) {
+            currentSelectedTemplate = key;
+            const loader = document.getElementById('sandbox-loader');
+            const iframe = document.getElementById('sandbox-iframe');
+            const addressMock = document.getElementById('mock-address');
+
+            // Button active styling transitions
+            ['restaurant', 'gym', 'lawyer', 'dentist', 'barber'].forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if (t === key) {
+                    btn.className = "w-full flex items-center justify-between p-3.5 rounded-xl border border-violet-500 bg-brand-card text-left transition-all";
+                } else {
+                    btn.className = "w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border bg-brand-dark hover:border-violet-500/50 text-left transition-all";
+                }
+            });
+
+            // Set address mocking URL
+            addressMock.innerText = `https://jeindex.cl/${key}-preview`;
+            
+            // Render spinner loaders
+            loader.classList.remove('hidden');
+
+            setTimeout(() => {
+                iframe.srcdoc = templates[key];
+                loader.classList.add('hidden');
+            }, 300);
+        }
+
+        // CURRENCY SWITCHER LOGIC (Base CLP 1:1, USD rate 950, MXN rate 53)
+        let selectedCurrency = 'CLP'; // 'CLP', 'USD', 'MXN'
+        const EXCHANGE_RATES = {
+            CLP: 1,
+            USD: 950, // 1 USD = 950 CLP
+            MXN: 53   // 1 MXN = 53 CLP
+        };
+
+        // Proportional Base values in CLP
+        const BASE_VALUES_CLP = {
+            landing: 40000,
+            extraPage: 12000,
+            addonForm: 9000,
+            addonWhatsapp: 6000,
+            addonSeo: 16000,
+            addonDark: 10000,
+            hostEco: 0,
+            hostPro: 8000,
+            hostEdge: 16000
+        };
+
+        // Helper function to format price based on selected currency
+        function formatPrice(clpValue) {
+            if (selectedCurrency === 'CLP') {
+                return '$' + clpValue.toLocaleString('es-CL') + ' CLP';
+            } else if (selectedCurrency === 'USD') {
+                const usdValue = Math.round(clpValue / EXCHANGE_RATES.USD);
+                return '$' + usdValue.toLocaleString('en-US') + ' USD';
+            } else if (selectedCurrency === 'MXN') {
+                const mxnValue = Math.round(clpValue / EXCHANGE_RATES.MXN);
+                return '$' + mxnValue.toLocaleString('es-MX') + ' MXN';
+            }
+        }
+
+        // Active dynamic recalculations and label updating
+        let selectedHostingPlan = 'eco'; // eco, pro, edge
+
+        function selectCurrency(currency) {
+            selectedCurrency = currency;
+
+            // UI Button Active classes transitions
+            ['clp', 'usd', 'mxn'].forEach(c => {
+                const btn = document.getElementById(`btn-curr-${c}`);
+                if (c === currency.toLowerCase()) {
+                    btn.className = "px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-md font-bold transition-all text-slate-400 hover:text-white";
+                }
+            });
+
+            // Update Services Section Cards
+            document.getElementById('serv-price-1').innerText = `Desde ${formatPrice(40000)}`;
+            document.getElementById('serv-price-2').innerText = `Desde ${formatPrice(88000)}`;
+            document.getElementById('serv-price-3').innerText = `Desde ${formatPrice(136000)}`;
+
+            // Redraw Labels of additions
+            document.getElementById('label-addon-form').innerText = `Reservaciones Online (+${formatPrice(BASE_VALUES_CLP.addonForm)})`;
+            document.getElementById('label-addon-whatsapp').innerText = `Boton WhatsApp Pro (+${formatPrice(BASE_VALUES_CLP.addonWhatsapp)})`;
+            document.getElementById('label-addon-seo').innerText = `SEO Avanzado Integrado (+${formatPrice(BASE_VALUES_CLP.addonSeo)})`;
+            document.getElementById('label-addon-dark').innerText = `Modo Claro/Oscuro (+${formatPrice(BASE_VALUES_CLP.addonDark)})`;
+
+            document.getElementById('label-plan-eco').innerText = `Netlify (${formatPrice(0)})`;
+            document.getElementById('label-plan-pro').innerText = `Cloudflare (+${formatPrice(BASE_VALUES_CLP.hostPro)})`;
+            document.getElementById('label-plan-edge').innerText = `Vercel Edge (+${formatPrice(BASE_VALUES_CLP.hostEdge)})`;
+
+            // Run Price Calculation update
+            updatePriceEstimate();
+        }
+
+        function selectHostingPlan(plan) {
+            selectedHostingPlan = plan;
+            
+            const ecoCard = document.getElementById('plan-eco-card');
+            const proCard = document.getElementById('plan-pro-card');
+            const edgeCard = document.getElementById('plan-edge-card');
+
+            ecoCard.className = "p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer text-center block transition-all";
+            proCard.className = "p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer text-center block transition-all";
+            edgeCard.className = "p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer text-center block transition-all";
+
+            if (plan === 'eco') {
+                ecoCard.classList.add('border-violet-500');
+            } else if (plan === 'pro') {
+                proCard.classList.add('border-violet-500');
+            } else if (plan === 'edge') {
+                edgeCard.classList.add('border-violet-500');
+            }
+
+            updatePriceEstimate();
+        }
+
+        // Active dynamic recalculations
+        function updatePriceEstimate() {
+            const pages = parseInt(document.getElementById('slider-pages').value);
+            const addForm = document.getElementById('add-form').checked;
+            const addWhatsapp = document.getElementById('add-whatsapp').checked;
+            const addSeo = document.getElementById('add-seo').checked;
+            const addDark = document.getElementById('add-dark').checked;
+
+            const sliderText = document.getElementById('calc-pages-text');
+            const priceText = document.getElementById('calc-final-price');
+
+            // Set slide label
+            if (pages === 1) {
+                sliderText.innerText = "1 Página (Landing Page)";
+            } else {
+                sliderText.innerText = `${pages} Secciones / Páginas`;
+            }
+
+            // Math formula in Base CLP
+            let totalCLP = BASE_VALUES_CLP.landing;
+            if (pages > 1) {
+                totalCLP += (pages - 1) * BASE_VALUES_CLP.extraPage; // cost per extra pages
+            }
+
+            if (addForm) totalCLP += BASE_VALUES_CLP.addonForm;
+            if (addWhatsapp) totalCLP += BASE_VALUES_CLP.addonWhatsapp;
+            if (addSeo) totalCLP += BASE_VALUES_CLP.addonSeo;
+            if (addDark) totalCLP += BASE_VALUES_CLP.addonDark;
+
+            if (selectedHostingPlan === 'pro') {
+                totalCLP += BASE_VALUES_CLP.hostPro;
+            } else if (selectedHostingPlan === 'edge') {
+                totalCLP += BASE_VALUES_CLP.hostEdge;
+            }
+
+            priceText.innerText = formatPrice(totalCLP);
+        }
+
+        // Move calculated budget data into active textfields inside forms
+        function transferBudgetToForm() {
+            const priceStr = document.getElementById('calc-final-price').innerText;
+            const targetPricingInput = document.getElementById('form-pricing');
+            
+            targetPricingInput.value = `${priceStr} (Configurado por Calculadora)`;
+            document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+            showToast("Cotización aplicada al formulario de contacto.", "info");
+        }
+
+        // Contact submission simulation
+        function submitContactForm(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const calculatedPrice = document.getElementById('form-pricing').value;
+
+            console.log("Nueva consulta recibida:", { name, email, calculatedPrice });
+            
+            showToast("¡Solicitud enviada! Nos pondremos en contacto contigo en breve.", "success");
+            
+            // Redirect smoothly to WhatsApp to process order directly
+            setTimeout(() => {
+                const waUrl = `https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20mi%20nombre%20es%20${encodeURIComponent(name)}.%20Acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20por%20un%20valor%20de%20${encodeURIComponent(calculatedPrice)}.`;
+                window.open(waUrl, '_blank');
+            }, 1000);
+
+            e.target.reset();
+        }
+
+        // Custom Notification Utility (Bypassing blockable Alerts)
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            // Styling based on type
+            let bgClass = "bg-slate-900 border-slate-700 text-slate-100";
+            let iconClass = "fa-solid fa-bell text-violet-400";
+            
+            if (type === "success") {
+                bgClass = "bg-emerald-950 border-emerald-800 text-emerald-200";
+                iconClass = "fa-solid fa-circle-check text-emerald-400";
+            } else if (type === "error") {
+                bgClass = "bg-rose-950 border-rose-800 text-rose-200";
+                iconClass = "fa-solid fa-circle-exclamation text-rose-400";
+            } else if (type === "info") {
+                bgClass = "bg-indigo-950 border-indigo-800 text-indigo-200";
+                iconClass = "fa-solid fa-circle-info text-indigo-400";
+            }
+
+            toast.className = `flex items-center gap-3 p-4 rounded-xl border ${bgClass} shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm`;
+            toast.innerHTML = `
+                <i class="${iconClass} text-lg shrink-0"></i>
+                <span class="text-xs font-bold leading-relaxed">${message}</span>
+                <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white ml-auto text-xs font-bold"><i class="fa-solid fa-xmark"></i></button>
+            `;
+
+            container.appendChild(toast);
+            
+            // Animation trigger
+            setTimeout(() => {
+                toast.classList.remove('translate-x-12', 'opacity-0');
+            }, 50);
+
+            // Auto-remove toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-x-12');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Main entry initialization
+        window.onload = function() {
+            // Mobile Menu Toggle utility
+            const btn = document.getElementById('mobile-menu-btn');
+            const drawer = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => drawer.classList.toggle('hidden'));
+
+            // Load initial template in simulator
+            loadTemplate('restaurant');
+
+            // Set initial currency labels and calculate
+            selectCurrency('CLP');
+        }
+    </script>
+</body>
+</html>
