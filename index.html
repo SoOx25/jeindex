@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://iili.io/BymSB8g.png">
+    <!-- CAMBIO #1: Favicon actualizado -->
+    <link rel="icon" type="image/png" href="https://iili.io/C9F3fiF.th.png">
     <title>Jeindex.cl | Portafolio de Páginas Web en Código HTML Puro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,14 +26,17 @@
         }
     </script>
     <style>
+        /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary, #090D16); }
         ::-webkit-scrollbar-thumb { background: var(--border-color, #1F2937); border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-violet, #8b5cf6); }
+        
+        /* ===== EFECTOS GLOW ===== */
         .glow-cyan { box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.2); }
         .glow-purple { box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.3); }
         
-        /* Logo con retroiluminación blanca intensa que rellena */
+        /* ===== LOGO CON RETROILUMINACIÓN BLANCA INTENSA ===== */
         .logo-glow {
             filter: drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 16px rgba(255,255,255,0.7)) drop-shadow(0 0 24px rgba(255,255,255,0.5));
         }
@@ -40,6 +44,7 @@
             filter: drop-shadow(0 0 12px rgba(255,255,255,1)) drop-shadow(0 0 24px rgba(255,255,255,0.9)) drop-shadow(0 0 36px rgba(255,255,255,0.7));
         }
 
+        /* ===== VARIABLES CSS POR TEMA ===== */
         :root {
             --bg-primary: #090D16; --bg-secondary: #111827; --bg-tertiary: #1F2937;
             --text-primary: #F1F5F9; --text-secondary: #94A3B8; --text-muted: #64748B;
@@ -59,7 +64,11 @@
         [data-font-size="small"] { font-size: 14px; }
         [data-font-size="base"] { font-size: 16px; }
         [data-font-size="large"] { font-size: 18px; }
+        
+        /* ===== TRANSICIONES GLOBALES ===== */
         *, *::before, *::after { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; }
+        
+        /* ===== ESTILOS BASE ===== */
         body { background-color: var(--bg-primary); color: var(--text-primary); }
         .bg-brand-dark { background-color: var(--bg-secondary) !important; }
         .bg-brand-card { background-color: var(--card-bg) !important; }
@@ -77,6 +86,7 @@
         .shadow-violet-600\/20 { box-shadow: 0 10px 15px -3px var(--shadow-color); }
         .shadow-violet-600\/30 { box-shadow: 0 25px 50px -12px var(--shadow-color); }
 
+        /* ===== NAVEGACIÓN ===== */
         .nav-link { position: relative; padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem; color: var(--text-secondary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; overflow: hidden; }
         .nav-link::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); opacity: 0; border-radius: 0.5rem; transition: opacity 0.3s ease; z-index: -1; }
         .nav-link:hover { color: var(--nav-hover-text); transform: translateY(-2px); }
@@ -85,6 +95,7 @@
         .mobile-nav-link:hover { background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.2)); color: var(--text-primary); padding-left: 1.25rem; }
         .theme-toggle-btn:focus, .font-size-btn:focus, .nav-link:focus, .accessibility-btn:focus { outline: 2px solid var(--accent-violet); outline-offset: 2px; }
 
+        /* ===== DROPDOWNS ===== */
         .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 0.5rem; min-width: 220px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); z-index: 100; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
         .dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; cursor: pointer; color: var(--text-primary); font-size: 0.875rem; font-weight: 500; }
@@ -93,10 +104,12 @@
         .dropdown-item i { width: 1rem; text-align: center; }
         .dropdown-divider { height: 1px; background-color: var(--border-color); margin: 0.25rem 0; }
 
+        /* ===== ICONOS DE TEMA ===== */
         .theme-icon { transition: transform 0.4s ease, opacity 0.3s ease; }
         [data-theme="light"] .theme-icon-dark { opacity: 0; transform: rotate(-90deg); }
         [data-theme="dark"] .theme-icon-light { opacity: 0; transform: rotate(90deg); }
 
+        /* ===== CHAT FLOTANTE ===== */
         .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
         .chat-bubble { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; cursor: pointer; box-shadow: 0 8px 25px -5px rgba(124, 58, 237, 0.4); transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .chat-bubble:hover { transform: scale(1.05); box-shadow: 0 12px 35px -5px rgba(124, 58, 237, 0.6); }
@@ -114,6 +127,7 @@
         .chat-option:hover { background-color: var(--bg-tertiary); }
         .chat-option.whatsapp { background-color: #25D366; border-color: #128C7E; color: white; font-weight: 600; }
 
+        /* ===== ANIMACIONES DE ERROR/ÉXITO ===== */
         .apply-btn-highlight {
             animation: pulse-red 1.5s ease-in-out infinite !important;
             border: 2px solid #f43f5e !important;
@@ -123,7 +137,6 @@
             0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.5); }
             50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.8); }
         }
-
         .pricing-field-error {
             border: 2px solid #f43f5e !important;
             animation: shake 0.5s ease-in-out;
@@ -133,18 +146,27 @@
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
+        
+        /* ===== FORMULARIO DE ÉXITO ===== */
+        .form-success-message { display: none; text-align: center; padding: 2rem; }
+        .form-success-message.show { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
 
+    <!-- Toast Container -->
     <div id="toast-container" class="fixed top-6 right-6 z-50 pointer-events-none flex flex-col gap-3"></div>
 
+    <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full z-40 backdrop-blur-md border-b border-brand-border" style="background-color: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo con glow blanco -->
             <a href="#" class="group">
                 <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-24 w-auto object-contain transition-all duration-300 group-hover:scale-110 logo-glow" onerror="this.src='https://placehold.co/240x70/ffffff/8b5cf6?text=Jeindex&font=roboto'">
             </a>
 
+            <!-- Navegación Desktop -->
             <nav class="hidden md:flex space-x-1">
                 <a href="#inicio" class="nav-link" data-i18n="nav_home">Inicio</a>
                 <a href="#por-que-codigo" class="nav-link" data-i18n="nav_code">Código vs WordPress</a>
@@ -153,11 +175,11 @@
                 <a href="#calculadora" class="nav-link" data-i18n="nav_calculator">Calculadora</a>
             </nav>
 
+            <!-- Controles Desktop: Accesibilidad (sin texto A11y) -->
             <div class="hidden md:flex items-center space-x-2">
                 <div class="relative" id="accessibility-dropdown">
                     <button onclick="toggleAccessibilityDropdown()" class="accessibility-btn p-2.5 rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2" style="color: var(--text-secondary);" aria-label="Accesibilidad e Idioma" title="Accesibilidad e Idioma">
                         <i class="fa-solid fa-universal-access"></i>
-                        <span class="hidden lg:inline text-xs font-bold" data-i18n="accessibility">A11y</span>
                     </button>
                     <div id="accessibility-menu" class="dropdown-menu">
                         <div class="px-3 py-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="theme">Tema</span></div>
@@ -177,9 +199,11 @@
                 </div>
             </div>
 
+            <!-- Botón Menú Mobile -->
             <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Menu" style="color: var(--text-secondary);"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
 
+        <!-- Menú Mobile -->
         <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border px-4 pt-2 pb-6 space-y-2" style="background-color: var(--bg-primary);">
             <a href="#inicio" class="mobile-nav-link" data-i18n="nav_home">Inicio</a>
             <a href="#por-que-codigo" class="mobile-nav-link" data-i18n="nav_code">Código vs WordPress</a>
@@ -194,10 +218,12 @@
                     <select onchange="setLanguage(this.value)" class="p-2 rounded-lg text-xs font-bold" style="background-color: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-color);"><option value="es">ES</option><option value="en">EN</option><option value="fr">FR</option></select>
                 </div>
             </div>
-            <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold mt-2" data-i18n="cta_quote">Cotizar Proyecto</a>
+            <!-- WhatsApp actualizado -->
+            <a href="https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold mt-2" data-i18n="cta_quote">Cotizar Proyecto</a>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="inicio" class="pt-32 pb-24 relative overflow-hidden min-h-screen flex items-center">
         <div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10"></div>
@@ -247,6 +273,7 @@
         </div>
     </section>
 
+    <!-- COMPARATIVA SECTION -->
     <section id="por-que-codigo" class="py-24 relative border-y border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -271,10 +298,11 @@
                     <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);" data-i18n="advantage_seo_desc">Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.</p>
                 </div>
             </div>
+            <!-- Simulador de Velocidad - Ambos timers comienzan en 0.0 -->
             <div class="mt-16 rounded-2xl p-6 sm:p-10 border border-brand-border max-w-3xl mx-auto" style="background-color: var(--card-bg);">
                 <h3 class="text-lg font-bold text-center mb-6" style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i> <span data-i18n="speed_title">Simulador de Velocidad de Servidor</span></h3>
                 <div class="space-y-6">
-                    <div class="space-y-2"><div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-emerald);"><i class="fa-solid fa-code mr-1"></i> <span data-i18n="speed_html">Nuestra Programación HTML</span></span><span style="color: var(--accent-emerald);" id="html-timer">0.3 Segundos</span></div><div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="html-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-0 rounded-full transition-all duration-700"></div></div></div>
+                    <div class="space-y-2"><div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-emerald);"><i class="fa-solid fa-code mr-1"></i> <span data-i18n="speed_html">Nuestra Programación HTML</span></span><span style="color: var(--accent-emerald);" id="html-timer">0.0 Segundos</span></div><div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="html-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-0 rounded-full transition-all duration-700"></div></div></div>
                     <div class="space-y-2"><div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-rose);"><i class="fa-brands fa-wordpress mr-1"></i> <span data-i18n="speed_wp">WordPress con Plugins / Elementor</span></span><span style="color: var(--accent-rose);" id="wp-timer">0.0 Segundos</span></div><div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="wp-bar" class="bg-gradient-to-r from-rose-500 to-amber-500 h-full w-0 rounded-full transition-all"></div></div></div>
                     <div class="text-center pt-2"><button onclick="startSpeedTest()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700 transition-colors" style="color: var(--text-secondary);"><i class="fa-solid fa-circle-play mr-2"></i> <span data-i18n="speed_run">Ejecutar Test de Carga</span></button></div>
                 </div>
@@ -282,6 +310,7 @@
         </div>
     </section>
 
+    <!-- PORTAFOLIO SECTION - Previews 1:1 (square) -->
     <section id="showcase" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -295,10 +324,13 @@
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="showcase_desc">Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.</p>
             </div>
 
+            <!-- Grid de tarjetas con previews 1:1 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Trikibarber -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <iframe src="https://trikibarber.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                    <!-- Preview 1:1 (aspect-square) -->
+                    <div class="relative aspect-square overflow-hidden bg-slate-900">
+                        <iframe src="https://trikibarber.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
                         <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-amber-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-scissors mr-1"></i> Barbería</div>
                     </div>
@@ -315,9 +347,10 @@
                     </div>
                 </div>
 
+                <!-- J&G Electric -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <iframe src="https://jygelectric.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                    <div class="relative aspect-square overflow-hidden bg-slate-900">
+                        <iframe src="https://jygelectric.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
                         <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-cyan-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-bolt mr-1"></i> Electricidad</div>
                     </div>
@@ -334,9 +367,10 @@
                     </div>
                 </div>
 
+                <!-- Lumiere Gourmet -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-rose-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
-                    <div class="relative h-48 overflow-hidden bg-slate-900">
-                        <iframe src="https://restaurantlumiere.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                    <div class="relative aspect-square overflow-hidden bg-slate-900">
+                        <iframe src="https://restaurantlumiere.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
                         <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-rose-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-utensils mr-1"></i> Restaurante</div>
                     </div>
@@ -363,6 +397,7 @@
         </div>
     </section>
 
+    <!-- SERVICIOS SECTION -->
     <section id="servicios" class="py-24 relative border-y border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -378,6 +413,7 @@
         </div>
     </section>
 
+    <!-- CALCULADORA SECTION - Precios en tiempo real -->
     <section id="calculadora" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -398,17 +434,18 @@
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border"><h3 class="text-lg font-bold" style="color: var(--text-primary);"><i class="fa-solid fa-sliders mr-2" style="color: var(--accent-violet);"></i> <span data-i18n="calc_params">Parámetros</span></h3><div class="flex items-center space-x-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="calc_currency">Moneda:</span><div class="flex p-1 rounded-lg border border-brand-border text-xs" style="background-color: var(--bg-secondary);"><button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button><button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">USD ($)</button><button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">MXN ($)</button></div></div></div>
                     <div class="space-y-2"><div class="flex justify-between text-xs sm:text-sm font-semibold"><span style="color: var(--text-secondary);" data-i18n="calc_sections">Secciones:</span><span class="font-bold" id="calc-pages-text" style="color: var(--accent-violet);">1 Página (Landing)</span></div><input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg accent-violet-600 cursor-pointer" style="background-color: var(--bg-tertiary);"></div>
                     
-                    <!-- Panel de Integraciones -->
+                    <!-- Integraciones con precios dinámicos -->
                     <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_integrations">Integraciones:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-form" style="color: var(--text-secondary);" data-i18n="addon_form">Formulario de Contacto (+$10.000)</span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-whatsapp" style="color: var(--text-secondary);" data-i18n="addon_social">Botón de Redes Sociales (+$6.000)</span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-seo" style="color: var(--text-secondary);" data-i18n="addon_domain">Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual</span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-email" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-email" style="color: var(--text-secondary);" data-i18n="addon_email">Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual</span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-multilang" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-multilang" style="color: var(--text-secondary);" data-i18n="addon_multilang">Web Multiidiomas (+$10.000 CLP) EN/ES/FR etc.</span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-accessibility" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-accessibility" style="color: var(--text-secondary);" data-i18n="addon_accessibility">Panel de Accesibilidad (+$8.000 CLP)</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-form" style="color: var(--text-secondary);"></span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-whatsapp" style="color: var(--text-secondary);"></span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-seo" style="color: var(--text-secondary);"></span></label>
+                        <!-- CAMBIOS #2, #3, #4: Textos corregidos sin precio duplicado -->
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-email" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-email" style="color: var(--text-secondary);"></span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-multilang" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-multilang" style="color: var(--text-secondary);"></span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-accessibility" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-accessibility" style="color: var(--text-secondary);"></span></label>
                     </div></div>
                     
-                    <!-- Hosting con 2 opciones -->
+                    <!-- Hosting con 2 opciones gratis -->
                     <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_hosting">Servidor:</span>
                     <div class="grid grid-cols-2 gap-3">
                         <label onclick="selectHostingPlan('netlify')" id="plan-netlify-card" class="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all" style="background-color: var(--bg-secondary);">
@@ -428,6 +465,7 @@
         </div>
     </section>
 
+    <!-- CONTACTO SECTION - Formulario con mensaje de éxito (SIN fetch) -->
     <section id="contacto" class="py-24 relative border-t border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-4 mb-12">
@@ -435,7 +473,9 @@
                 <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="contact_title">¡Inicia tu Proyecto Web Hoy Mismo!</h2>
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="contact_desc">Completa el formulario y crearemos el diseño perfecto para tu marca.</p>
             </div>
-            <form name="contacto" netlify onsubmit="submitContactForm(event)" class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" style="background-color: var(--bg-secondary);">
+            
+            <!-- Formulario con atributo netlify para procesamiento automático -->
+            <form name="contacto" netlify onsubmit="submitContactForm(event)" id="contact-form" class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" style="background-color: var(--bg-secondary);">
                 <input type="hidden" name="form-name" value="contacto" />
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_name">Tu Nombre</label><input type="text" id="form-name" name="nombre" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="Ej: Juan Pérez"></div>
@@ -450,9 +490,21 @@
                 <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_message">Breve descripción de los requisitos</label><textarea id="form-description" name="mensaje" required rows="4" class="w-full rounded-xl p-4 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea></div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30" data-i18n="contact_submit">Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i></button>
             </form>
+            
+            <!-- Mensaje de éxito (oculto por defecto) -->
+            <div id="form-success" class="form-success-message border border-brand-border rounded-3xl p-6 sm:p-10" style="background-color: var(--bg-secondary);">
+                <div class="text-center space-y-4">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center">
+                        <i class="fa-solid fa-circle-check text-3xl text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-black" style="color: var(--text-primary);">¡Cotización de Proyecto enviada!</h3>
+                    <p class="text-base" style="color: var(--text-muted);">Nos pondremos en contacto contigo a la brevedad.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- FOOTER - WhatsApp actualizado -->
     <footer class="border-t border-brand-border py-12 text-xs sm:text-sm" style="background-color: var(--bg-secondary); color: var(--text-muted);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-3">
@@ -462,12 +514,13 @@
             <p>&copy; 2026 Jeindex.cl. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <span data-i18n="footer_tech">Desarrollado con HTML5 estático puro de alto rendimiento.</span></p>
             <div class="flex space-x-4">
                 <a href="https://www.linkedin.com/in/jose-espinoza-figueroa" target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                <!-- WhatsApp actualizado -->
+                <a href="https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-whatsapp text-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Chat Flotante Interactivo -->
+    <!-- Chat Flotante Interactivo - WhatsApp actualizado -->
     <div class="chat-widget">
         <div class="chat-bubble" onclick="toggleChat()" title="Chat interactivo"><i class="fa-solid fa-comments"></i></div>
         <div class="chat-panel" id="chat-panel">
@@ -476,13 +529,54 @@
             <div class="chat-options" id="chat-options">
                 <button class="chat-option" onclick="sendChatOption('pricing')" data-i18n="chat_opt_pricing">💰 Ver precios y planes</button>
                 <button class="chat-option" onclick="sendChatOption('showcase')" data-i18n="chat_opt_templates">🎨 Ver portafolio de proyectos</button>
-                <button class="chat-option" onclick="sendChatOption('contact')" data-i18n="chat_opt_contact">📞 Contactar por WhatsApp</button>
+                <button class="chat-option whatsapp" onclick="window.open('https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')" data-i18n="chat_opt_contact">📞 Contactar por WhatsApp</button>
             </div>
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // ========== TRADUCCIONES COMPLETAS ==========
+        // ===== CONFIGURACIÓN DE PRECIOS =====
+        const PRICING = {
+            base: { landing: 40000, extraPage: 12000 },
+            addons: {
+                form: 10000, whatsapp: 6000, seo: 16000,
+                email: 8000, multilang: 10000, accessibility: 8000
+            },
+            hosting: { netlify: 0, googlesites: 0 }
+        };
+        
+        const EXCHANGE_RATES = { CLP: 1, USD: 950, MXN: 53 };
+        
+        // Textos de integraciones por idioma - CAMBIOS #2, #3, #4: Sin precio duplicado
+        const ADDON_TEXTS = {
+            es: {
+                form: 'Formulario de Contacto', whatsapp: 'Botón de Redes Sociales',
+                seo: 'Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual',
+                // CAMBIO #2: Sin "(+$8.000 CLP)" duplicado al final
+                email: 'Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual',
+                // CAMBIO #3: "Multi-idiomas" con guión, sin precio duplicado
+                multilang: 'Web Multi-idiomas (+$10.000 CLP) EN/ES/FR etc.',
+                // CAMBIO #4: Sin precio duplicado
+                accessibility: 'Panel de Accesibilidad (+$8.000 CLP)'
+            },
+            en: {
+                form: 'Contact Form', whatsapp: 'Social Media Button',
+                seo: 'Custom Domain www.yourbusiness.cl (+$16,000) Annual Renewal',
+                email: 'Custom corporate email "name@yourdomain.cl" (+$8,000 CLP) Monthly Renewal',
+                multilang: 'Multilingual Website (+$10,000 CLP) EN/ES/FR etc.',
+                accessibility: 'Accessibility Panel (+$8,000 CLP)'
+            },
+            fr: {
+                form: 'Formulaire de Contact', whatsapp: 'Bouton Réseaux Sociaux',
+                seo: 'Domaine Personnalisé www.votrebusiness.cl (+16.000$) Renouvellement Annuel',
+                email: 'Email corporatif personnalisé "nom@votredomaine.cl" (+8.000$ CLP) Renouvellement Mensuel',
+                multilang: 'Site Multi-langues (+10.000$ CLP) FR/EN/ES etc.',
+                accessibility: 'Panneau d\'Accessibilité (+8.000$ CLP)'
+            }
+        };
+
+        // ===== TRADUCCIONES =====
         const translations = {
             es: {
                 nav_home:"Inicio", nav_code:"Código vs WordPress", nav_showcase:"Portafolio", nav_services:"Servicios", nav_calculator:"Calculadora",
@@ -501,9 +595,6 @@
                 srv_landing:"Landings de Captación", srv_landing_desc:"Optimizadas para Facebook e Instagram Ads.", srv_multi:"Web Multi-Sección", srv_multi_desc:"Hasta 5 páginas con código estático ultra-seguro.", srv_shopify:"Tienda digital en Shopify", srv_shopify_desc:"Venta de productos con pedidos a WhatsApp.",
                 calc_badge:"Precios Honestos", calc_title:"Calculadora Inteligente de Cotización", calc_desc:"Obtén un presupuesto de desarrollo de forma inmediata.", calc_guarantee:"Nuestra Garantía", calc_mobile:"Optimización móvil", calc_w3c:"Código W3C", calc_speed:"Velocidad 95+",
                 calc_params:"Parámetros", calc_currency:"Moneda:", calc_sections:"Secciones:", calc_integrations:"Integraciones:", calc_hosting:"Servidor:", calc_estimate:"Presupuesto", calc_apply:"Aplicar Presupuesto", calc_promo:"No pagues de más, la solución es Jeindex.cl",
-                addon_form:"Formulario de Contacto (+$10.000)", addon_social:"Botón de Redes Sociales (+$6.000)", addon_domain:"Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual",
-                addon_email:'Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual',
-                addon_multilang:"Web Multiidiomas (+$10.000 CLP) EN/ES/FR etc.", addon_accessibility:"Panel de Accesibilidad (+$8.000 CLP)",
                 hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratis",
                 contact_badge:"Pide tu Sitio", contact_title:"¡Inicia tu Proyecto Web Hoy Mismo!", contact_desc:"Completa el formulario y crearemos el diseño perfecto para tu marca.",
                 field_name:"Tu Nombre", field_email:"Correo Electrónico", field_phone:"WhatsApp o Teléfono", field_industry:"Rubro Comercial", field_quote:"Cotización Vinculada", field_message:"Breve descripción de los requisitos", contact_submit:"Enviar Solicitud de Desarrollo",
@@ -513,7 +604,6 @@
                 chat_resp_pricing:"Nuestros planes parten desde $40.000 CLP para landings. ¿Te gustaría simular un presupuesto personalizado?",
                 chat_resp_templates:"¡Claro! En el Portafolio puedes ver 3 sitios reales publicados: Trikibarber, J&G Electric y Lumiere Gourmet. ¿Quieres visitar uno?",
                 chat_resp_contact:"¡Perfecto! 🎯 Te redirigiré a WhatsApp para conversar directamente. ¿Confirmas?",
-                chat_whatsapp_confirm:"Sí, contactar por WhatsApp", chat_whatsapp_cancel:"No, seguir preguntando",
                 toast_sent:"✅ ¡Solicitud enviada correctamente! Te contactaremos pronto.", toast_error:"❌ Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.", toast_applied:"✅ ¡Cotización aplicada correctamente al formulario!", toast_budget_first:"⚠️ Primero debes presionar el botón 'Aplicar Presupuesto' en la calculadora para actualizar tu cotización."
             },
             en: {
@@ -533,9 +623,6 @@
                 srv_landing:"Lead Capture Landings", srv_landing_desc:"Optimized for Facebook and Instagram Ads.", srv_multi:"Multi-Section Website", srv_multi_desc:"Up to 5 dedicated pages with ultra-secure static code.", srv_shopify:"Digital Store on Shopify", srv_shopify_desc:"Product sales with WhatsApp order forwarding.",
                 calc_badge:"Honest Pricing", calc_title:"Smart Quote Calculator", calc_desc:"Get a development budget immediately.", calc_guarantee:"Our Guarantee", calc_mobile:"Mobile optimization", calc_w3c:"W3C validated code", calc_speed:"Speed score 95+",
                 calc_params:"Parameters", calc_currency:"Currency:", calc_sections:"Sections:", calc_integrations:"Integrations:", calc_hosting:"Server:", calc_estimate:"Estimated Budget", calc_apply:"Apply Budget", calc_promo:"Don't overpay, Jeindex.cl is the solution",
-                addon_form:"Contact Form (+$10,000)", addon_social:"Social Media Button (+$6,000)", addon_domain:"Custom Domain www.yourbusiness.cl (+$16,000) Annual Renewal",
-                addon_email:'Custom corporate email "name@yourdomain.cl" (+$8,000 CLP) Monthly Renewal',
-                addon_multilang:"Multilingual Website (+$10,000 CLP) EN/ES/FR etc.", addon_accessibility:"Accessibility Panel (+$8,000 CLP)",
                 hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Free",
                 contact_badge:"Order Your Site", contact_title:"Start Your Web Project Today!", contact_desc:"Complete the form and we'll create the perfect design in code for your brand.",
                 field_name:"Your Name", field_email:"Email Address", field_phone:"WhatsApp or Phone", field_industry:"Business Sector", field_quote:"Linked Quote", field_message:"Brief description of requirements", contact_submit:"Send Development Request",
@@ -545,7 +632,6 @@
                 chat_resp_pricing:"Our plans start from $40,000 CLP for landings. Would you like to simulate a personalized budget?",
                 chat_resp_templates:"Sure! In the Portfolio you can see 3 real published sites: Trikibarber, J&G Electric and Lumiere Gourmet. Want to visit one?",
                 chat_resp_contact:"Perfect! 🎯 I'll redirect you to WhatsApp to chat directly. Do you confirm?",
-                chat_whatsapp_confirm:"Yes, contact via WhatsApp", chat_whatsapp_cancel:"No, keep asking",
                 toast_sent:"✅ Request sent successfully! We'll contact you soon.", toast_error:"❌ Error sending. Try again or contact us via WhatsApp.", toast_applied:"✅ Quote applied to contact form!", toast_budget_first:"⚠️ You must first press the 'Apply Budget' button in the calculator to update your quote."
             },
             fr: {
@@ -565,24 +651,26 @@
                 srv_landing:"Landings de Capture", srv_landing_desc:"Optimisées pour Facebook et Instagram Ads.", srv_multi:"Site Multi-Sections", srv_multi_desc:"Jusqu'à 5 pages dédiées avec code statique ultra-sécurisé.", srv_shopify:"Boutique Digitale Shopify", srv_shopify_desc:"Vente de produits avec commandes vers WhatsApp.",
                 calc_badge:"Prix Honnêtes", calc_title:"Calculateur Intelligent de Devis", calc_desc:"Obtenez un budget de développement immédiatement.", calc_guarantee:"Notre Garantie", calc_mobile:"Optimisation mobile", calc_w3c:"Code validé W3C", calc_speed:"Score vitesse 95+",
                 calc_params:"Paramètres", calc_currency:"Devise:", calc_sections:"Sections:", calc_integrations:"Intégrations:", calc_hosting:"Serveur:", calc_estimate:"Budget Estimé", calc_apply:"Appliquer le Devis", calc_promo:"Ne payez pas trop, Jeindex.cl est la solution",
-                addon_form:"Formulaire de Contact (+10.000$)", addon_social:"Bouton Réseaux Sociaux (+6.000$)", addon_domain:"Domaine Personnalisé www.votrebusiness.cl (+16.000$) Renouvellement Annuel",
-                addon_email:'Email corporatif personnalisé "nom@votredomaine.cl" (+8.000$ CLP) Renouvellement Mensuel',
-                addon_multilang:"Site Multilingue (+10.000$ CLP) FR/EN/ES etc.", addon_accessibility:"Panneau d\'Accessibilité (+8.000$ CLP)",
                 hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratuit",
-                contact_badge:"Commandez Votre Site", contact_title:"Démarrez Votre Projet Web Aujourd\'hui !", contact_desc:"Remplissez le formulaire et nous créerons le design parfait en code pour votre marque.",
-                field_name:"Votre Nom", field_email:"Adresse Email", field_phone:"WhatsApp ou Téléphone", field_industry:"Secteur d\'Activité", field_quote:"Devis Lié", field_message:"Brève description des besoins", contact_submit:"Envoyer la Demande",
+                contact_badge:"Commandez Votre Site", contact_title:"Démarrez Votre Projet Web Aujourd'hui !", contact_desc:"Remplissez le formulaire et nous créerons le design parfait en code pour votre marque.",
+                field_name:"Votre Nom", field_email:"Adresse Email", field_phone:"WhatsApp ou Téléphone", field_industry:"Secteur d'Activité", field_quote:"Devis Lié", field_message:"Brève description des besoins", contact_submit:"Envoyer la Demande",
                 opt_food:"Gastronomie et Alimentation", opt_services:"Avocats, Médecins et Consultants", opt_fitness:"Salles de Sport et Coachs", opt_dental:"Clinique Dentaire / Santé", opt_beauty:"Barbier / Beauté", opt_other:"Autres secteurs commerciaux",
                 footer_rights:"Tous droits réservés.", footer_tech:"Développé avec HTML5 statique pur haute performance.",
-                chat_title:"Assistant Jeindex", chat_welcome:"Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd\'hui ?", chat_opt_pricing:"💰 Voir les prix et plans", chat_opt_templates:"🎨 Voir le portfolio de projets", chat_opt_contact:"📞 Contacter via WhatsApp",
+                chat_title:"Assistant Jeindex", chat_welcome:"Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?", chat_opt_pricing:"💰 Voir les prix et plans", chat_opt_templates:"🎨 Voir le portfolio de projets", chat_opt_contact:"📞 Contacter via WhatsApp",
                 chat_resp_pricing:"Nos plans commencent à 40 000 CLP pour les landings. Souhaitez-vous simuler un budget personnalisé ?",
                 chat_resp_templates:"Bien sûr ! Dans le Portfolio vous pouvez voir 3 sites réels publiés : Trikibarber, J&G Electric et Lumiere Gourmet. Voulez-vous en visiter un ?",
                 chat_resp_contact:"Parfait ! 🎯 Je vous redirige vers WhatsApp pour discuter directement. Vous confirmez ?",
-                chat_whatsapp_confirm:"Oui, contacter par WhatsApp", chat_whatsapp_cancel:"Non, continuer à demander",
-                toast_sent:"✅ Demande envoyée avec succès ! Nous vous contacterons bientôt.", toast_error:"❌ Erreur d\'envoi. Réessayez ou contactez-nous via WhatsApp.", toast_applied:"✅ Devis appliqué au formulaire !", toast_budget_first:"⚠️ Vous devez d\'abord appuyer sur le bouton \'Appliquer le Devis\' dans le calculateur pour mettre à jour votre devis."
+                toast_sent:"✅ Demande envoyée avec succès ! Nous vous contacterons bientôt.", toast_error:"❌ Erreur d'envoi. Réessayez ou contactez-nous via WhatsApp.", toast_applied:"✅ Devis appliqué au formulaire !", toast_budget_first:"⚠️ Vous devez d'abord appuyer sur le bouton 'Appliquer le Devis' dans le calculateur pour mettre à jour votre devis."
             }
         };
 
-        // ========== FUNCIONES BASE ==========
+        // ===== ESTADO GLOBAL =====
+        let selectedCurrency = 'CLP';
+        let selectedHostingPlan = 'netlify';
+        let chatOpen = false, chatStep = 0, selectedOption = null;
+        let testActive = false;
+
+        // ===== INICIALIZACIÓN =====
         function initPreferences() {
             const savedTheme = localStorage.getItem('jeindex-theme') || 'dark';
             const savedFontSize = localStorage.getItem('jeindex-fontsize') || 'base';
@@ -590,18 +678,63 @@
             setTheme(savedTheme); setFontSize(savedFontSize); setLanguage(savedLang);
             updateFontSizeDropdown(); updateThemeDropdown(); updateLangDropdown();
         }
-        function toggleTheme() { const t = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark'; setTheme(t); localStorage.setItem('jeindex-theme', t); updateThemeDropdown(); showToast(getText('theme_dark')+' / '+getText('theme_light')+': '+(t==='dark'?getText('theme_dark'):getText('theme_light')), 'info'); }
-        function setTheme(t) { document.documentElement.setAttribute('data-theme', t); document.querySelectorAll('#theme-label, #theme-label-mobile').forEach(l => l.textContent = t==='dark'?getText('theme_dark'):getText('theme_light')); if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}else{document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');} }
-        function setFontSize(s) { document.documentElement.setAttribute('data-font-size', s); localStorage.setItem('jeindex-fontsize', s); updateFontSizeDropdown(); updateMobileFontLabel(); showToast(getText('font_size')+': '+getText('font_'+(s==='small'?'small':s==='large'?'large':'medium')), 'info'); }
-        function cycleFontSize() { const sizes=['small','base','large']; const c=document.documentElement.getAttribute('data-font-size')||'base'; setFontSize(sizes[(sizes.indexOf(c)+1)%sizes.length]); }
-        function updateMobileFontLabel() { const l=document.getElementById('font-label-mobile'); if(l){const s=document.documentElement.getAttribute('data-font-size')||'base'; l.textContent=s==='small'?'A-':s==='large'?'A+':'Aa';} }
+
+        // ===== TEMA =====
+        function toggleTheme() { 
+            const t = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark'; 
+            setTheme(t); localStorage.setItem('jeindex-theme', t); updateThemeDropdown(); 
+            showToast(getText('theme_dark')+' / '+getText('theme_light')+': '+(t==='dark'?getText('theme_dark'):getText('theme_light')), 'info'); 
+        }
+        function setTheme(t) { 
+            document.documentElement.setAttribute('data-theme', t); 
+            document.querySelectorAll('#theme-label, #theme-label-mobile').forEach(l => l.textContent = t==='dark'?getText('theme_dark'):getText('theme_light')); 
+            if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}
+            else{document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');} 
+        }
+
+        // ===== TAMAÑO DE FUENTE =====
+        function setFontSize(s) { 
+            document.documentElement.setAttribute('data-font-size', s); 
+            localStorage.setItem('jeindex-fontsize', s); 
+            updateFontSizeDropdown(); updateMobileFontLabel(); 
+            showToast(getText('font_size')+': '+getText('font_'+(s==='small'?'small':s==='large'?'large':'medium')), 'info'); 
+        }
+        function cycleFontSize() { 
+            const sizes=['small','base','large']; 
+            const c=document.documentElement.getAttribute('data-font-size')||'base'; 
+            setFontSize(sizes[(sizes.indexOf(c)+1)%sizes.length]); 
+        }
+        function updateMobileFontLabel() { 
+            const l=document.getElementById('font-label-mobile'); 
+            if(l){const s=document.documentElement.getAttribute('data-font-size')||'base'; l.textContent=s==='small'?'A-':s==='large'?'A+':'Aa';} 
+        }
+
+        // ===== DROPDOWNS =====
         function toggleAccessibilityDropdown() { document.getElementById('accessibility-menu').classList.toggle('show'); }
-        function updateFontSizeDropdown() { const c=document.documentElement.getAttribute('data-font-size')||'base'; ['small','base','large'].forEach(s=>{const chk=document.getElementById(`check-font-${s}`),itm=document.querySelector(`.dropdown-item[data-size="${s}"]`); if(chk&&itm){s===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
-        function updateThemeDropdown() { const c=document.documentElement.getAttribute('data-theme')||'dark'; ['dark','light'].forEach(t=>{const chk=document.getElementById(`check-theme-${t}`),itm=document.querySelector(`.dropdown-item[data-theme="${t}"]`); if(chk&&itm){t===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
-        function updateLangDropdown() { const c=document.documentElement.getAttribute('data-lang')||'es'; ['es','en','fr'].forEach(l=>{const chk=document.getElementById(`check-lang-${l}`),itm=document.querySelector(`.dropdown-item[data-lang="${l}"]`); if(chk&&itm){l===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
+        function updateFontSizeDropdown() { 
+            const c=document.documentElement.getAttribute('data-font-size')||'base'; 
+            ['small','base','large'].forEach(s=>{
+                const chk=document.getElementById(`check-font-${s}`),itm=document.querySelector(`.dropdown-item[data-size="${s}"]`); 
+                if(chk&&itm){s===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}
+            }); 
+        }
+        function updateThemeDropdown() { 
+            const c=document.documentElement.getAttribute('data-theme')||'dark'; 
+            ['dark','light'].forEach(t=>{
+                const chk=document.getElementById(`check-theme-${t}`),itm=document.querySelector(`.dropdown-item[data-theme="${t}"]`); 
+                if(chk&&itm){t===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}
+            }); 
+        }
+        function updateLangDropdown() { 
+            const c=document.documentElement.getAttribute('data-lang')||'es'; 
+            ['es','en','fr'].forEach(l=>{
+                const chk=document.getElementById(`check-lang-${l}`),itm=document.querySelector(`.dropdown-item[data-lang="${l}"]`); 
+                if(chk&&itm){l===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}
+            }); 
+        }
         document.addEventListener('click', e => { if(!document.getElementById('accessibility-dropdown').contains(e.target)) document.getElementById('accessibility-menu').classList.remove('show'); });
 
-        // ========== IDIOMAS ==========
+        // ===== IDIOMAS =====
         function setLanguage(lang) { 
             document.documentElement.setAttribute('data-lang', lang); 
             localStorage.setItem('jeindex-lang', lang); 
@@ -624,45 +757,45 @@
             updateCalculatorLabels();
         }
         
+        // ===== CALCULADORA - Conversión en tiempo real =====
         function updateCalculatorLabels() {
+            const lang = document.documentElement.getAttribute('data-lang') || 'es';
             const labels = {
-                'label-addon-form': 'addon_form',
-                'label-addon-whatsapp': 'addon_social',
-                'label-addon-seo': 'addon_domain',
-                'label-addon-email': 'addon_email',
-                'label-addon-multilang': 'addon_multilang',
-                'label-addon-accessibility': 'addon_accessibility'
+                'label-addon-form': { key: 'form', price: PRICING.addons.form },
+                'label-addon-whatsapp': { key: 'whatsapp', price: PRICING.addons.whatsapp },
+                'label-addon-seo': { key: 'seo', price: PRICING.addons.seo, fixed: true },
+                'label-addon-email': { key: 'email', price: PRICING.addons.email },
+                'label-addon-multilang': { key: 'multilang', price: PRICING.addons.multilang },
+                'label-addon-accessibility': { key: 'accessibility', price: PRICING.addons.accessibility }
             };
-            Object.entries(labels).forEach(([id, key]) => {
+            
+            Object.entries(labels).forEach(([id, config]) => {
                 const el = document.getElementById(id);
-                if(el) el.textContent = getText(key);
+                if(!el) return;
+                
+                const baseText = ADDON_TEXTS[lang]?.[config.key] || ADDON_TEXTS.es[config.key];
+                
+                if(config.fixed) {
+                    el.textContent = baseText;
+                } else {
+                    let convertedPrice;
+                    if(selectedCurrency === 'CLP') convertedPrice = `$${config.price.toLocaleString('es-CL')} CLP`;
+                    else if(selectedCurrency === 'USD') convertedPrice = `$${Math.round(config.price/EXCHANGE_RATES.USD).toLocaleString('en-US')} USD`;
+                    else convertedPrice = `$${Math.round(config.price/EXCHANGE_RATES.MXN).toLocaleString('es-MX')} MXN`;
+                    
+                    el.textContent = `${baseText} (+${convertedPrice})`;
+                }
             });
         }
 
-        // ========== CHAT ==========
-        let chatOpen=false, chatStep=0, selectedOption=null;
-        function toggleChat() { chatOpen=!chatOpen; document.getElementById('chat-panel').classList.toggle('show', chatOpen); if(chatOpen) updateChat(); }
-        function updateChat() { const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); body.innerHTML=`<div class="chat-message bot">${getText('chat_welcome')}</div>`; opts.style.display='flex'; chatStep=0; selectedOption=null; }
-        function sendChatOption(opt) { selectedOption=opt; const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); const userMsg=document.createElement('div'); userMsg.className='chat-message user'; userMsg.textContent=opt==='pricing'?getText('chat_opt_pricing').replace('💰','').trim():opt==='showcase'?getText('chat_opt_templates').replace('🎨','').trim():getText('chat_opt_contact').replace('📞','').trim(); body.appendChild(userMsg); body.scrollTop=body.scrollHeight; opts.style.display='none'; setTimeout(()=>{const botMsg=document.createElement('div'); botMsg.className='chat-message bot'; if(opt==='pricing'){botMsg.textContent=getText('chat_resp_pricing'); opts.innerHTML=`<button class="chat-option" onclick="sendChatOption('contact')">${getText('chat_opt_contact')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;}else if(opt==='showcase'){botMsg.textContent=getText('chat_resp_templates'); opts.innerHTML=`<button class="chat-option" onclick="document.getElementById('showcase').scrollIntoView({behavior:'smooth'});toggleChat();">👁️ ${getText('nav_showcase')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;}else if(opt==='contact'){botMsg.textContent=getText('chat_resp_contact'); opts.innerHTML=`<button class="chat-option whatsapp" onclick="window.open('https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')">${getText('chat_whatsapp_confirm')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;} body.appendChild(botMsg); body.scrollTop=body.scrollHeight; opts.style.display='flex';},600); }
-
-        // ========== SPEED TEST ==========
-        let testActive=false;
-        function startSpeedTest() { if(testActive)return; testActive=true; const hBar=document.getElementById('html-bar'),wBar=document.getElementById('wp-bar'),hTimer=document.getElementById('html-timer'),wTimer=document.getElementById('wp-timer'); hBar.style.width='0%';wBar.style.width='0%';hTimer.innerText='0.0 Segundos';wTimer.innerText='0.0 Segundos'; setTimeout(()=>{hBar.style.width='100%';hTimer.innerText='0.3 Segundos (Excelente)';},100); let p=0;const int=setInterval(()=>{p+=4;if(p<=100){wBar.style.width=p+'%';wTimer.innerText=(p*0.034).toFixed(1)+' Segundos';}else{clearInterval(int);wTimer.innerText='3.4 Segundos (Fallo)';testActive=false;}},120); }
-
-        // ========== CALCULADORA - CORREGIDO CON VALIDACIÓN NULL-SAFE ==========
-        let selectedCurrency='CLP'; const EXCHANGE_RATES={CLP:1,USD:950,MXN:53}; 
-        // CORRECCIÓN: Eliminado addonDark que ya no existe
-        const BASE_VALUES_CLP={landing:40000,extraPage:12000,addonForm:10000,addonWhatsapp:6000,addonSeo:16000,hostNetlify:0,hostGoogleSites:0,addonEmail:8000,addonMultilang:10000,addonAccessibility:8000};
-        
-        function formatPrice(v) { 
-            if(selectedCurrency==='CLP')return'$'+v.toLocaleString('es-CL')+' CLP'; 
-            if(selectedCurrency==='USD')return'$'+Math.round(v/EXCHANGE_RATES.USD).toLocaleString('en-US')+' USD'; 
-            return'$'+Math.round(v/EXCHANGE_RATES.MXN).toLocaleString('es-MX')+' MXN'; 
+        function formatPrice(clpValue) { 
+            if(selectedCurrency==='CLP')return'$'+clpValue.toLocaleString('es-CL')+' CLP'; 
+            if(selectedCurrency==='USD')return'$'+Math.round(clpValue/EXCHANGE_RATES.USD).toLocaleString('en-US')+' USD'; 
+            return'$'+Math.round(clpValue/EXCHANGE_RATES.MXN).toLocaleString('es-MX')+' MXN'; 
         }
-        let selectedHostingPlan='netlify';
         
         function selectCurrency(c) { 
-            selectedCurrency=c; 
+            selectedCurrency = c; 
             ['clp','usd','mxn'].forEach(x=>{
                 const b=document.getElementById(`btn-curr-${x}`); 
                 if(b){
@@ -677,7 +810,7 @@
         }
 
         function selectHostingPlan(plan) { 
-            selectedHostingPlan=plan; 
+            selectedHostingPlan = plan; 
             ['netlify','googlesites'].forEach(p => {
                 const card=document.getElementById(`plan-${p}-card`);
                 if(card){
@@ -693,12 +826,10 @@
             updatePriceEstimate(); 
         }
 
-        // CORRECCIÓN: Función con validación null-safe para todos los elementos
         function updatePriceEstimate() { 
             const pagesInput=document.getElementById('slider-pages');
             const pages = pagesInput ? parseInt(pagesInput.value) : 1;
             
-            // CORRECCIÓN: Validación null-safe para todos los checkboxes
             const addForm = document.getElementById('add-form')?.checked || false;
             const addWhatsapp = document.getElementById('add-whatsapp')?.checked || false;
             const addSeo = document.getElementById('add-seo')?.checked || false;
@@ -709,16 +840,15 @@
             const pagesText = document.getElementById('calc-pages-text');
             if(pagesText) pagesText.innerText = pages===1 ? "1 Página (Landing Page)" : `${pages} Secciones / Páginas`;
             
-            let totalCLP = BASE_VALUES_CLP.landing; 
-            if(pages>1) totalCLP += (pages-1)*BASE_VALUES_CLP.extraPage; 
-            if(addForm) totalCLP += BASE_VALUES_CLP.addonForm; 
-            if(addWhatsapp) totalCLP += BASE_VALUES_CLP.addonWhatsapp; 
-            if(addSeo) totalCLP += BASE_VALUES_CLP.addonSeo;
-            if(addEmail) totalCLP += BASE_VALUES_CLP.addonEmail; 
-            if(addMultilang) totalCLP += BASE_VALUES_CLP.addonMultilang; 
-            if(addAccessibility) totalCLP += BASE_VALUES_CLP.addonAccessibility;
+            let totalCLP = PRICING.base.landing; 
+            if(pages>1) totalCLP += (pages-1)*PRICING.base.extraPage; 
+            if(addForm) totalCLP += PRICING.addons.form; 
+            if(addWhatsapp) totalCLP += PRICING.addons.whatsapp; 
+            if(addSeo) totalCLP += PRICING.addons.seo;
+            if(addEmail) totalCLP += PRICING.addons.email; 
+            if(addMultilang) totalCLP += PRICING.addons.multilang; 
+            if(addAccessibility) totalCLP += PRICING.addons.accessibility;
             
-            // Hosting gratis para ambas opciones
             if(selectedHostingPlan==='netlify' || selectedHostingPlan==='googlesites') totalCLP += 0;
             
             const finalPrice = document.getElementById('calc-final-price');
@@ -742,7 +872,7 @@
             showToast(getText('toast_applied'), "success");
         }
 
-        // ========== FORMULARIO NETLIFY CON VALIDACIÓN ==========
+        // ===== FORMULARIO - CORREGIDO: SIN fetch, Netlify procesa automáticamente =====
         function submitContactForm(e) { 
             e.preventDefault(); 
             
@@ -774,49 +904,108 @@
                 return false;
             }
             
-            const form = e.target; 
-            const formData = new FormData(form); 
-            const nameField = document.getElementById('form-name');
-            const name = formData.get('nombre') || (nameField ? nameField.value : '');
-            const calculatedPriceFinal = formData.get('cotizacion') || pricingField.value; 
+            // ✅ Netlify procesa el formulario automáticamente con el atributo "netlify"
+            // No necesitamos fetch(), solo mostramos el mensaje de éxito
             
-            fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() })
-            .then(() => { 
-                showToast(getText('toast_sent'), "success"); 
-                setTimeout(() => { 
-                    const waUrl = `https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20mi%20nombre%20es%20${encodeURIComponent(name)}.%20Cotización:%20${encodeURIComponent(calculatedPriceFinal)}.`; 
-                    window.open(waUrl, '_blank'); 
-                }, 2000); 
-                if(form) form.reset(); 
-            })
-            .catch((error) => { 
-                showToast(getText('toast_error'), "error"); 
-                console.error('Error:', error); 
-            }); 
+            const contactForm = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+            
+            if(contactForm && successMsg) {
+                contactForm.style.display = 'none';
+                successMsg.classList.add('show');
+            }
+            
+            showToast(getText('toast_sent'), "success");
         }
 
-        // ========== TOAST ==========
-        function showToast(message, type="success") { 
-            const container=document.getElementById('toast-container');
+        // ===== SPEED TEST - Ambos timers desde 0.0 =====
+        function startSpeedTest() { 
+            if(testActive) return; 
+            testActive = true; 
+            const hBar = document.getElementById('html-bar'), wBar = document.getElementById('wp-bar');
+            const hTimer = document.getElementById('html-timer'), wTimer = document.getElementById('wp-timer');
+            
+            // Ambos comienzan en 0.0
+            hBar.style.width = '0%'; wBar.style.width = '0%';
+            hTimer.innerText = '0.0 Segundos'; wTimer.innerText = '0.0 Segundos';
+            
+            setTimeout(() => { hBar.style.width = '100%'; hTimer.innerText = '0.3 Segundos (Excelente)'; }, 100);
+            
+            let p = 0;
+            const int = setInterval(() => {
+                p += 4;
+                if(p <= 100) {
+                    wBar.style.width = p + '%';
+                    wTimer.innerText = (p * 0.034).toFixed(1) + ' Segundos';
+                } else {
+                    clearInterval(int);
+                    wTimer.innerText = '3.4 Segundos (Fallo)';
+                    testActive = false;
+                }
+            }, 120); 
+        }
+
+        // ===== CHAT =====
+        function toggleChat() { chatOpen = !chatOpen; document.getElementById('chat-panel')?.classList.toggle('show', chatOpen); if(chatOpen) updateChat(); }
+        function updateChat() { 
+            const body = document.getElementById('chat-body'), opts = document.getElementById('chat-options'); 
+            if(body) body.innerHTML = `<div class="chat-message bot">${getText('chat_welcome')}</div>`; 
+            if(opts) opts.style.display = 'flex'; 
+            chatStep = 0; selectedOption = null; 
+        }
+        function sendChatOption(opt) { 
+            selectedOption = opt; 
+            const body = document.getElementById('chat-body'), opts = document.getElementById('chat-options'); 
+            if(!body || !opts) return;
+            
+            const userMsg = document.createElement('div'); 
+            userMsg.className = 'chat-message user'; 
+            userMsg.textContent = opt === 'pricing' ? getText('chat_opt_pricing').replace('💰','').trim() : opt === 'showcase' ? getText('chat_opt_templates').replace('🎨','').trim() : getText('chat_opt_contact').replace('📞','').trim(); 
+            body.appendChild(userMsg); 
+            body.scrollTop = body.scrollHeight; 
+            opts.style.display = 'none'; 
+            
+            setTimeout(() => {
+                const botMsg = document.createElement('div'); 
+                botMsg.className = 'chat-message bot'; 
+                if(opt === 'pricing') {
+                    botMsg.textContent = getText('chat_resp_pricing'); 
+                    opts.innerHTML = `<button class="chat-option" onclick="sendChatOption('contact')">${getText('chat_opt_contact')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
+                } else if(opt === 'showcase') {
+                    botMsg.textContent = getText('chat_resp_templates'); 
+                    opts.innerHTML = `<button class="chat-option" onclick="document.getElementById('showcase')?.scrollIntoView({behavior:'smooth'});toggleChat();">👁️ ${getText('nav_showcase')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
+                } else if(opt === 'contact') {
+                    botMsg.textContent = getText('chat_resp_contact'); 
+                    opts.innerHTML = `<button class="chat-option whatsapp" onclick="window.open('https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')">${getText('chat_whatsapp_confirm')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
+                } 
+                body.appendChild(botMsg); 
+                body.scrollTop = body.scrollHeight; 
+                opts.style.display = 'flex'; 
+            }, 600); 
+        }
+
+        // ===== TOAST =====
+        function showToast(message, type = "success") { 
+            const container = document.getElementById('toast-container');
             if(!container) return;
-            const toast=document.createElement('div'); 
-            let bgClass="border-slate-700", iconClass="fa-bell text-violet-400", textColor="text-slate-100"; 
-            if(type==="success"){bgClass="border-emerald-800";iconClass="fa-circle-check text-emerald-400";textColor="text-emerald-200";}
-            else if(type==="error"){bgClass="border-rose-800";iconClass="fa-circle-exclamation text-rose-400";textColor="text-rose-200";}
-            else if(type==="info"){bgClass="border-indigo-800";iconClass="fa-circle-info text-indigo-400";textColor="text-indigo-200";} 
-            toast.className=`flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`; 
-            toast.style.backgroundColor='var(--card-bg)'; 
-            toast.innerHTML=`<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`; 
+            const toast = document.createElement('div'); 
+            let bgClass = "border-slate-700", iconClass = "fa-bell text-violet-400", textColor = "text-slate-100"; 
+            if(type === "success") { bgClass = "border-emerald-800"; iconClass = "fa-circle-check text-emerald-400"; textColor = "text-emerald-200"; }
+            else if(type === "error") { bgClass = "border-rose-800"; iconClass = "fa-circle-exclamation text-rose-400"; textColor = "text-rose-200"; }
+            else if(type === "info") { bgClass = "border-indigo-800"; iconClass = "fa-circle-info text-indigo-400"; textColor = "text-indigo-200"; } 
+            toast.className = `flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`; 
+            toast.style.backgroundColor = 'var(--card-bg)'; 
+            toast.innerHTML = `<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`; 
             container.appendChild(toast); 
-            setTimeout(()=>toast.classList.remove('translate-x-12','opacity-0'),50); 
-            setTimeout(()=>{toast.classList.add('opacity-0','translate-x-12');setTimeout(()=>toast.remove(),300);},4000); 
+            setTimeout(() => toast.classList.remove('translate-x-12','opacity-0'), 50); 
+            setTimeout(() => { toast.classList.add('opacity-0','translate-x-12'); setTimeout(() => toast.remove(), 300); }, 4000); 
         }
 
-        // ========== INICIALIZACIÓN ==========
+        // ===== EVENT LISTENERS =====
         window.onload = function() { 
             initPreferences(); 
-            const btn=document.getElementById('mobile-menu-btn'), drawer=document.getElementById('mobile-menu'); 
-            if(btn&&drawer)btn.addEventListener('click',()=>drawer.classList.toggle('hidden')); 
+            const btn = document.getElementById('mobile-menu-btn'), drawer = document.getElementById('mobile-menu'); 
+            if(btn && drawer) btn.addEventListener('click', () => drawer.classList.toggle('hidden')); 
             selectCurrency('CLP'); 
         };
     </script>
