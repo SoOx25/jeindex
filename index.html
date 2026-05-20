@@ -151,7 +151,7 @@
         .form-success-message.show { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* ===== CAMBIO #3: Botones de integración seleccionables ===== */
+        /* ===== BOTONES DE INTEGRACIÓN ===== */
         .integration-btn {
             width: 100%;
             text-align: left;
@@ -191,12 +191,9 @@
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full z-40 backdrop-blur-md border-b border-brand-border" style="background-color: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo con glow blanco -->
             <a href="#" class="group">
                 <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-24 w-auto object-contain transition-all duration-300 group-hover:scale-110 logo-glow" onerror="this.src='https://placehold.co/240x70/ffffff/8b5cf6?text=Jeindex&font=roboto'">
             </a>
-
-            <!-- Navegación Desktop -->
             <nav class="hidden md:flex space-x-1">
                 <a href="#inicio" class="nav-link" data-i18n="nav_home">Inicio</a>
                 <a href="#por-que-codigo" class="nav-link" data-i18n="nav_code">Código vs WordPress</a>
@@ -204,8 +201,6 @@
                 <a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a>
                 <a href="#calculadora" class="nav-link" data-i18n="nav_calculator">Calculadora</a>
             </nav>
-
-            <!-- Controles Desktop: Accesibilidad (sin texto A11y) -->
             <div class="hidden md:flex items-center space-x-2">
                 <div class="relative" id="accessibility-dropdown">
                     <button onclick="toggleAccessibilityDropdown()" class="accessibility-btn p-2.5 rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2" style="color: var(--text-secondary);" aria-label="Accesibilidad e Idioma" title="Accesibilidad e Idioma">
@@ -228,12 +223,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Botón Menú Mobile -->
             <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Menu" style="color: var(--text-secondary);"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
-
-        <!-- Menú Mobile -->
         <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border px-4 pt-2 pb-6 space-y-2" style="background-color: var(--bg-primary);">
             <a href="#inicio" class="mobile-nav-link" data-i18n="nav_home">Inicio</a>
             <a href="#por-que-codigo" class="mobile-nav-link" data-i18n="nav_code">Código vs WordPress</a>
@@ -351,9 +342,7 @@
                 </h2>
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="showcase_desc">Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Trikibarber -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
                     <div class="relative aspect-square overflow-hidden bg-slate-900">
                         <iframe src="https://trikibarber.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
@@ -372,8 +361,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- J&G Electric -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
                     <div class="relative aspect-square overflow-hidden bg-slate-900">
                         <iframe src="https://jygelectric.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
@@ -392,8 +379,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Lumiere Gourmet -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-rose-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
                     <div class="relative aspect-square overflow-hidden bg-slate-900">
                         <iframe src="https://restaurantlumiere.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
@@ -413,7 +398,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-12 text-center">
                 <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-600/20 to-cyan-600/20 border border-violet-500/30">
                     <i class="fa-solid fa-code text-violet-400"></i>
@@ -456,11 +440,8 @@
                     <div class="text-center mb-4 pb-4 border-b border-brand-border">
                         <p class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400" data-i18n="calc_promo">No pagues de más, la solución es Jeindex.cl</p>
                     </div>
-                    
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border"><h3 class="text-lg font-bold" style="color: var(--text-primary);"><i class="fa-solid fa-sliders mr-2" style="color: var(--accent-violet);"></i> <span data-i18n="calc_params">Parámetros</span></h3><div class="flex items-center space-x-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="calc_currency">Moneda:</span><div class="flex p-1 rounded-lg border border-brand-border text-xs" style="background-color: var(--bg-secondary);"><button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button><button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">USD ($)</button><button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">MXN ($)</button></div></div></div>
                     <div class="space-y-2"><div class="flex justify-between text-xs sm:text-sm font-semibold"><span style="color: var(--text-secondary);" data-i18n="calc_sections">Secciones:</span><span class="font-bold" id="calc-pages-text" style="color: var(--accent-violet);">1 Página (Landing)</span></div><input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg accent-violet-600 cursor-pointer" style="background-color: var(--bg-tertiary);"></div>
-                    
-                    <!-- CAMBIO #3: Integraciones como botones seleccionables (sin checkboxes) -->
                     <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_integrations">Integraciones:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button type="button" onclick="toggleIntegration('form')" id="btn-addon-form" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-form"></i><span id="label-addon-form"></span></button>
                         <button type="button" onclick="toggleIntegration('whatsapp')" id="btn-addon-whatsapp" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-whatsapp"></i><span id="label-addon-whatsapp"></span></button>
@@ -469,8 +450,6 @@
                         <button type="button" onclick="toggleIntegration('multilang')" id="btn-addon-multilang" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-multilang"></i><span id="label-addon-multilang"></span></button>
                         <button type="button" onclick="toggleIntegration('accessibility')" id="btn-addon-accessibility" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-accessibility"></i><span id="label-addon-accessibility"></span></button>
                     </div></div>
-                    
-                    <!-- Hosting con 2 opciones gratis -->
                     <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_hosting">Servidor:</span>
                     <div class="grid grid-cols-2 gap-3">
                         <label onclick="selectHostingPlan('netlify')" id="plan-netlify-card" class="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all" style="background-color: var(--bg-secondary);">
@@ -482,7 +461,6 @@
                             <span class="text-[9px] block mt-1" style="color: var(--accent-emerald);" data-i18n="hosting_free">Gratis</span>
                         </label>
                     </div></div>
-                    
                     <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4"><div><span class="text-[10px] font-bold uppercase tracking-wider block" style="color: var(--text-muted);" data-i18n="calc_estimate">Presupuesto</span><span class="text-3xl sm:text-4xl font-black" id="calc-final-price" style="color: var(--text-primary);">$40.000 CLP</span></div>
                     <button id="apply-budget-btn" onclick="transferBudgetToForm()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20" data-i18n="calc_apply">Aplicar Presupuesto <i class="fa-solid fa-chevron-right ml-1"></i></button></div>
                 </div>
@@ -498,8 +476,6 @@
                 <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="contact_title">¡Inicia tu Proyecto Web Hoy Mismo!</h2>
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="contact_desc">Completa el formulario y crearemos el diseño perfecto para tu marca.</p>
             </div>
-            
-            <!-- Formulario con atributo netlify -->
             <form name="contacto" netlify onsubmit="submitContactForm(event)" id="contact-form" class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" style="background-color: var(--bg-secondary);">
                 <input type="hidden" name="form-name" value="contacto" />
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -510,14 +486,11 @@
                     <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_phone">WhatsApp o Teléfono</label><input type="tel" id="form-phone" name="telefono" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="+56 9 1234 5678"></div>
                     <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_industry">Rubro Comercial</label><select id="form-rubro" name="rubro" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500"><option value="Gastronomía" data-i18n="opt_food">Gastronomía y Alimentos</option><option value="Servicios" data-i18n="opt_services">Abogados, Médicos y Consultores</option><option value="Fitness" data-i18n="opt_fitness">Gimnasios y Entrenadores</option><option value="Odontología" data-i18n="opt_dental">Clínica Dental / Salud</option><option value="Estética" data-i18n="opt_beauty">Barbería / Belleza</option><option value="Otro" data-i18n="opt_other">Otros rubros comerciales</option></select></div>
                 </div>
-                <!-- CAMBIO #2: Cotización Vinculada con texto inicial "Aplicar Presupuesto" -->
                 <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_quote">Cotización Vinculada</label>
                     <input type="text" id="form-pricing" name="cotizacion" readonly class="w-full rounded-xl px-4 py-3 font-mono font-bold text-sm cursor-not-allowed" style="color: var(--accent-violet); background-color: var(--input-bg);" value="Aplicar Presupuesto"></div>
                 <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_message">Breve descripción de los requisitos</label><textarea id="form-description" name="mensaje" required rows="4" class="w-full rounded-xl p-4 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea></div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30" data-i18n="contact_submit">Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i></button>
             </form>
-            
-            <!-- Mensaje de éxito -->
             <div id="form-success" class="form-success-message border border-brand-border rounded-3xl p-6 sm:p-10" style="background-color: var(--bg-secondary);">
                 <div class="text-center space-y-4">
                     <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -530,7 +503,7 @@
         </div>
     </section>
 
-    <!-- FOOTER - CAMBIO #4: Íconos centrados -->
+    <!-- FOOTER -->
     <footer class="border-t border-brand-border py-12 text-xs sm:text-sm" style="background-color: var(--bg-secondary); color: var(--text-muted);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-3">
@@ -538,7 +511,6 @@
                 <span class="font-extrabold" style="color: var(--text-primary);">Jeindex.cl</span>
             </div>
             <p>&copy; 2026 Jeindex.cl. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <span data-i18n="footer_tech">Desarrollado con HTML5 estático puro de alto rendimiento.</span></p>
-            <!-- CAMBIO #4: Íconos centrados con flex -->
             <div class="flex justify-center items-center space-x-4">
                 <a href="https://www.linkedin.com/in/jose-espinoza-figueroa" target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-linkedin text-lg"></i></a>
                 <a href="https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-whatsapp text-lg"></i></a>
@@ -565,16 +537,11 @@
         // ===== CONFIGURACIÓN DE PRECIOS =====
         const PRICING = {
             base: { landing: 40000, extraPage: 12000 },
-            addons: {
-                form: 10000, whatsapp: 6000, seo: 16000,
-                email: 8000, multilang: 10000, accessibility: 8000
-            },
+            addons: { form: 10000, whatsapp: 6000, seo: 16000, email: 8000, multilang: 10000, accessibility: 8000 },
             hosting: { netlify: 0, googlesites: 0 }
         };
-        
         const EXCHANGE_RATES = { CLP: 1, USD: 950, MXN: 53 };
         
-        // CAMBIO #1: Textos base SIN precio (el precio se agrega dinámicamente)
         const ADDON_TEXTS = {
             es: {
                 form: { text: 'Formulario de Contacto', info: '' },
@@ -604,90 +571,9 @@
 
         // ===== TRADUCCIONES =====
         const translations = {
-            es: {
-                nav_home:"Inicio", nav_code:"Código vs WordPress", nav_showcase:"Portafolio", nav_services:"Servicios", nav_calculator:"Calculadora",
-                accessibility:"A11y", theme:"Tema", theme_dark:"Oscuro", theme_light:"Claro", font_size:"Tamaño", font_small:"Pequeño", font_medium:"Mediano", font_large:"Grande", language:"Idioma",
-                hero_badge:"Código 100% Hecho a Mano", hero_title:"Páginas web a medida en 1 Día", hero_subtitle:"y en código HTML limpio", hero_domain:'Tu página web "www.tunegocio.cl" con dominio propio está a tan solo un paso!', hero_desc:"Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.",
-                cta_preview:"Ver Portafolio de Proyectos", cta_calculate:"Simular Presupuesto", stat_speed:"Velocidad Móvil", stat_load:"Carga Inicial", stat_secure:"Inmune", stat_plugins:"A Virus de Plugins",
-                code_demo:"Tu Negocio al Siguiente Nivel", code_server:"Servidor Optimizado", code_standard:"Estándar",
-                compare_badge:"La Realidad Técnica", compare_title:"Código HTML vs Creadores de Plantillas", compare_desc:"Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.",
-                advantage_speed:"Velocidad Increíble", advantage_speed_desc:"Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.",
-                advantage_secure:"Cero Vulnerabilidades", advantage_secure_desc:"No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.",
-                advantage_seo:"Estructura SEO Limpia", advantage_seo_desc:"Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.",
-                speed_title:"Simulador de Velocidad de Servidor", speed_html:"Nuestra Programación HTML", speed_wp:"WordPress con Plugins / Elementor", speed_run:"Ejecutar Test de Carga",
-                showcase_badge:"Portafolio de Proyectos Reales", showcase_title:"Sitios Web Publicados y Funcionales", showcase_subtitle:"Hechos 100% con código HTML puro", showcase_desc:"Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.", showcase_cta:"¿Quieres un sitio como estos? ¡Cotiza ahora!",
-                site_triki_title:"Trikibarber", site_triki_desc:"Barbería moderna con estilo urbano.", site_jyg_title:"J&G Electric", site_jyg_desc:"Servicios eléctricos 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Alta cocina con menú digital.", site_fast:"Rápido", site_visit:"Visitar",
-                services_badge:"Desarrollo Profesional", services_title:"Nuestras Soluciones para Negocios", services_desc:"Creamos estructuras digitales ligeras que destacan sobre competidores locales.",
-                srv_landing:"Landings de Captación", srv_landing_desc:"Optimizadas para Facebook e Instagram Ads.", srv_multi:"Web Multi-Sección", srv_multi_desc:"Hasta 5 páginas con código estático ultra-seguro.", srv_shopify:"Tienda digital en Shopify", srv_shopify_desc:"Venta de productos con pedidos a WhatsApp.",
-                calc_badge:"Precios Honestos", calc_title:"Calculadora Inteligente de Cotización", calc_desc:"Obtén un presupuesto de desarrollo de forma inmediata.", calc_guarantee:"Nuestra Garantía", calc_mobile:"Optimización móvil", calc_w3c:"Código W3C", calc_speed:"Velocidad 95+",
-                calc_params:"Parámetros", calc_currency:"Moneda:", calc_sections:"Secciones:", calc_integrations:"Integraciones:", calc_hosting:"Servidor:", calc_estimate:"Presupuesto", calc_apply:"Aplicar Presupuesto", calc_promo:"No pagues de más, la solución es Jeindex.cl",
-                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratis",
-                contact_badge:"Pide tu Sitio", contact_title:"¡Inicia tu Proyecto Web Hoy Mismo!", contact_desc:"Completa el formulario y crearemos el diseño perfecto para tu marca.",
-                field_name:"Tu Nombre", field_email:"Correo Electrónico", field_phone:"WhatsApp o Teléfono", field_industry:"Rubro Comercial", field_quote:"Cotización Vinculada", field_message:"Breve descripción de los requisitos", contact_submit:"Enviar Solicitud de Desarrollo",
-                opt_food:"Gastronomía y Alimentos", opt_services:"Abogados, Médicos y Consultores", opt_fitness:"Gimnasios y Entrenadores", opt_dental:"Clínica Dental / Salud", opt_beauty:"Barbería / Belleza", opt_other:"Otros rubros comerciales",
-                footer_rights:"Todos los derechos reservados.", footer_tech:"Desarrollado con HTML5 estático puro de alto rendimiento.",
-                chat_title:"Asistente Jeindex", chat_welcome:"¡Hola! 👋 Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", chat_opt_pricing:"💰 Ver precios y planes", chat_opt_templates:"🎨 Ver portafolio de proyectos", chat_opt_contact:"📞 Contactar por WhatsApp",
-                chat_resp_pricing:"Nuestros planes parten desde $40.000 CLP para landings. ¿Te gustaría simular un presupuesto personalizado?",
-                chat_resp_templates:"¡Claro! En el Portafolio puedes ver 3 sitios reales publicados: Trikibarber, J&G Electric y Lumiere Gourmet. ¿Quieres visitar uno?",
-                chat_resp_contact:"¡Perfecto! 🎯 Te redirigiré a WhatsApp para conversar directamente. ¿Confirmas?",
-                toast_sent:"✅ ¡Solicitud enviada correctamente! Te contactaremos pronto.", toast_error:"❌ Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.", toast_applied:"✅ ¡Cotización aplicada correctamente al formulario!", toast_budget_first:"⚠️ Primero debes presionar el botón 'Aplicar Presupuesto' en la calculadora para actualizar tu cotización."
-            },
-            en: {
-                nav_home:"Home", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculator",
-                accessibility:"A11y", theme:"Theme", theme_dark:"Dark", theme_light:"Light", font_size:"Size", font_small:"Small", font_medium:"Medium", font_large:"Large", language:"Language",
-                hero_badge:"100% Hand-Coded", hero_title:"Custom web pages in 1 Day", hero_subtitle:"and in clean HTML code", hero_domain:'Your website "www.yourbusiness.cl" with custom domain is just one step away!', hero_desc:"Get speed, absolute security and impeccable SEO with Jeindex.cl. We develop professional sites using pure code without cumbersome builder templates.",
-                cta_preview:"View Project Portfolio", cta_calculate:"Simulate Budget", stat_speed:"Mobile Speed", stat_load:"Initial Load", stat_secure:"Immune", stat_plugins:"To Plugin Viruses",
-                code_demo:"Your Business to the Next Level", code_server:"Optimized Server", code_standard:"Standard",
-                compare_badge:"Technical Reality", compare_title:"HTML Code vs Template Builders", compare_desc:"Many local businesses buy slow pages made in WordPress with dozens of unnecessary plugins. Our proposal is a clean, secure and ultra-fast design.",
-                advantage_speed:"Incredible Speed", advantage_speed_desc:"Google search engines prioritize pages that load instantly. Our lightweight static HTML files don't make users wait.",
-                advantage_secure:"Zero Vulnerabilities", advantage_secure_desc:"No open databases or monthly WordPress patches to break. A pure code website is immune to common automated attacks.",
-                advantage_seo:"Clean SEO Structure", advantage_seo_desc:"We write semantic code so Google bots perfectly crawl content and place your services above the competition.",
-                speed_title:"Server Speed Simulator", speed_html:"Our HTML Programming", speed_wp:"WordPress with Plugins / Elementor", speed_run:"Run Load Test",
-                showcase_badge:"Real Projects Portfolio", showcase_title:"Published & Functional Websites", showcase_subtitle:"Made 100% with pure HTML code", showcase_desc:"Explore our latest published projects. Each site is optimized for speed, SEO and exceptional user experience.", showcase_cta:"Want a site like these? Get a quote now!",
-                site_triki_title:"Trikibarber", site_triki_desc:"Modern urban barbershop.", site_jyg_title:"J&G Electric", site_jyg_desc:"Electrical services 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Fine dining with digital menu.", site_fast:"Fast", site_visit:"Visit",
-                services_badge:"Professional Development", services_title:"Our Business Solutions", services_desc:"We create lightweight digital structures that stand out over local competitors.",
-                srv_landing:"Lead Capture Landings", srv_landing_desc:"Optimized for Facebook and Instagram Ads.", srv_multi:"Multi-Section Website", srv_multi_desc:"Up to 5 dedicated pages with ultra-secure static code.", srv_shopify:"Digital Store on Shopify", srv_shopify_desc:"Product sales with WhatsApp order forwarding.",
-                calc_badge:"Honest Pricing", calc_title:"Smart Quote Calculator", calc_desc:"Get a development budget immediately.", calc_guarantee:"Our Guarantee", calc_mobile:"Mobile optimization", calc_w3c:"W3C validated code", calc_speed:"Speed score 95+",
-                calc_params:"Parameters", calc_currency:"Currency:", calc_sections:"Sections:", calc_integrations:"Integrations:", calc_hosting:"Server:", calc_estimate:"Estimated Budget", calc_apply:"Apply Budget", calc_promo:"Don't overpay, Jeindex.cl is the solution",
-                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Free",
-                contact_badge:"Order Your Site", contact_title:"Start Your Web Project Today!", contact_desc:"Complete the form and we'll create the perfect design in code for your brand.",
-                field_name:"Your Name", field_email:"Email Address", field_phone:"WhatsApp or Phone", field_industry:"Business Sector", field_quote:"Linked Quote", field_message:"Brief description of requirements", contact_submit:"Send Development Request",
-                opt_food:"Food & Gastronomy", opt_services:"Lawyers, Doctors & Consultants", opt_fitness:"Gyms & Trainers", opt_dental:"Dental Clinic / Health", opt_beauty:"Barbershop / Beauty", opt_other:"Other business sectors",
-                footer_rights:"All rights reserved.", footer_tech:"Developed with pure high-performance static HTML5.",
-                chat_title:"Jeindex Assistant", chat_welcome:"Hi! 👋 I'm your virtual assistant. How can I help you today?", chat_opt_pricing:"💰 View prices and plans", chat_opt_templates:"🎨 View project portfolio", chat_opt_contact:"📞 Contact via WhatsApp",
-                chat_resp_pricing:"Our plans start from $40,000 CLP for landings. Would you like to simulate a personalized budget?",
-                chat_resp_templates:"Sure! In the Portfolio you can see 3 real published sites: Trikibarber, J&G Electric and Lumiere Gourmet. Want to visit one?",
-                chat_resp_contact:"Perfect! 🎯 I'll redirect you to WhatsApp to chat directly. Do you confirm?",
-                toast_sent:"✅ Request sent successfully! We'll contact you soon.", toast_error:"❌ Error sending. Try again or contact us via WhatsApp.", toast_applied:"✅ Quote applied to contact form!", toast_budget_first:"⚠️ You must first press the 'Apply Budget' button in the calculator to update your quote."
-            },
-            fr: {
-                nav_home:"Accueil", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculateur",
-                accessibility:"A11y", theme:"Thème", theme_dark:"Sombre", theme_light:"Clair", font_size:"Taille", font_small:"Petit", font_medium:"Moyen", font_large:"Grand", language:"Langue",
-                hero_badge:"Code 100% Fait Main", hero_title:"Pages web sur mesure en 1 Jour", hero_subtitle:"et en code HTML propre", hero_domain:'Votre site "www.votrebusiness.cl" avec domaine personnalisé est à un pas !', hero_desc:"Obtenez vitesse, sécurité absolue et SEO impeccable avec Jeindex.cl. Nous développons des sites professionnels en code pur sans modèles constructeurs encombrants.",
-                cta_preview:"Voir le Portfolio", cta_calculate:"Simuler un Devis", stat_speed:"Vitesse Mobile", stat_load:"Chargement Initial", stat_secure:"Immunisé", stat_plugins:"Contre Virus Plugins",
-                code_demo:"Votre Business au Niveau Supérieur", code_server:"Serveur Optimisé", code_standard:"Standard",
-                compare_badge:"Réalité Technique", compare_title:"Code HTML vs Constructeurs de Modèles", compare_desc:"Beaucoup d'entreprises locales achètent des pages lentes faites en WordPress avec des dizaines de plugins inutiles. Notre proposition est un design propre, sécurisé et ultra-rapide.",
-                advantage_speed:"Vitesse Incroyable", advantage_speed_desc:"Les moteurs de recherche Google privilégient les pages qui chargent instantanément. Nos fichiers HTML statiques légers ne font pas attendre l'utilisateur.",
-                advantage_secure:"Zéro Vulnérabilités", advantage_secure_desc:"Pas de bases de données ouvertes ni de correctifs WordPress mensuels à casser. Un site en code pur est immunisé contre les attaques automatisées courantes.",
-                advantage_seo:"Structure SEO Propre", advantage_seo_desc:"Nous écrivons du code sémantique pour que les robots Google parcourent parfaitement le contenu et placent vos services au-dessus de la concurrence.",
-                speed_title:"Simulateur de Vitesse Serveur", speed_html:"Notre Programmation HTML", speed_wp:"WordPress avec Plugins / Elementor", speed_run:"Exécuter Test de Charge",
-                showcase_badge:"Portfolio de Projets Réels", showcase_title:"Sites Web Publiés et Fonctionnels", showcase_subtitle:"Faits 100% avec code HTML pur", showcase_desc:"Explorez nos derniers projets publiés. Chaque site est optimisé pour la vitesse, le SEO et une expérience utilisateur exceptionnelle.", showcase_cta:"Vous voulez un site comme ceux-ci ? Demandez un devis !",
-                site_triki_title:"Trikibarber", site_triki_desc:"Barbier moderne style urbain.", site_jyg_title:"J&G Electric", site_jyg_desc:"Services électriques 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Haute cuisine avec menu digital.", site_fast:"Rapide", site_visit:"Visiter",
-                services_badge:"Développement Professionnel", services_title:"Nos Solutions pour Entreprises", services_desc:"Nous créons des estructuras digitales légères qui se démarquent des concurrents locaux.",
-                srv_landing:"Landings de Capture", srv_landing_desc:"Optimisées pour Facebook et Instagram Ads.", srv_multi:"Site Multi-Sections", srv_multi_desc:"Jusqu'à 5 pages dédiées avec code statique ultra-sécurisé.", srv_shopify:"Boutique Digitale Shopify", srv_shopify_desc:"Vente de produits avec commandes vers WhatsApp.",
-                calc_badge:"Prix Honnêtes", calc_title:"Calculateur Intelligent de Devis", calc_desc:"Obtenez un budget de développement immédiatement.", calc_guarantee:"Notre Garantie", calc_mobile:"Optimisation mobile", calc_w3c:"Code validé W3C", calc_speed:"Score vitesse 95+",
-                calc_params:"Paramètres", calc_currency:"Devise:", calc_sections:"Sections:", calc_integrations:"Intégrations:", calc_hosting:"Serveur:", calc_estimate:"Budget Estimé", calc_apply:"Appliquer le Devis", calc_promo:"Ne payez pas trop, Jeindex.cl est la solution",
-                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratuit",
-                contact_badge:"Commandez Votre Site", contact_title:"Démarrez Votre Projet Web Aujourd'hui !", contact_desc:"Remplissez le formulaire et nous créerons le design parfait en code pour votre marque.",
-                field_name:"Votre Nom", field_email:"Adresse Email", field_phone:"WhatsApp ou Téléphone", field_industry:"Secteur d'Activité", field_quote:"Devis Lié", field_message:"Brève description des besoins", contact_submit:"Envoyer la Demande",
-                opt_food:"Gastronomie et Alimentation", opt_services:"Avocats, Médecins et Consultants", opt_fitness:"Salles de Sport et Coachs", opt_dental:"Clinique Dentaire / Santé", opt_beauty:"Barbier / Beauté", opt_other:"Autres secteurs commerciaux",
-                footer_rights:"Tous droits réservés.", footer_tech:"Développé avec HTML5 statique pur haute performance.",
-                chat_title:"Assistant Jeindex", chat_welcome:"Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?", chat_opt_pricing:"💰 Voir les prix et plans", chat_opt_templates:"🎨 Voir le portfolio de projets", chat_opt_contact:"📞 Contacter via WhatsApp",
-                chat_resp_pricing:"Nos plans commencent à 40 000 CLP pour les landings. Souhaitez-vous simuler un budget personnalisé ?",
-                chat_resp_templates:"Bien sûr ! Dans le Portfolio vous pouvez voir 3 sites réels publiés : Trikibarber, J&G Electric et Lumiere Gourmet. Voulez-vous en visiter un ?",
-                chat_resp_contact:"Parfait ! 🎯 Je vous redirige vers WhatsApp pour discuter directement. Vous confirmez ?",
-                toast_sent:"✅ Demande envoyée avec succès ! Nous vous contacterons bientôt.", toast_error:"❌ Erreur d'envoi. Réessayez ou contactez-nous via WhatsApp.", toast_applied:"✅ Devis appliqué au formulaire !", toast_budget_first:"⚠️ Vous devez d'abord appuyer sur le bouton 'Appliquer le Devis' dans le calculateur pour mettre à jour votre devis."
-            }
+            es: { nav_home:"Inicio", nav_code:"Código vs WordPress", nav_showcase:"Portafolio", nav_services:"Servicios", nav_calculator:"Calculadora", accessibility:"A11y", theme:"Tema", theme_dark:"Oscuro", theme_light:"Claro", font_size:"Tamaño", font_small:"Pequeño", font_medium:"Mediano", font_large:"Grande", language:"Idioma", hero_badge:"Código 100% Hecho a Mano", hero_title:"Páginas web a medida en 1 Día", hero_subtitle:"y en código HTML limpio", hero_domain:'Tu página web "www.tunegocio.cl" con dominio propio está a tan solo un paso!', hero_desc:"Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.", cta_preview:"Ver Portafolio de Proyectos", cta_calculate:"Simular Presupuesto", stat_speed:"Velocidad Móvil", stat_load:"Carga Inicial", stat_secure:"Inmune", stat_plugins:"A Virus de Plugins", code_demo:"Tu Negocio al Siguiente Nivel", code_server:"Servidor Optimizado", code_standard:"Estándar", compare_badge:"La Realidad Técnica", compare_title:"Código HTML vs Creadores de Plantillas", compare_desc:"Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.", advantage_speed:"Velocidad Increíble", advantage_speed_desc:"Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.", advantage_secure:"Cero Vulnerabilidades", advantage_secure_desc:"No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.", advantage_seo:"Estructura SEO Limpia", advantage_seo_desc:"Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.", speed_title:"Simulador de Velocidad de Servidor", speed_html:"Nuestra Programación HTML", speed_wp:"WordPress con Plugins / Elementor", speed_run:"Ejecutar Test de Carga", showcase_badge:"Portafolio de Proyectos Reales", showcase_title:"Sitios Web Publicados y Funcionales", showcase_subtitle:"Hechos 100% con código HTML puro", showcase_desc:"Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.", showcase_cta:"¿Quieres un sitio como estos? ¡Cotiza ahora!", site_triki_title:"Trikibarber", site_triki_desc:"Barbería moderna con estilo urbano.", site_jyg_title:"J&G Electric", site_jyg_desc:"Servicios eléctricos 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Alta cocina con menú digital.", site_fast:"Rápido", site_visit:"Visitar", services_badge:"Desarrollo Profesional", services_title:"Nuestras Soluciones para Negocios", services_desc:"Creamos estructuras digitales ligeras que destacan sobre competidores locales.", srv_landing:"Landings de Captación", srv_landing_desc:"Optimizadas para Facebook e Instagram Ads.", srv_multi:"Web Multi-Sección", srv_multi_desc:"Hasta 5 páginas con código estático ultra-seguro.", srv_shopify:"Tienda digital en Shopify", srv_shopify_desc:"Venta de productos con pedidos a WhatsApp.", calc_badge:"Precios Honestos", calc_title:"Calculadora Inteligente de Cotización", calc_desc:"Obtén un presupuesto de desarrollo de forma inmediata.", calc_guarantee:"Nuestra Garantía", calc_mobile:"Optimización móvil", calc_w3c:"Código W3C", calc_speed:"Velocidad 95+", calc_params:"Parámetros", calc_currency:"Moneda:", calc_sections:"Secciones:", calc_integrations:"Integraciones:", calc_hosting:"Servidor:", calc_estimate:"Presupuesto", calc_apply:"Aplicar Presupuesto", calc_promo:"No pagues de más, la solución es Jeindex.cl", hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratis", contact_badge:"Pide tu Sitio", contact_title:"¡Inicia tu Proyecto Web Hoy Mismo!", contact_desc:"Completa el formulario y crearemos el diseño perfecto para tu marca.", field_name:"Tu Nombre", field_email:"Correo Electrónico", field_phone:"WhatsApp o Teléfono", field_industry:"Rubro Comercial", field_quote:"Cotización Vinculada", field_message:"Breve descripción de los requisitos", contact_submit:"Enviar Solicitud de Desarrollo", opt_food:"Gastronomía y Alimentos", opt_services:"Abogados, Médicos y Consultores", opt_fitness:"Gimnasios y Entrenadores", opt_dental:"Clínica Dental / Salud", opt_beauty:"Barbería / Belleza", opt_other:"Otros rubros comerciales", footer_rights:"Todos los derechos reservados.", footer_tech:"Desarrollado con HTML5 estático puro de alto rendimiento.", chat_title:"Asistente Jeindex", chat_welcome:"¡Hola! 👋 Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", chat_opt_pricing:"💰 Ver precios y planes", chat_opt_templates:"🎨 Ver portafolio de proyectos", chat_opt_contact:"📞 Contactar por WhatsApp", chat_resp_pricing:"Nuestros planes parten desde $40.000 CLP para landings. ¿Te gustaría simular un presupuesto personalizado?", chat_resp_templates:"¡Claro! En el Portafolio puedes ver 3 sitios reales publicados: Trikibarber, J&G Electric y Lumiere Gourmet. ¿Quieres visitar uno?", chat_resp_contact:"¡Perfecto! 🎯 Te redirigiré a WhatsApp para conversar directamente. ¿Confirmas?", toast_sent:"✅ ¡Solicitud enviada correctamente! Te contactaremos pronto.", toast_error:"❌ Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.", toast_applied:"✅ ¡Cotización aplicada correctamente al formulario!", toast_budget_first:"⚠️ Primero debes presionar el botón 'Aplicar Presupuesto' en la calculadora para actualizar tu cotización." },
+            en: { nav_home:"Home", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculator", accessibility:"A11y", theme:"Theme", theme_dark:"Dark", theme_light:"Light", font_size:"Size", font_small:"Small", font_medium:"Medium", font_large:"Large", language:"Language", hero_badge:"100% Hand-Coded", hero_title:"Custom web pages in 1 Day", hero_subtitle:"and in clean HTML code", hero_domain:'Your website "www.yourbusiness.cl" with custom domain is just one step away!', hero_desc:"Get speed, absolute security and impeccable SEO with Jeindex.cl. We develop professional sites using pure code without cumbersome builder templates.", cta_preview:"View Project Portfolio", cta_calculate:"Simulate Budget", stat_speed:"Mobile Speed", stat_load:"Initial Load", stat_secure:"Immune", stat_plugins:"To Plugin Viruses", code_demo:"Your Business to the Next Level", code_server:"Optimized Server", code_standard:"Standard", compare_badge:"Technical Reality", compare_title:"HTML Code vs Template Builders", compare_desc:"Many local businesses buy slow pages made in WordPress with dozens of unnecessary plugins. Our proposal is a clean, secure and ultra-fast design.", advantage_speed:"Incredible Speed", advantage_speed_desc:"Google search engines prioritize pages that load instantly. Our lightweight static HTML files don't make users wait.", advantage_secure:"Zero Vulnerabilities", advantage_secure_desc:"No open databases or monthly WordPress patches to break. A pure code website is immune to common automated attacks.", advantage_seo:"Clean SEO Structure", advantage_seo_desc:"We write semantic code so Google bots perfectly crawl content and place your services above the competition.", speed_title:"Server Speed Simulator", speed_html:"Our HTML Programming", speed_wp:"WordPress with Plugins / Elementor", speed_run:"Run Load Test", showcase_badge:"Real Projects Portfolio", showcase_title:"Published & Functional Websites", showcase_subtitle:"Made 100% with pure HTML code", showcase_desc:"Explore our latest published projects. Each site is optimized for speed, SEO and exceptional user experience.", showcase_cta:"Want a site like these? Get a quote now!", site_triki_title:"Trikibarber", site_triki_desc:"Modern urban barbershop.", site_jyg_title:"J&G Electric", site_jyg_desc:"Electrical services 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Fine dining with digital menu.", site_fast:"Fast", site_visit:"Visit", services_badge:"Professional Development", services_title:"Our Business Solutions", services_desc:"We create lightweight digital structures that stand out over local competitors.", srv_landing:"Lead Capture Landings", srv_landing_desc:"Optimized for Facebook and Instagram Ads.", srv_multi:"Multi-Section Website", srv_multi_desc:"Up to 5 dedicated pages with ultra-secure static code.", srv_shopify:"Digital Store on Shopify", srv_shopify_desc:"Product sales with WhatsApp order forwarding.", calc_badge:"Honest Pricing", calc_title:"Smart Quote Calculator", calc_desc:"Get a development budget immediately.", calc_guarantee:"Our Guarantee", calc_mobile:"Mobile optimization", calc_w3c:"W3C validated code", calc_speed:"Speed score 95+", calc_params:"Parameters", calc_currency:"Currency:", calc_sections:"Sections:", calc_integrations:"Integrations:", calc_hosting:"Server:", calc_estimate:"Estimated Budget", calc_apply:"Apply Budget", calc_promo:"Don't overpay, Jeindex.cl is the solution", hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Free", contact_badge:"Order Your Site", contact_title:"Start Your Web Project Today!", contact_desc:"Complete the form and we'll create the perfect design in code for your brand.", field_name:"Your Name", field_email:"Email Address", field_phone:"WhatsApp or Phone", field_industry:"Business Sector", field_quote:"Linked Quote", field_message:"Brief description of requirements", contact_submit:"Send Development Request", opt_food:"Food & Gastronomy", opt_services:"Lawyers, Doctors & Consultants", opt_fitness:"Gyms & Trainers", opt_dental:"Dental Clinic / Health", opt_beauty:"Barbershop / Beauty", opt_other:"Other business sectors", footer_rights:"All rights reserved.", footer_tech:"Developed with pure high-performance static HTML5.", chat_title:"Jeindex Assistant", chat_welcome:"Hi! 👋 I'm your virtual assistant. How can I help you today?", chat_opt_pricing:"💰 View prices and plans", chat_opt_templates:"🎨 View project portfolio", chat_opt_contact:"📞 Contact via WhatsApp", chat_resp_pricing:"Our plans start from $40,000 CLP for landings. Would you like to simulate a personalized budget?", chat_resp_templates:"Sure! In the Portfolio you can see 3 real published sites: Trikibarber, J&G Electric and Lumiere Gourmet. Want to visit one?", chat_resp_contact:"Perfect! 🎯 I'll redirect you to WhatsApp to chat directly. Do you confirm?", toast_sent:"✅ Request sent successfully! We'll contact you soon.", toast_error:"❌ Error sending. Try again or contact us via WhatsApp.", toast_applied:"✅ Quote applied to contact form!", toast_budget_first:"⚠️ You must first press the 'Apply Budget' button in the calculator to update your quote." },
+            fr: { nav_home:"Accueil", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculateur", accessibility:"A11y", theme:"Thème", theme_dark:"Sombre", theme_light:"Clair", font_size:"Taille", font_small:"Petit", font_medium:"Moyen", font_large:"Grand", language:"Langue", hero_badge:"Code 100% Fait Main", hero_title:"Pages web sur mesure en 1 Jour", hero_subtitle:"et en code HTML propre", hero_domain:'Votre site "www.votrebusiness.cl" avec domaine personnalisé est à un pas !', hero_desc:"Obtenez vitesse, sécurité absolue et SEO impeccable avec Jeindex.cl. Nous développons des sites professionnels en code pur sans modèles constructeurs encombrants.", cta_preview:"Voir le Portfolio", cta_calculate:"Simuler un Devis", stat_speed:"Vitesse Mobile", stat_load:"Chargement Initial", stat_secure:"Immunisé", stat_plugins:"Contre Virus Plugins", code_demo:"Votre Business au Niveau Supérieur", code_server:"Serveur Optimisé", code_standard:"Standard", compare_badge:"Réalité Technique", compare_title:"Code HTML vs Constructeurs de Modèles", compare_desc:"Beaucoup d'entreprises locales achètent des pages lentes faites en WordPress avec des dizaines de plugins inutiles. Notre proposition est un design propre, sécurisé et ultra-rapide.", advantage_speed:"Vitesse Incroyable", advantage_speed_desc:"Les moteurs de recherche Google privilégient les pages qui chargent instantanément. Nos fichiers HTML statiques légers ne font pas attendre l'utilisateur.", advantage_secure:"Zéro Vulnérabilités", advantage_secure_desc:"Pas de bases de données ouvertes ni de correctifs WordPress mensuels à casser. Un site en code pur est immunisé contre les attaques automatisées courantes.", advantage_seo:"Structure SEO Propre", advantage_seo_desc:"Nous écrivons du code sémantique pour que les robots Google parcourent parfaitement le contenu et placent vos services au-dessus de la concurrence.", speed_title:"Simulateur de Vitesse Serveur", speed_html:"Notre Programmation HTML", speed_wp:"WordPress avec Plugins / Elementor", speed_run:"Exécuter Test de Charge", showcase_badge:"Portfolio de Projets Réels", showcase_title:"Sites Web Publiés et Fonctionnels", showcase_subtitle:"Faits 100% avec code HTML pur", showcase_desc:"Explorez nos derniers projets publiés. Chaque site est optimisé pour la vitesse, le SEO et une expérience utilisateur exceptionnelle.", showcase_cta:"Vous voulez un site comme ceux-ci ? Demandez un devis !", site_triki_title:"Trikibarber", site_triki_desc:"Barbier moderne style urbain.", site_jyg_title:"J&G Electric", site_jyg_desc:"Services électriques 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Haute cuisine avec menu digital.", site_fast:"Rapide", site_visit:"Visiter", services_badge:"Développement Professionnel", services_title:"Nos Solutions pour Entreprises", services_desc:"Nous créons des estructuras digitales légères qui se démarquent des concurrents locaux.", srv_landing:"Landings de Capture", srv_landing_desc:"Optimisées pour Facebook et Instagram Ads.", srv_multi:"Site Multi-Sections", srv_multi_desc:"Jusqu'à 5 pages dédiées avec code statique ultra-sécurisé.", srv_shopify:"Boutique Digitale Shopify", srv_shopify_desc:"Vente de produits avec commandes vers WhatsApp.", calc_badge:"Prix Honnêtes", calc_title:"Calculateur Intelligent de Devis", calc_desc:"Obtenez un budget de développement immédiatement.", calc_guarantee:"Notre Garantie", calc_mobile:"Optimisation mobile", calc_w3c:"Code validé W3C", calc_speed:"Score vitesse 95+", calc_params:"Paramètres", calc_currency:"Devise:", calc_sections:"Sections:", calc_integrations:"Intégrations:", calc_hosting:"Serveur:", calc_estimate:"Budget Estimé", calc_apply:"Appliquer le Devis", calc_promo:"Ne payez pas trop, Jeindex.cl est la solution", hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratuit", contact_badge:"Commandez Votre Site", contact_title:"Démarrez Votre Projet Web Aujourd'hui !", contact_desc:"Remplissez le formulaire et nous créerons le design parfait en code pour votre marque.", field_name:"Votre Nom", field_email:"Adresse Email", field_phone:"WhatsApp ou Téléphone", field_industry:"Secteur d'Activité", field_quote:"Devis Lié", field_message:"Brève description des besoins", contact_submit:"Envoyer la Demande", opt_food:"Gastronomie et Alimentation", opt_services:"Avocats, Médecins et Consultants", opt_fitness:"Salles de Sport et Coachs", opt_dental:"Clinique Dentaire / Santé", opt_beauty:"Barbier / Beauté", opt_other:"Autres secteurs commerciaux", footer_rights:"Tous droits réservés.", footer_tech:"Développé avec HTML5 statique pur haute performance.", chat_title:"Assistant Jeindex", chat_welcome:"Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?", chat_opt_pricing:"💰 Voir les prix et plans", chat_opt_templates:"🎨 Voir le portfolio de projets", chat_opt_contact:"📞 Contacter via WhatsApp", chat_resp_pricing:"Nos plans commencent à 40 000 CLP pour les landings. Souhaitez-vous simuler un budget personnalisé ?", chat_resp_templates:"Bien sûr ! Dans le Portfolio vous pouvez voir 3 sites réels publiés : Trikibarber, J&G Electric et Lumiere Gourmet. Voulez-vous en visiter un ?", chat_resp_contact:"Parfait ! 🎯 Je vous redirige vers WhatsApp pour discuter directement. Vous confirmez ?", toast_sent:"✅ Demande envoyée avec succès ! Nous vous contacterons bientôt.", toast_error:"❌ Erreur d'envoi. Réessayez ou contactez-nous via WhatsApp.", toast_applied:"✅ Devis appliqué au formulaire !", toast_budget_first:"⚠️ Vous devez d'abord appuyer sur le bouton 'Appliquer le Devis' dans le calculateur pour mettre à jour votre devis." }
         };
 
         // ===== ESTADO GLOBAL =====
@@ -695,7 +581,6 @@
         let selectedHostingPlan = 'netlify';
         let chatOpen = false, chatStep = 0, selectedOption = null;
         let testActive = false;
-        // CAMBIO #3: Estado de integraciones seleccionadas
         let selectedIntegrations = {};
 
         // ===== INICIALIZACIÓN =====
@@ -772,7 +657,6 @@
             updateCalculatorLabels();
         }
         function getText(key) { const lang=document.documentElement.getAttribute('data-lang')||'es'; return translations[lang]?.[key] || translations.es[key] || key; }
-        
         function applyTranslations(lang) { 
             document.querySelectorAll('[data-i18n]').forEach(el=>{
                 const key=el.getAttribute('data-i18n'); 
@@ -785,43 +669,30 @@
             updateCalculatorLabels();
         }
         
-        // ===== CAMBIO #1 & #3: CALCULADORA - Precios sin duplicar + botones seleccionables =====
+        // ===== CALCULADORA =====
         function updateCalculatorLabels() {
             const lang = document.documentElement.getAttribute('data-lang') || 'es';
             const addons = ['form', 'whatsapp', 'seo', 'email', 'multilang', 'accessibility'];
-            
             addons.forEach(key => {
                 const labelEl = document.getElementById(`label-addon-${key}`);
                 const iconEl = document.getElementById(`icon-addon-${key}`);
                 const btnEl = document.getElementById(`btn-addon-${key}`);
                 if(!labelEl || !iconEl) return;
-                
                 const config = ADDON_TEXTS[lang]?.[key] || ADDON_TEXTS.es[key];
                 const price = PRICING.addons[key];
-                
-                // CAMBIO #1: Construir texto sin duplicar precio
                 let fullText = config.text;
                 if(selectedCurrency === 'CLP') fullText += ` (+$${price.toLocaleString('es-CL')} CLP)`;
                 else if(selectedCurrency === 'USD') fullText += ` (+$${Math.round(price/EXCHANGE_RATES.USD).toLocaleString('en-US')} USD)`;
                 else fullText += ` (+$${Math.round(price/EXCHANGE_RATES.MXN).toLocaleString('es-MX')} MXN)`;
                 if(config.info) fullText += ` ${config.info}`;
-                
                 labelEl.textContent = fullText;
-                
-                // CAMBIO #3: Actualizar estado visual del botón
                 if(btnEl) {
-                    if(selectedIntegrations[key]) {
-                        btnEl.classList.add('active');
-                        iconEl.className = 'fa-solid fa-square-check';
-                    } else {
-                        btnEl.classList.remove('active');
-                        iconEl.className = 'fa-regular fa-square';
-                    }
+                    if(selectedIntegrations[key]) { btnEl.classList.add('active'); iconEl.className = 'fa-solid fa-square-check'; } 
+                    else { btnEl.classList.remove('active'); iconEl.className = 'fa-regular fa-square'; }
                 }
             });
         }
 
-        // CAMBIO #3: Función para toggle de integraciones
         function toggleIntegration(key) {
             selectedIntegrations[key] = !selectedIntegrations[key];
             updateCalculatorLabels();
@@ -833,54 +704,32 @@
             if(selectedCurrency==='USD')return'$'+Math.round(clpValue/EXCHANGE_RATES.USD).toLocaleString('en-US')+' USD'; 
             return'$'+Math.round(clpValue/EXCHANGE_RATES.MXN).toLocaleString('es-MX')+' MXN'; 
         }
-        
         function selectCurrency(c) { 
             selectedCurrency = c; 
             ['clp','usd','mxn'].forEach(x=>{
                 const b=document.getElementById(`btn-curr-${x}`); 
-                if(b){
-                    if(x===c.toLowerCase()){b.className="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white";}
-                    else{b.className="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white";b.style.color='var(--text-muted)';}
-                }
+                if(b){ if(x===c.toLowerCase()){b.className="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white";} else{b.className="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white";b.style.color='var(--text-muted)';} }
             }); 
-            const prices = ['serv-price-1','serv-price-2','serv-price-3'];
-            prices.forEach((id,i)=>{const el=document.getElementById(id); if(el) el.innerText=`Desde ${formatPrice([40000,88000,136000][i])}`;});
-            updateCalculatorLabels(); 
-            updatePriceEstimate(); 
+            ['serv-price-1','serv-price-2','serv-price-3'].forEach((id,i)=>{const el=document.getElementById(id); if(el) el.innerText=`Desde ${formatPrice([40000,88000,136000][i])}`;});
+            updateCalculatorLabels(); updatePriceEstimate(); 
         }
-
         function selectHostingPlan(plan) { 
             selectedHostingPlan = plan; 
-            ['netlify','googlesites'].forEach(p => {
-                const card=document.getElementById(`plan-${p}-card`);
-                if(card){
-                    card.className="p-3 border border-brand-border rounded-xl cursor-pointer text-center block transition-all"; 
-                    card.style.backgroundColor='var(--bg-secondary)';
-                }
-            });
-            const selectedCard=document.getElementById(`plan-${plan}-card`);
-            if(selectedCard){
-                selectedCard.className="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all";
-                selectedCard.style.backgroundColor='var(--bg-secondary)';
-            }
+            ['netlify','googlesites'].forEach(p => { const card=document.getElementById(`plan-${p}-card`); if(card){card.className="p-3 border border-brand-border rounded-xl cursor-pointer text-center block transition-all"; card.style.backgroundColor='var(--bg-secondary)';} });
+            const sc=document.getElementById(`plan-${plan}-card`); if(sc){sc.className="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all"; sc.style.backgroundColor='var(--bg-secondary)';}
             updatePriceEstimate(); 
         }
-
         function updatePriceEstimate() { 
             const pagesInput=document.getElementById('slider-pages');
             const pages = pagesInput ? parseInt(pagesInput.value) : 1;
-            
-            // CAMBIO #3: Usar selectedIntegrations en lugar de checkboxes
             const addForm = selectedIntegrations['form'] || false;
             const addWhatsapp = selectedIntegrations['whatsapp'] || false;
             const addSeo = selectedIntegrations['seo'] || false;
             const addEmail = selectedIntegrations['email'] || false;
             const addMultilang = selectedIntegrations['multilang'] || false;
             const addAccessibility = selectedIntegrations['accessibility'] || false;
-            
             const pagesText = document.getElementById('calc-pages-text');
             if(pagesText) pagesText.innerText = pages===1 ? "1 Página (Landing Page)" : `${pages} Secciones / Páginas`;
-            
             let totalCLP = PRICING.base.landing; 
             if(pages>1) totalCLP += (pages-1)*PRICING.base.extraPage; 
             if(addForm) totalCLP += PRICING.addons.form; 
@@ -889,164 +738,104 @@
             if(addEmail) totalCLP += PRICING.addons.email; 
             if(addMultilang) totalCLP += PRICING.addons.multilang; 
             if(addAccessibility) totalCLP += PRICING.addons.accessibility;
-            
             if(selectedHostingPlan==='netlify' || selectedHostingPlan==='googlesites') totalCLP += 0;
-            
             const finalPrice = document.getElementById('calc-final-price');
             if(finalPrice) finalPrice.innerText = formatPrice(totalCLP); 
         }
-
-        // CAMBIO #2: Transferir presupuesto actualiza el campo con el monto
         function transferBudgetToForm() { 
             const priceEl = document.getElementById('calc-final-price');
             const priceStr = priceEl ? priceEl.innerText : '$40.000 CLP';
-            
-            // CAMBIO #2: Actualizar campo de cotización con el monto presupuestado
             const pricingField = document.getElementById('form-pricing');
             if(pricingField) pricingField.value = priceStr;
-            
             const applyBtn = document.getElementById('apply-budget-btn');
             if(pricingField) pricingField.classList.remove('pricing-field-error');
             if(applyBtn) applyBtn.classList.remove('apply-btn-highlight');
-            
             const contacto = document.getElementById('contacto');
             if(contacto) contacto.scrollIntoView({behavior:'smooth'}); 
-            
             showToast(getText('toast_applied'), "success");
         }
 
-        // ===== FORMULARIO =====
+        // ===== FORMULARIO NETLIFY - CORREGIDO =====
         function submitContactForm(e) { 
             e.preventDefault(); 
-            
             const pricingField = document.getElementById('form-pricing');
             const calculatedPriceEl = document.getElementById('calc-final-price');
-            
-            if(!pricingField || !calculatedPriceEl) {
-                showToast("Error: No se pudo validar la cotización", "error");
-                return;
-            }
-            
+            if(!pricingField || !calculatedPriceEl) { showToast("Error: No se pudo validar la cotización", "error"); return; }
             const pricingFieldValue = pricingField.value;
             const calculatedPrice = calculatedPriceEl.innerText;
-            
-            // Validar que se haya aplicado el presupuesto
             if (pricingFieldValue === "Aplicar Presupuesto" || pricingFieldValue !== calculatedPrice) {
                 showToast(getText('toast_budget_first'), "error");
                 pricingField.classList.add('pricing-field-error');
                 setTimeout(() => pricingField.classList.remove('pricing-field-error'), 2000);
-                
                 const applyBtn = document.getElementById('apply-budget-btn');
                 if(applyBtn){
                     applyBtn.classList.add('apply-btn-highlight');
-                    setTimeout(() => {
-                        const calculadora = document.getElementById('calculadora');
-                        if(calculadora) calculadora.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 300);
+                    setTimeout(() => { const calculadora = document.getElementById('calculadora'); if(calculadora) calculadora.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
                     setTimeout(() => applyBtn.classList.remove('apply-btn-highlight'), 5000);
                 }
                 return false;
             }
             
-            // Netlify procesa automáticamente
-            const contactForm = document.getElementById('contact-form');
-            const successMsg = document.getElementById('form-success');
-            
-            if(contactForm && successMsg) {
-                contactForm.style.display = 'none';
-                successMsg.classList.add('show');
-            }
-            
-            showToast(getText('toast_sent'), "success");
+            // ✅ CORRECCIÓN: Usar window.location.href para que Netlify procese el formulario correctamente
+            const form = e.target;
+            const formData = new FormData(form);
+            fetch(window.location.href, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => { 
+                const contactForm = document.getElementById('contact-form');
+                const successMsg = document.getElementById('form-success');
+                if(contactForm && successMsg) { contactForm.style.display = 'none'; successMsg.classList.add('show'); }
+                showToast(getText('toast_sent'), "success");
+            })
+            .catch((error) => { showToast(getText('toast_error'), "error"); console.error('Netlify Error:', error); }); 
         }
 
         // ===== SPEED TEST =====
         function startSpeedTest() { 
-            if(testActive) return; 
-            testActive = true; 
-            const hBar = document.getElementById('html-bar'), wBar = document.getElementById('wp-bar');
-            const hTimer = document.getElementById('html-timer'), wTimer = document.getElementById('wp-timer');
-            
-            hBar.style.width = '0%'; wBar.style.width = '0%';
-            hTimer.innerText = '0.0 Segundos'; wTimer.innerText = '0.0 Segundos';
-            
-            setTimeout(() => { hBar.style.width = '100%'; hTimer.innerText = '0.3 Segundos (Excelente)'; }, 100);
-            
-            let p = 0;
-            const int = setInterval(() => {
-                p += 4;
-                if(p <= 100) {
-                    wBar.style.width = p + '%';
-                    wTimer.innerText = (p * 0.034).toFixed(1) + ' Segundos';
-                } else {
-                    clearInterval(int);
-                    wTimer.innerText = '3.4 Segundos (Fallo)';
-                    testActive = false;
-                }
-            }, 120); 
+            if(testActive) return; testActive = true; 
+            const hBar=document.getElementById('html-bar'), wBar=document.getElementById('wp-bar'), hTimer=document.getElementById('html-timer'), wTimer=document.getElementById('wp-timer');
+            hBar.style.width='0%'; wBar.style.width='0%'; hTimer.innerText='0.0 Segundos'; wTimer.innerText='0.0 Segundos';
+            setTimeout(()=>{hBar.style.width='100%';hTimer.innerText='0.3 Segundos (Excelente)';},100);
+            let p=0; const int=setInterval(()=>{p+=4;if(p<=100){wBar.style.width=p+'%';wTimer.innerText=(p*0.034).toFixed(1)+' Segundos';}else{clearInterval(int);wTimer.innerText='3.4 Segundos (Fallo)';testActive=false;}},120); 
         }
 
         // ===== CHAT =====
         function toggleChat() { chatOpen = !chatOpen; document.getElementById('chat-panel')?.classList.toggle('show', chatOpen); if(chatOpen) updateChat(); }
-        function updateChat() { 
-            const body = document.getElementById('chat-body'), opts = document.getElementById('chat-options'); 
-            if(body) body.innerHTML = `<div class="chat-message bot">${getText('chat_welcome')}</div>`; 
-            if(opts) opts.style.display = 'flex'; 
-            chatStep = 0; selectedOption = null; 
-        }
+        function updateChat() { const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); if(body) body.innerHTML=`<div class="chat-message bot">${getText('chat_welcome')}</div>`; if(opts) opts.style.display='flex'; chatStep=0; selectedOption=null; }
         function sendChatOption(opt) { 
-            selectedOption = opt; 
-            const body = document.getElementById('chat-body'), opts = document.getElementById('chat-options'); 
-            if(!body || !opts) return;
-            
-            const userMsg = document.createElement('div'); 
-            userMsg.className = 'chat-message user'; 
-            userMsg.textContent = opt === 'pricing' ? getText('chat_opt_pricing').replace('💰','').trim() : opt === 'showcase' ? getText('chat_opt_templates').replace('🎨','').trim() : getText('chat_opt_contact').replace('📞','').trim(); 
-            body.appendChild(userMsg); 
-            body.scrollTop = body.scrollHeight; 
-            opts.style.display = 'none'; 
-            
-            setTimeout(() => {
-                const botMsg = document.createElement('div'); 
-                botMsg.className = 'chat-message bot'; 
-                if(opt === 'pricing') {
-                    botMsg.textContent = getText('chat_resp_pricing'); 
-                    opts.innerHTML = `<button class="chat-option" onclick="sendChatOption('contact')">${getText('chat_opt_contact')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
-                } else if(opt === 'showcase') {
-                    botMsg.textContent = getText('chat_resp_templates'); 
-                    opts.innerHTML = `<button class="chat-option" onclick="document.getElementById('showcase')?.scrollIntoView({behavior:'smooth'});toggleChat();">👁️ ${getText('nav_showcase')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
-                } else if(opt === 'contact') {
-                    botMsg.textContent = getText('chat_resp_contact'); 
-                    opts.innerHTML = `<button class="chat-option whatsapp" onclick="window.open('https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')">${getText('chat_whatsapp_confirm')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;
-                } 
-                body.appendChild(botMsg); 
-                body.scrollTop = body.scrollHeight; 
-                opts.style.display = 'flex'; 
-            }, 600); 
+            selectedOption=opt; const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); if(!body||!opts) return;
+            const userMsg=document.createElement('div'); userMsg.className='chat-message user'; 
+            userMsg.textContent = opt==='pricing'?getText('chat_opt_pricing').replace('💰','').trim() : opt==='showcase'?getText('chat_opt_templates').replace('🎨','').trim() : getText('chat_opt_contact').replace('📞','').trim();
+            body.appendChild(userMsg); body.scrollTop=body.scrollHeight; opts.style.display='none';
+            setTimeout(()=>{
+                const botMsg=document.createElement('div'); botMsg.className='chat-message bot';
+                if(opt==='pricing'){ botMsg.textContent=getText('chat_resp_pricing'); opts.innerHTML=`<button class="chat-option" onclick="sendChatOption('contact')">${getText('chat_opt_contact')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`; }
+                else if(opt==='showcase'){ botMsg.textContent=getText('chat_resp_templates'); opts.innerHTML=`<button class="chat-option" onclick="document.getElementById('showcase')?.scrollIntoView({behavior:'smooth'});toggleChat();">👁️ ${getText('nav_showcase')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`; }
+                else if(opt==='contact'){ botMsg.textContent=getText('chat_resp_contact'); opts.innerHTML=`<button class="chat-option whatsapp" onclick="window.open('https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')">${getText('chat_whatsapp_confirm')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`; }
+                body.appendChild(botMsg); body.scrollTop=body.scrollHeight; opts.style.display='flex';
+            }, 600);
         }
 
         // ===== TOAST =====
-        function showToast(message, type = "success") { 
-            const container = document.getElementById('toast-container');
-            if(!container) return;
-            const toast = document.createElement('div'); 
-            let bgClass = "border-slate-700", iconClass = "fa-bell text-violet-400", textColor = "text-slate-100"; 
-            if(type === "success") { bgClass = "border-emerald-800"; iconClass = "fa-circle-check text-emerald-400"; textColor = "text-emerald-200"; }
-            else if(type === "error") { bgClass = "border-rose-800"; iconClass = "fa-circle-exclamation text-rose-400"; textColor = "text-rose-200"; }
-            else if(type === "info") { bgClass = "border-indigo-800"; iconClass = "fa-circle-info text-indigo-400"; textColor = "text-indigo-200"; } 
-            toast.className = `flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`; 
-            toast.style.backgroundColor = 'var(--card-bg)'; 
-            toast.innerHTML = `<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`; 
-            container.appendChild(toast); 
-            setTimeout(() => toast.classList.remove('translate-x-12','opacity-0'), 50); 
-            setTimeout(() => { toast.classList.add('opacity-0','translate-x-12'); setTimeout(() => toast.remove(), 300); }, 4000); 
+        function showToast(message, type="success") { 
+            const container=document.getElementById('toast-container'); if(!container) return;
+            const toast=document.createElement('div'); let bgClass="border-slate-700", iconClass="fa-bell text-violet-400", textColor="text-slate-100";
+            if(type==="success"){bgClass="border-emerald-800";iconClass="fa-circle-check text-emerald-400";textColor="text-emerald-200";}
+            else if(type==="error"){bgClass="border-rose-800";iconClass="fa-circle-exclamation text-rose-400";textColor="text-rose-200";}
+            else if(type==="info"){bgClass="border-indigo-800";iconClass="fa-circle-info text-indigo-400";textColor="text-indigo-200";}
+            toast.className=`flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`; toast.style.backgroundColor='var(--card-bg)';
+            toast.innerHTML=`<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`;
+            container.appendChild(toast); setTimeout(()=>toast.classList.remove('translate-x-12','opacity-0'),50); setTimeout(()=>{toast.classList.add('opacity-0','translate-x-12');setTimeout(()=>toast.remove(),300);},4000); 
         }
 
-        // ===== EVENT LISTENERS =====
+        // ===== INIT =====
         window.onload = function() { 
             initPreferences(); 
-            const btn = document.getElementById('mobile-menu-btn'), drawer = document.getElementById('mobile-menu'); 
-            if(btn && drawer) btn.addEventListener('click', () => drawer.classList.toggle('hidden')); 
+            const btn=document.getElementById('mobile-menu-btn'), drawer=document.getElementById('mobile-menu'); 
+            if(btn&&drawer) btn.addEventListener('click',()=>drawer.classList.toggle('hidden')); 
             selectCurrency('CLP'); 
         };
     </script>
