@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth dark" data-theme="dark" data-font-size="base">
+<html lang="es" class="scroll-smooth dark" data-theme="dark" data-font-size="base" data-lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +16,9 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
                     colors: {
-                        brand: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            700: '#6d28d9',
-                            900: '#4c1d95',
-                            dark: '#090D16',
-                            card: '#111827',
-                            border: '#1F2937'
-                        }
+                        brand: { 50: '#f5f3ff', 100: '#ede9fe', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 900: '#4c1d95', dark: '#090D16', card: '#111827', border: '#1F2937' }
                     }
                 }
             }
@@ -42,9 +29,16 @@
         ::-webkit-scrollbar-track { background: var(--bg-primary, #090D16); }
         ::-webkit-scrollbar-thumb { background: var(--border-color, #1F2937); border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-violet, #8b5cf6); }
-        
         .glow-cyan { box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.2); }
         .glow-purple { box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.3); }
+        
+        /* Logo con retroiluminación blanca intensa que rellena */
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 16px rgba(255,255,255,0.7)) drop-shadow(0 0 24px rgba(255,255,255,0.5));
+        }
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 12px rgba(255,255,255,1)) drop-shadow(0 0 24px rgba(255,255,255,0.9)) drop-shadow(0 0 36px rgba(255,255,255,0.7));
+        }
 
         :root {
             --bg-primary: #090D16; --bg-secondary: #111827; --bg-tertiary: #1F2937;
@@ -54,38 +48,29 @@
             --accent-amber: #f59e0b; --accent-rose: #f43f5e;
             --shadow-color: rgba(124, 58, 237, 0.2); --nav-hover-bg: #7c3aed; --nav-hover-text: #ffffff;
         }
-
         [data-theme="light"] {
             --bg-primary: #F8FAFC; --bg-secondary: #FFFFFF; --bg-tertiary: #E2E8F0;
             --text-primary: #0F172A; --text-secondary: #475569; --text-muted: #64748B;
             --border-color: #CBD5E1; --card-bg: #FFFFFF; --input-bg: #F1F5F9;
             --accent-violet: #6d28d9; --accent-cyan: #0891b2; --accent-emerald: #059669;
             --accent-amber: #d97706; --accent-rose: #e11d48;
-            --shadow-color: rgba(109, 40, 217, 0.15); --nav-hover-bg: #4c1d95; --nav-hover-text: #ffffff;
+            --shadow-color: rgba(109, 40, 217, 0.15);
         }
-
         [data-font-size="small"] { font-size: 14px; }
         [data-font-size="base"] { font-size: 16px; }
         [data-font-size="large"] { font-size: 18px; }
-
         *, *::before, *::after { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; }
-
         body { background-color: var(--bg-primary); color: var(--text-primary); }
         .bg-brand-dark { background-color: var(--bg-secondary) !important; }
         .bg-brand-card { background-color: var(--card-bg) !important; }
         .bg-slate-900 { background-color: var(--bg-tertiary) !important; }
         .bg-slate-800 { background-color: var(--bg-tertiary) !important; }
         .bg-slate-950 { background-color: var(--input-bg) !important; }
-        .text-slate-100 { color: var(--text-primary) !important; }
-        .text-slate-200 { color: var(--text-primary) !important; }
+        .text-slate-100, .text-slate-200 { color: var(--text-primary) !important; }
         .text-slate-300 { color: var(--text-secondary) !important; }
-        .text-slate-400 { color: var(--text-muted) !important; }
-        .text-slate-500 { color: var(--text-muted) !important; }
-        .text-slate-600 { color: var(--text-muted) !important; }
+        .text-slate-400, .text-slate-500, .text-slate-600 { color: var(--text-muted) !important; }
         .text-white { color: var(--text-primary) !important; }
-        .border-brand-border { border-color: var(--border-color) !important; }
-        .border-slate-700 { border-color: var(--border-color) !important; }
-        .border-slate-800 { border-color: var(--border-color) !important; }
+        .border-brand-border, .border-slate-700, .border-slate-800 { border-color: var(--border-color) !important; }
         input, textarea, select { background-color: var(--input-bg) !important; border-color: var(--border-color) !important; color: var(--text-primary) !important; }
         input::placeholder, textarea::placeholder { color: var(--text-muted) !important; }
         .glow-purple { box-shadow: 0 0 30px -5px var(--shadow-color); }
@@ -96,29 +81,58 @@
         .nav-link::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); opacity: 0; border-radius: 0.5rem; transition: opacity 0.3s ease; z-index: -1; }
         .nav-link:hover { color: var(--nav-hover-text); transform: translateY(-2px); }
         .nav-link:hover::before { opacity: 1; }
-        .nav-link i { font-size: 0.75rem; transition: transform 0.2s ease; }
-        .nav-link:hover i { transform: scale(1.1); }
-
         .mobile-nav-link { padding: 0.75rem 1rem; border-radius: 0.5rem; font-weight: 500; color: var(--text-secondary); display: block; transition: all 0.2s ease; }
         .mobile-nav-link:hover { background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.2)); color: var(--text-primary); padding-left: 1.25rem; }
+        .theme-toggle-btn:focus, .font-size-btn:focus, .nav-link:focus, .accessibility-btn:focus { outline: 2px solid var(--accent-violet); outline-offset: 2px; }
 
-        .theme-toggle-btn:focus, .font-size-btn:focus, .nav-link:focus { outline: 2px solid var(--accent-violet); outline-offset: 2px; }
-
-        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 0.5rem; min-width: 160px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); z-index: 100; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
+        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 0.5rem; min-width: 220px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); z-index: 100; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
         .dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; cursor: pointer; color: var(--text-primary); font-size: 0.875rem; font-weight: 500; }
         .dropdown-item:hover { background-color: var(--bg-tertiary); }
         .dropdown-item.active { background-color: var(--accent-violet); color: white; }
         .dropdown-item i { width: 1rem; text-align: center; }
+        .dropdown-divider { height: 1px; background-color: var(--border-color); margin: 0.25rem 0; }
 
         .theme-icon { transition: transform 0.4s ease, opacity 0.3s ease; }
         [data-theme="light"] .theme-icon-dark { opacity: 0; transform: rotate(-90deg); }
         [data-theme="dark"] .theme-icon-light { opacity: 0; transform: rotate(90deg); }
 
-        .template-btn { position: relative; overflow: hidden; }
-        .template-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(6, 182, 212, 0.15)); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-        .template-btn:hover::after { opacity: 1; }
-        .template-btn.active { border-color: var(--accent-violet) !important; background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.05)) !important; }
+        .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+        .chat-bubble { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; cursor: pointer; box-shadow: 0 8px 25px -5px rgba(124, 58, 237, 0.4); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .chat-bubble:hover { transform: scale(1.05); box-shadow: 0 12px 35px -5px rgba(124, 58, 237, 0.6); }
+        .chat-panel { position: absolute; bottom: 75px; right: 0; width: 320px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 1rem; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4); display: none; flex-direction: column; overflow: hidden; }
+        .chat-panel.show { display: flex; }
+        .chat-header { padding: 1rem; background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { font-weight: 600; font-size: 0.9rem; }
+        .chat-header button { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+        .chat-body { padding: 1rem; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+        .chat-message { padding: 0.6rem 0.9rem; border-radius: 0.75rem; font-size: 0.85rem; max-width: 85%; }
+        .chat-message.bot { background-color: var(--bg-tertiary); color: var(--text-primary); align-self: flex-start; border-bottom-left-radius: 0.25rem; }
+        .chat-message.user { background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)); color: white; align-self: flex-end; border-bottom-right-radius: 0.25rem; }
+        .chat-options { padding: 0.75rem 1rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.5rem; }
+        .chat-option { padding: 0.5rem 0.75rem; background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 0.5rem; font-size: 0.8rem; cursor: pointer; text-align: left; transition: background-color 0.2s; }
+        .chat-option:hover { background-color: var(--bg-tertiary); }
+        .chat-option.whatsapp { background-color: #25D366; border-color: #128C7E; color: white; font-weight: 600; }
+
+        .apply-btn-highlight {
+            animation: pulse-red 1.5s ease-in-out infinite !important;
+            border: 2px solid #f43f5e !important;
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.5) !important;
+        }
+        @keyframes pulse-red {
+            0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.8); }
+        }
+
+        .pricing-field-error {
+            border: 2px solid #f43f5e !important;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
@@ -127,84 +141,85 @@
 
     <header class="fixed top-0 left-0 w-full z-40 backdrop-blur-md border-b border-brand-border" style="background-color: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3 group">
-                <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/120x40/8b5cf6/ffffff?text=Jeindex.cl'">
-                <span class="text-xl font-black tracking-tight" style="color: var(--text-primary);">Jeindex.cl</span>
+            <a href="#" class="group">
+                <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-24 w-auto object-contain transition-all duration-300 group-hover:scale-110 logo-glow" onerror="this.src='https://placehold.co/240x70/ffffff/8b5cf6?text=Jeindex&font=roboto'">
             </a>
 
             <nav class="hidden md:flex space-x-1">
-                <a href="#inicio" class="nav-link"><i class="fa-solid fa-house"></i> Inicio</a>
-                <a href="#por-que-codigo" class="nav-link"><i class="fa-solid fa-code-compare"></i> Código vs WordPress</a>
-                <a href="#showcase" class="nav-link"><i class="fa-solid fa-eye"></i> Visor de Plantillas</a>
-                <a href="#servicios" class="nav-link"><i class="fa-solid fa-briefcase"></i> Servicios</a>
-                <a href="#calculadora" class="nav-link"><i class="fa-solid fa-calculator"></i> Calculadora</a>
+                <a href="#inicio" class="nav-link" data-i18n="nav_home">Inicio</a>
+                <a href="#por-que-codigo" class="nav-link" data-i18n="nav_code">Código vs WordPress</a>
+                <a href="#showcase" class="nav-link" data-i18n="nav_showcase">Portafolio</a>
+                <a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a>
+                <a href="#calculadora" class="nav-link" data-i18n="nav_calculator">Calculadora</a>
             </nav>
 
             <div class="hidden md:flex items-center space-x-2">
-                <div class="relative" id="font-size-dropdown">
-                    <button onclick="toggleFontSizeDropdown()" class="font-size-btn p-2.5 rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2" style="color: var(--text-secondary);" aria-label="Cambiar tamaño de fuente" title="Tamaño de fuente">
-                        <i class="fa-solid fa-text-height"></i><span class="hidden lg:inline text-xs font-bold">Aa</span>
+                <div class="relative" id="accessibility-dropdown">
+                    <button onclick="toggleAccessibilityDropdown()" class="accessibility-btn p-2.5 rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2" style="color: var(--text-secondary);" aria-label="Accesibilidad e Idioma" title="Accesibilidad e Idioma">
+                        <i class="fa-solid fa-universal-access"></i>
+                        <span class="hidden lg:inline text-xs font-bold" data-i18n="accessibility">A11y</span>
                     </button>
-                    <div id="font-size-menu" class="dropdown-menu">
-                        <div class="dropdown-item" onclick="setFontSize('small')" data-size="small"><i class="fa-solid fa-text-size"></i><span>Pequeño</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-small"></i></div>
-                        <div class="dropdown-item" onclick="setFontSize('base')" data-size="base"><i class="fa-solid fa-text-size"></i><span>Mediano</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-base"></i></div>
-                        <div class="dropdown-item" onclick="setFontSize('large')" data-size="large"><i class="fa-solid fa-text-size"></i><span>Grande</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-large"></i></div>
+                    <div id="accessibility-menu" class="dropdown-menu">
+                        <div class="px-3 py-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="theme">Tema</span></div>
+                        <div class="dropdown-item" onclick="setTheme('dark')" data-theme="dark"><i class="fa-solid fa-moon"></i><span data-i18n="theme_dark">Oscuro</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-theme-dark"></i></div>
+                        <div class="dropdown-item" onclick="setTheme('light')" data-theme="light"><i class="fa-solid fa-sun text-amber-400"></i><span data-i18n="theme_light">Claro</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-theme-light"></i></div>
+                        <div class="dropdown-divider"></div>
+                        <div class="px-3 py-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="font_size">Tamaño</span></div>
+                        <div class="dropdown-item" onclick="setFontSize('small')" data-size="small"><i class="fa-solid fa-text-size"></i><span data-i18n="font_small">Pequeño</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-font-small"></i></div>
+                        <div class="dropdown-item" onclick="setFontSize('base')" data-size="base"><i class="fa-solid fa-text-size"></i><span data-i18n="font_medium">Mediano</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-font-base"></i></div>
+                        <div class="dropdown-item" onclick="setFontSize('large')" data-size="large"><i class="fa-solid fa-text-size"></i><span data-i18n="font_large">Grande</span><i class="fa-solid fa-check ml-auto opacity-0" id="check-font-large"></i></div>
+                        <div class="dropdown-divider"></div>
+                        <div class="px-3 py-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="language">Idioma</span></div>
+                        <div class="dropdown-item" onclick="setLanguage('es')" data-lang="es"><i class="fa-solid fa-language"></i>Español<i class="fa-solid fa-check ml-auto opacity-0" id="check-lang-es"></i></div>
+                        <div class="dropdown-item" onclick="setLanguage('en')" data-lang="en"><i class="fa-solid fa-language"></i>English<i class="fa-solid fa-check ml-auto opacity-0" id="check-lang-en"></i></div>
+                        <div class="dropdown-item" onclick="setLanguage('fr')" data-lang="fr"><i class="fa-solid fa-language"></i>Français<i class="fa-solid fa-check ml-auto opacity-0" id="check-lang-fr"></i></div>
                     </div>
                 </div>
-
-                <button onclick="toggleTheme()" class="theme-toggle-btn p-2.5 rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2" style="color: var(--text-secondary);" aria-label="Cambiar tema" title="Modo Oscuro/Claro">
-                    <i class="fa-solid fa-moon theme-icon theme-icon-dark"></i><i class="fa-solid fa-sun theme-icon theme-icon-light text-amber-400"></i><span class="hidden lg:inline text-xs font-bold" id="theme-label">Oscuro</span>
-                </button>
-
-                <a href="https://m.me/soOx25" target="_blank" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/20 transform hover:-translate-y-0.5 flex items-center gap-2"><i class="fa-brands fa-facebook-messenger"></i><span class="hidden lg:inline">Messenger</span></a>
-                <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20 transform hover:-translate-y-0.5">Cotizar Web HTML</a>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Menu" style="color: var(--text-secondary);"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border px-4 pt-2 pb-6 space-y-2" style="background-color: var(--bg-primary);">
-            <a href="#inicio" class="mobile-nav-link"><i class="fa-solid fa-house mr-2"></i> Inicio</a>
-            <a href="#por-que-codigo" class="mobile-nav-link"><i class="fa-solid fa-code-compare mr-2"></i> Código vs WordPress</a>
-            <a href="#showcase" class="mobile-nav-link"><i class="fa-solid fa-eye mr-2"></i> Visor de Plantillas</a>
-            <a href="#servicios" class="mobile-nav-link"><i class="fa-solid fa-briefcase mr-2"></i> Servicios</a>
-            <a href="#calculadora" class="mobile-nav-link"><i class="fa-solid fa-calculator mr-2"></i> Calculadora</a>
-            
+            <a href="#inicio" class="mobile-nav-link" data-i18n="nav_home">Inicio</a>
+            <a href="#por-que-codigo" class="mobile-nav-link" data-i18n="nav_code">Código vs WordPress</a>
+            <a href="#showcase" class="mobile-nav-link" data-i18n="nav_showcase">Portafolio</a>
+            <a href="#servicios" class="mobile-nav-link" data-i18n="nav_services">Servicios</a>
+            <a href="#calculadora" class="mobile-nav-link" data-i18n="nav_calculator">Calculadora</a>
             <div class="flex items-center justify-between py-3 border-t border-brand-border pt-4 mt-2">
-                <span class="text-xs font-bold" style="color: var(--text-muted);">Apariencia:</span>
+                <span class="text-xs font-bold" style="color: var(--text-muted);" data-i18n="accessibility">Accesibilidad:</span>
                 <div class="flex items-center gap-2">
-                    <button onclick="toggleTheme()" class="p-2 rounded-lg flex items-center gap-1" style="background-color: var(--bg-tertiary); color: var(--text-primary);"><i class="fa-solid fa-moon theme-icon theme-icon-dark"></i><i class="fa-solid fa-sun theme-icon theme-icon-light text-amber-400"></i><span class="text-xs font-bold" id="theme-label-mobile">Oscuro</span></button>
+                    <button onclick="toggleTheme()" class="p-2 rounded-lg flex items-center gap-1" style="background-color: var(--bg-tertiary); color: var(--text-primary);"><i class="fa-solid fa-moon theme-icon theme-icon-dark"></i><i class="fa-solid fa-sun theme-icon theme-icon-light text-amber-400"></i><span class="text-xs font-bold" id="theme-label-mobile" data-i18n="theme_dark">Oscuro</span></button>
                     <button onclick="cycleFontSize()" class="p-2 rounded-lg flex items-center gap-1" style="background-color: var(--bg-tertiary); color: var(--text-primary);" title="Cambiar tamaño de texto"><i class="fa-solid fa-text-size"></i><span class="text-xs font-bold" id="font-label-mobile">Aa</span></button>
+                    <select onchange="setLanguage(this.value)" class="p-2 rounded-lg text-xs font-bold" style="background-color: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-color);"><option value="es">ES</option><option value="en">EN</option><option value="fr">FR</option></select>
                 </div>
             </div>
-            
-            <a href="https://m.me/soOx25" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-blue-600 text-white rounded-lg font-bold mt-2"><i class="fa-brands fa-facebook-messenger"></i> Chat por Messenger</a>
-            <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold">Cotizar Proyecto</a>
+            <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold mt-2" data-i18n="cta_quote">Cotizar Proyecto</a>
         </div>
     </header>
 
     <section id="inicio" class="pt-32 pb-24 relative overflow-hidden min-h-screen flex items-center">
         <div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10"></div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 border border-violet-500/20" style="color: var(--accent-violet);"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span> Código 100% Hecho a Mano</span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6.5xl font-black tracking-tight leading-none" style="color: var(--text-primary);">Páginas web a medida <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400">en código HTML limpio</span></h1>
-                <p class="text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed" style="color: var(--text-muted);">Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.</p>
-                
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 border border-violet-500/20" style="color: var(--accent-violet);"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span> <span data-i18n="hero_badge">Código 100% Hecho a Mano</span></span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6.5xl font-black tracking-tight leading-none" style="color: var(--text-primary);">
+                    <span data-i18n="hero_title">Páginas web a medida en 1 Día</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400"><span data-i18n="hero_subtitle">y en código HTML limpio</span></span>
+                </h1>
+                <p class="text-base sm:text-lg font-semibold" style="color: var(--accent-cyan);" data-i18n="hero_domain">Tu página web "www.tunegocio.cl" con dominio propio está a tan solo un paso!</p>
+                <p class="text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed" style="color: var(--text-muted);" data-i18n="hero_desc">Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.</p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#showcase" class="px-8 py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30 text-center text-sm">Probar Visor e Inspeccionar Diseños <i class="fa-solid fa-terminal ml-2"></i></a>
-                    <a href="#calculadora" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold transition-all border border-slate-700 text-center text-sm" style="color: var(--text-primary);">Simular Presupuesto <i class="fa-solid fa-calculator ml-2"></i></a>
+                    <a href="#showcase" class="px-8 py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30 text-center text-sm" data-i18n="cta_preview">Ver Portafolio de Proyectos <i class="fa-solid fa-terminal ml-2"></i></a>
+                    <a href="#calculadora" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold transition-all border border-slate-700 text-center text-sm" style="color: var(--text-primary);" data-i18n="cta_calculate">Simular Presupuesto <i class="fa-solid fa-calculator ml-2"></i></a>
                 </div>
-
                 <div class="grid grid-cols-3 gap-6 pt-12 border-t border-brand-border max-w-md mx-auto lg:mx-0">
-                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);">100%</span><span class="text-xs font-bold" style="color: var(--text-muted);">Velocidad Móvil</span></div>
-                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);">0.3s</span><span class="text-xs font-bold" style="color: var(--text-muted);">Carga Inicial</span></div>
-                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);">Inmune</span><span class="text-xs font-bold font-sans" style="color: var(--text-muted);">A Virus de Plugins</span></div>
+                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);">100%</span><span class="text-xs font-bold" style="color: var(--text-muted);" data-i18n="stat_speed">Velocidad Móvil</span></div>
+                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);">0.3s</span><span class="text-xs font-bold" style="color: var(--text-muted);" data-i18n="stat_load">Carga Inicial</span></div>
+                    <div><span class="block text-3xl font-black" style="color: var(--text-primary);" data-i18n="stat_secure">Inmune</span><span class="text-xs font-bold font-sans" style="color: var(--text-muted);" data-i18n="stat_plugins">A Virus de Plugins</span></div>
                 </div>
             </div>
-
             <div class="lg:col-span-5 relative">
                 <div class="relative mx-auto max-w-[420px] lg:max-w-none bg-gradient-to-tr from-violet-600/50 to-indigo-500/50 p-[1.5px] rounded-2xl glow-purple">
                     <div class="p-6 rounded-2xl space-y-4" style="background-color: var(--card-bg);">
@@ -217,14 +232,14 @@
                             <p style="color: var(--accent-violet);">&lt;html <span style="color: var(--accent-cyan);">class="high-performance"</span>&gt;</p>
                             <p style="color: var(--accent-violet); margin-left: 1rem;">&lt;body <span style="color: var(--accent-cyan);">class="bg-dark-mode"</span>&gt;</p>
                             <p style="color: var(--accent-emerald); margin-left: 2rem;">&lt;header&gt;</p>
-                            <p style="color: var(--text-primary); margin-left: 3rem;">&lt;h1&gt;Tu Negocio al Siguiente Nivel&lt;/h1&gt;</p>
+                            <p style="color: var(--text-primary); margin-left: 3rem;">&lt;h1&gt;<span data-i18n="code_demo">Tu Negocio al Siguiente Nivel</span>&lt;/h1&gt;</p>
                             <p style="color: var(--accent-emerald); margin-left: 2rem;">&lt;/header&gt;</p>
                             <p style="color: var(--accent-violet); margin-left: 1rem;">&lt;/body&gt;</p>
                             <p style="color: var(--accent-violet);">&lt;/html&gt;</p>
                         </div>
                         <div class="pt-4 border-t border-brand-border flex items-center justify-between text-xs">
-                            <span style="color: var(--text-muted);"><i class="fa-solid fa-server mr-1" style="color: var(--accent-cyan);"></i> Servidor Optimizado</span>
-                            <span class="px-2 py-1 rounded font-bold border border-emerald-500/20" style="background-color: rgba(16, 185, 129, 0.1); color: var(--accent-emerald);">W3C Estándar</span>
+                            <span style="color: var(--text-muted);"><i class="fa-solid fa-server mr-1" style="color: var(--accent-cyan);"></i> <span data-i18n="code_server">Servidor Optimizado</span></span>
+                            <span class="px-2 py-1 rounded font-bold border border-emerald-500/20" style="background-color: rgba(16, 185, 129, 0.1); color: var(--accent-emerald);">W3C <span data-i18n="code_standard">Estándar</span></span>
                         </div>
                     </div>
                 </div>
@@ -235,41 +250,33 @@
     <section id="por-que-codigo" class="py-24 relative border-y border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);">La Realidad Técnica</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);">Código HTML vs Creadores de Plantillas</h2>
-                <p class="text-sm sm:text-base" style="color: var(--text-muted);">Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.</p>
+                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);" data-i18n="compare_badge">La Realidad Técnica</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="compare_title">Código HTML vs Creadores de Plantillas</h2>
+                <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="compare_desc">Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors" style="background-color: var(--bg-secondary);">
                     <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-xl mb-6" style="color: var(--accent-violet);"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);">Velocidad Increíble</h3>
-                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);">Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.</p>
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);" data-i18n="advantage_speed">Velocidad Increíble</h3>
+                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);" data-i18n="advantage_speed_desc">Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.</p>
                 </div>
                 <div class="border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors" style="background-color: var(--bg-secondary);">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-xl mb-6" style="color: var(--accent-cyan);"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);">Cero Vulnerabilidades</h3>
-                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);">No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.</p>
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);" data-i18n="advantage_secure">Cero Vulnerabilidades</h3>
+                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);" data-i18n="advantage_secure_desc">No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.</p>
                 </div>
                 <div class="border border-brand-border p-8 rounded-2xl hover:border-violet-500/40 transition-colors" style="background-color: var(--bg-secondary);">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-xl mb-6" style="color: var(--accent-emerald);"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);">Estructura SEO Limpia</h3>
-                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);">Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.</p>
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--text-primary);" data-i18n="advantage_seo">Estructura SEO Limpia</h3>
+                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);" data-i18n="advantage_seo_desc">Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.</p>
                 </div>
             </div>
-
             <div class="mt-16 rounded-2xl p-6 sm:p-10 border border-brand-border max-w-3xl mx-auto" style="background-color: var(--card-bg);">
-                <h3 class="text-lg font-bold text-center mb-6" style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i> Simulador de Velocidad de Servidor</h3>
+                <h3 class="text-lg font-bold text-center mb-6" style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i> <span data-i18n="speed_title">Simulador de Velocidad de Servidor</span></h3>
                 <div class="space-y-6">
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-emerald);"><i class="fa-solid fa-code mr-1"></i> Nuestra Programación HTML</span><span style="color: var(--accent-emerald);" id="html-timer">0.3 Segundos</span></div>
-                        <div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="html-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-0 rounded-full transition-all duration-700"></div></div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-rose);"><i class="fa-brands fa-wordpress mr-1"></i> WordPress con Plugins / Elementor</span><span style="color: var(--accent-rose);" id="wp-timer">0.0 Segundos</span></div>
-                        <div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="wp-bar" class="bg-gradient-to-r from-rose-500 to-amber-500 h-full w-0 rounded-full transition-all"></div></div>
-                    </div>
-                    <div class="text-center pt-2"><button onclick="startSpeedTest()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700 transition-colors" style="color: var(--text-secondary);"><i class="fa-solid fa-circle-play mr-2"></i> Ejecutar Test de Carga</button></div>
+                    <div class="space-y-2"><div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-emerald);"><i class="fa-solid fa-code mr-1"></i> <span data-i18n="speed_html">Nuestra Programación HTML</span></span><span style="color: var(--accent-emerald);" id="html-timer">0.3 Segundos</span></div><div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="html-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-0 rounded-full transition-all duration-700"></div></div></div>
+                    <div class="space-y-2"><div class="flex justify-between text-xs font-semibold"><span style="color: var(--accent-rose);"><i class="fa-brands fa-wordpress mr-1"></i> <span data-i18n="speed_wp">WordPress con Plugins / Elementor</span></span><span style="color: var(--accent-rose);" id="wp-timer">0.0 Segundos</span></div><div class="w-full rounded-full h-3 overflow-hidden" style="background-color: var(--bg-tertiary);"><div id="wp-bar" class="bg-gradient-to-r from-rose-500 to-amber-500 h-full w-0 rounded-full transition-all"></div></div></div>
+                    <div class="text-center pt-2"><button onclick="startSpeedTest()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700 transition-colors" style="color: var(--text-secondary);"><i class="fa-solid fa-circle-play mr-2"></i> <span data-i18n="speed_run">Ejecutar Test de Carga</span></button></div>
                 </div>
             </div>
         </div>
@@ -278,37 +285,79 @@
     <section id="showcase" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);">Visor de previsualización en vivo</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);">Prueba mis Diseños Interactivos Completos</h2>
-                <p class="text-sm sm:text-base" style="color: var(--text-muted);">A continuación puedes interactuar y navegar por cinco de nuestras maquetas profesionales diseñadas con código HTML limpio de alto rendimiento.</p>
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-violet-500 to-cyan-500 text-white border border-violet-500/20">
+                    <i class="fa-solid fa-rocket mr-2"></i> <span data-i18n="showcase_badge">Portafolio de Proyectos Reales</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight" style="color: var(--text-primary);">
+                    <span data-i18n="showcase_title">Sitios Web Publicados y Funcionales</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" data-i18n="showcase_subtitle">Hechos 100% con código HTML puro</span>
+                </h2>
+                <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="showcase_desc">Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div class="lg:col-span-4 space-y-3">
-                    <h3 class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--text-muted);">Modelos Disponibles</h3>
-                    <div class="space-y-2">
-                        <button onclick="loadTemplate('restaurant')" id="btn-restaurant" class="template-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border text-left transition-all active" style="background-color: var(--card-bg);"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center" style="color: var(--accent-amber);"><i class="fa-solid fa-utensils"></i></div><div><h4 class="font-bold text-xs sm:text-sm" style="color: var(--text-primary);">Restaurante Gourmet</h4><span class="text-[10px] font-medium block" style="color: var(--text-muted);">Parrilla premium, carta elegante</span></div></div><i class="fa-solid fa-angle-right text-xs" style="color: var(--text-muted);"></i></button>
-                        <button onclick="loadTemplate('gym')" id="btn-gym" class="template-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border text-left transition-all" style="background-color: var(--bg-secondary);"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-rose-500/10 flex items-center justify-center" style="color: var(--accent-rose);"><i class="fa-solid fa-dumbbell"></i></div><div><h4 class="font-bold text-xs sm:text-sm" style="color: var(--text-primary);">Gimnasio Alto Rendimiento</h4><span class="text-[10px] font-medium block" style="color: var(--text-muted);">Deportivo, neón, dinámico</span></div></div><i class="fa-solid fa-angle-right text-xs" style="color: var(--text-muted);"></i></button>
-                        <button onclick="loadTemplate('lawyer')" id="btn-lawyer" class="template-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border text-left transition-all" style="background-color: var(--bg-secondary);"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center" style="color: var(--accent-cyan);"><i class="fa-solid fa-scale-balanced"></i></div><div><h4 class="font-bold text-xs sm:text-sm" style="color: var(--text-primary);">Estudio de Abogados</h4><span class="text-[10px] font-medium block" style="color: var(--text-muted);">Corporativo, confiable y limpio</span></div></div><i class="fa-solid fa-angle-right text-xs" style="color: var(--text-muted);"></i></button>
-                        <button onclick="loadTemplate('dentist')" id="btn-dentist" class="template-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border text-left transition-all" style="background-color: var(--bg-secondary);"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center" style="color: var(--accent-emerald);"><i class="fa-solid fa-tooth"></i></div><div><h4 class="font-bold text-xs sm:text-sm" style="color: var(--text-primary);">Clínica Dental</h4><span class="text-[10px] font-medium block" style="color: var(--text-muted);">Salud dental, moderna y limpia</span></div></div><i class="fa-solid fa-angle-right text-xs" style="color: var(--text-muted);"></i></button>
-                        <button onclick="loadTemplate('barber')" id="btn-barber" class="template-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-brand-border text-left transition-all" style="background-color: var(--bg-secondary);"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-indigo-500/10 flex items-center justify-center" style="color: var(--accent-violet);"><i class="fa-solid fa-scissors"></i></div><div><h4 class="font-bold text-xs sm:text-sm" style="color: var(--text-primary);">Barbería Leyendas</h4><span class="text-[10px] font-medium block" style="color: var(--text-muted);">Estilo clásico y perfilados</span></div></div><i class="fa-solid fa-angle-right text-xs" style="color: var(--text-muted);"></i></button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <iframe src="https://trikibarber.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-amber-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-scissors mr-1"></i> Barbería</div>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-black mb-1" style="color: var(--text-primary);"><i class="fa-solid fa-scissors text-amber-500 mr-2"></i><span data-i18n="site_triki_title">Trikibarber</span></h3>
+                            <p class="text-[10px] font-medium text-amber-400 mb-1">www.trikibarber.cl</p>
+                            <p class="text-[10px]" style="color: var(--text-muted);" data-i18n="site_triki_desc">Barbería moderna con estilo urbano.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-brand-border">
+                            <div class="flex items-center gap-1 text-[10px]" style="color: var(--text-secondary);"><i class="fa-solid fa-bolt text-emerald-400"></i><span data-i18n="site_fast">Rápido</span></div>
+                            <a href="https://trikibarber.netlify.app/#" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-[10px] font-bold transition-all"><span data-i18n="site_visit">Visitar</span><i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-8 space-y-4">
-                    <div class="rounded-2xl border border-brand-border overflow-hidden shadow-2xl" style="background-color: var(--card-bg);">
-                        <div class="p-4 border-b border-brand-border flex items-center justify-between" style="background-color: var(--bg-tertiary);">
-                            <div class="flex items-center space-x-3 w-full">
-                                <div class="flex space-x-1.5 shrink-0"><span class="w-3 h-3 rounded-full bg-rose-500"></span><span class="w-3 h-3 rounded-full bg-amber-500"></span><span class="w-3 h-3 rounded-full bg-emerald-500"></span></div>
-                                <div class="px-3 py-1.5 rounded-lg text-xs font-mono flex items-center space-x-2 w-full max-w-md border border-brand-border ml-2" style="background-color: var(--bg-secondary); color: var(--text-muted);"><i class="fa-solid fa-lock" style="color: var(--accent-emerald); font-size: 9px;"></i><span id="mock-address" class="truncate">https://jeindex.cl/gourmet-preview</span></div>
-                            </div>
-                            <span class="text-xs font-bold uppercase tracking-wider hidden sm:inline" style="color: var(--text-muted);"><i class="fa-solid fa-eye mr-1.5" style="color: var(--accent-violet);"></i> Vista Previa en Vivo</span>
+                <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <iframe src="https://jygelectric.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-cyan-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-bolt mr-1"></i> Electricidad</div>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-black mb-1" style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-cyan-500 mr-2"></i><span data-i18n="site_jyg_title">J&G Electric</span></h3>
+                            <p class="text-[10px] font-medium text-cyan-400 mb-1">www.jygelectric.cl</p>
+                            <p class="text-[10px]" style="color: var(--text-muted);" data-i18n="site_jyg_desc">Servicios eléctricos 24/7.</p>
                         </div>
-                        <div class="relative bg-white h-[650px]">
-                            <div id="sandbox-loader" class="absolute inset-0 flex flex-col items-center justify-center z-20 hidden transition-opacity duration-300" style="background-color: var(--bg-primary);"><div class="w-10 h-10 rounded-full border-4 border-slate-800 border-t-violet-500 animate-spin mb-3"></div><span class="text-xs font-semibold" style="color: var(--text-muted);">Compilando vista de simulación...</span></div>
-                            <div id="sandbox-preview-container" class="w-full h-full"><iframe id="sandbox-iframe" class="w-full h-full bg-white border-none rounded-b-2xl" srcdoc=""></iframe></div>
+                        <div class="flex items-center justify-between pt-3 border-t border-brand-border">
+                            <div class="flex items-center gap-1 text-[10px]" style="color: var(--text-secondary);"><i class="fa-solid fa-bolt text-emerald-400"></i><span data-i18n="site_fast">Rápido</span></div>
+                            <a href="https://jygelectric.netlify.app/#" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white text-[10px] font-bold transition-all"><span data-i18n="site_visit">Visitar</span><i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
                         </div>
                     </div>
+                </div>
+
+                <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-rose-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <iframe src="https://restaurantlumiere.netlify.app/" class="w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute top-3 right-3 px-2 py-1 rounded-full bg-rose-500/90 text-white text-[10px] font-bold"><i class="fa-solid fa-utensils mr-1"></i> Restaurante</div>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-black mb-1" style="color: var(--text-primary);"><i class="fa-solid fa-utensils text-rose-500 mr-2"></i><span data-i18n="site_lumiere_title">Lumiere Gourmet</span></h3>
+                            <p class="text-[10px] font-medium text-rose-400 mb-1">www.lumieregourmet.cl</p>
+                            <p class="text-[10px]" style="color: var(--text-muted);" data-i18n="site_lumiere_desc">Alta cocina con menú digital.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-brand-border">
+                            <div class="flex items-center gap-1 text-[10px]" style="color: var(--text-secondary);"><i class="fa-solid fa-bolt text-emerald-400"></i><span data-i18n="site_fast">Rápido</span></div>
+                            <a href="https://restaurantlumiere.netlify.app/" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white text-[10px] font-bold transition-all"><span data-i18n="site_visit">Visitar</span><i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-600/20 to-cyan-600/20 border border-violet-500/30">
+                    <i class="fa-solid fa-code text-violet-400"></i>
+                    <span class="text-sm font-bold" style="color: var(--text-primary);" data-i18n="showcase_cta">¿Quieres un sitio como estos? ¡Cotiza ahora!</span>
                 </div>
             </div>
         </div>
@@ -317,14 +366,14 @@
     <section id="servicios" class="py-24 relative border-y border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);">Desarrollo Profesional</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);">Nuestras Soluciones para Negocios</h2>
-                <p class="text-sm sm:text-base" style="color: var(--text-muted);">Creamos estructuras digitales ligeras que destacan sobre competidores locales.</p>
+                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);" data-i18n="services_badge">Desarrollo Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="services_title">Nuestras Soluciones para Negocios</h2>
+                <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="services_desc">Creamos estructuras digitales ligeras que destacan sobre competidores locales.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-lg" style="color: var(--accent-violet);"><i class="fa-solid fa-rocket"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);">Landings de Captación</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);">Optimizadas para Facebook e Instagram Ads.</p><div class="pt-2 font-bold text-sm" id="serv-price-1" style="color: var(--accent-violet);">Desde $40.000 CLP</div></div>
-                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-lg" style="color: var(--accent-cyan);"><i class="fa-solid fa-network-wired"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);">Web Multi-Sección</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);">Hasta 5 páginas con código estático ultra-seguro.</p><div class="pt-2 font-bold text-sm" id="serv-price-2" style="color: var(--accent-cyan);">Desde $88.000 CLP</div></div>
-                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-lg" style="color: var(--accent-emerald);"><i class="fa-solid fa-store"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);">Catálogo Digital Ligero</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);">Venta de productos con pedidos a WhatsApp.</p><div class="pt-2 font-bold text-sm" id="serv-price-3" style="color: var(--accent-emerald);">Desde $136.000 CLP</div></div>
+                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-lg" style="color: var(--accent-violet);"><i class="fa-solid fa-rocket"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);" data-i18n="srv_landing">Landings de Captación</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);" data-i18n="srv_landing_desc">Optimizadas para Facebook e Instagram Ads.</p><div class="pt-2 font-bold text-sm" id="serv-price-1" style="color: var(--accent-violet);">Desde $40.000 CLP</div></div>
+                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-lg" style="color: var(--accent-cyan);"><i class="fa-solid fa-network-wired"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);" data-i18n="srv_multi">Web Multi-Sección</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);" data-i18n="srv_multi_desc">Hasta 5 páginas con código estático ultra-seguro.</p><div class="pt-2 font-bold text-sm" id="serv-price-2" style="color: var(--accent-cyan);">Desde $88.000 CLP</div></div>
+                <div class="border border-brand-border p-8 rounded-2xl space-y-4 hover:border-violet-500/30 transition-all" style="background-color: var(--bg-secondary);"><div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-lg" style="color: var(--accent-emerald);"><i class="fa-solid fa-store"></i></div><h3 class="text-lg font-bold" style="color: var(--text-primary);" data-i18n="srv_shopify">Tienda digital en Shopify</h3><p class="text-xs leading-relaxed" style="color: var(--text-muted);" data-i18n="srv_shopify_desc">Venta de productos con pedidos a WhatsApp.</p><div class="pt-2 font-bold text-sm" id="serv-price-3" style="color: var(--accent-emerald);">Desde $136.000 CLP</div></div>
             </div>
         </div>
     </section>
@@ -333,313 +382,442 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5 space-y-6">
-                    <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);">Precios Honestos</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);">Calculadora Inteligente de Cotización</h2>
-                    <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-muted);">Obtén un presupuesto de desarrollo de forma inmediata.</p>
+                    <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);" data-i18n="calc_badge">Precios Honestos</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="calc_title">Calculadora Inteligente de Cotización</h2>
+                    <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-muted);" data-i18n="calc_desc">Obtén un presupuesto de desarrollo de forma inmediata.</p>
                     <div class="p-6 rounded-2xl border border-brand-border space-y-3.5" style="background-color: var(--card-bg);">
-                        <div class="flex items-center space-x-2 font-bold text-xs uppercase tracking-wider" style="color: var(--accent-emerald);"><i class="fa-solid fa-circle-check"></i><span>Nuestra Garantía</span></div>
-                        <ul class="space-y-2 text-xs" style="color: var(--text-muted);"><li><i class="fa-solid fa-bolt mr-2" style="color: var(--accent-emerald);"></i> Optimización móvil</li><li><i class="fa-solid fa-bug-slash mr-2" style="color: var(--accent-emerald);"></i> Código W3C</li><li><i class="fa-solid fa-gauge mr-2" style="color: var(--accent-emerald);"></i> Velocidad 95+</li></ul>
+                        <div class="flex items-center space-x-2 font-bold text-xs uppercase tracking-wider" style="color: var(--accent-emerald);"><i class="fa-solid fa-circle-check"></i><span data-i18n="calc_guarantee">Nuestra Garantía</span></div>
+                        <ul class="space-y-2 text-xs" style="color: var(--text-muted);"><li><i class="fa-solid fa-bolt mr-2" style="color: var(--accent-emerald);"></i> <span data-i18n="calc_mobile">Optimización móvil</span></li><li><i class="fa-solid fa-bug-slash mr-2" style="color: var(--accent-emerald);"></i> <span data-i18n="calc_w3c">Código W3C</span></li><li><i class="fa-solid fa-gauge mr-2" style="color: var(--accent-emerald);"></i> <span data-i18n="calc_speed">Velocidad 95+</span></li></ul>
                     </div>
                 </div>
-
                 <div class="lg:col-span-7 rounded-3xl p-6 sm:p-10 border border-brand-border shadow-2xl space-y-6" style="background-color: var(--card-bg);">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border"><h3 class="text-lg font-bold" style="color: var(--text-primary);"><i class="fa-solid fa-sliders mr-2" style="color: var(--accent-violet);"></i> Parámetros</h3><div class="flex items-center space-x-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Moneda:</span><div class="flex p-1 rounded-lg border border-brand-border text-xs" style="background-color: var(--bg-secondary);"><button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button><button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">USD ($)</button><button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">MXN ($)</button></div></div></div>
-                    <div class="space-y-2"><div class="flex justify-between text-xs sm:text-sm font-semibold"><span style="color: var(--text-secondary);">Secciones:</span><span class="font-bold" id="calc-pages-text" style="color: var(--accent-violet);">1 Página (Landing)</span></div><input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg accent-violet-600 cursor-pointer" style="background-color: var(--bg-tertiary);"></div>
-                    <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);">Integraciones:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-form" style="color: var(--text-secondary);">Reservaciones (+$9.000)</span></label><label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-whatsapp" style="color: var(--text-secondary);">WhatsApp Pro (+$6.000)</span></label><label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-seo" style="color: var(--text-secondary);">SEO (+$16.000)</span></label><label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-dark" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-dark" style="color: var(--text-secondary);">Modo Claro/Oscuro (+$10.000)</span></label></div></div>
-                    <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);">Servidor:</span><div class="grid grid-cols-3 gap-3"><label onclick="selectHostingPlan('eco')" id="plan-eco-card" class="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block" style="background-color: var(--bg-secondary);"><span class="text-xs font-bold" style="color: var(--text-primary);">Económico</span><span class="text-[9px]" id="label-plan-eco" style="color: var(--text-muted);">Netlify (Gratis)</span></label><label onclick="selectHostingPlan('pro')" id="plan-pro-card" class="p-3 border border-brand-border rounded-xl cursor-pointer text-center block" style="background-color: var(--bg-secondary);"><span class="text-xs font-bold" style="color: var(--text-primary);">Global CDN</span><span class="text-[9px]" id="label-plan-pro" style="color: var(--text-muted);">Cloudflare (+$8K)</span></label><label onclick="selectHostingPlan('edge')" id="plan-edge-card" class="p-3 border border-brand-border rounded-xl cursor-pointer text-center block" style="background-color: var(--bg-secondary);"><span class="text-xs font-bold" style="color: var(--text-primary);">Vercel Edge</span><span class="text-[9px]" id="label-plan-edge" style="color: var(--text-muted);">Premium (+$16K)</span></label></div></div>
-                    <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4"><div><span class="text-[10px] font-bold uppercase tracking-wider block" style="color: var(--text-muted);">Presupuesto</span><span class="text-3xl sm:text-4xl font-black" id="calc-final-price" style="color: var(--text-primary);">$40.000 CLP</span></div><button onclick="transferBudgetToForm()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20">Aplicar Presupuesto <i class="fa-solid fa-chevron-right ml-1"></i></button></div>
+                    <div class="text-center mb-4 pb-4 border-b border-brand-border">
+                        <p class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400" data-i18n="calc_promo">No pagues de más, la solución es Jeindex.cl</p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border"><h3 class="text-lg font-bold" style="color: var(--text-primary);"><i class="fa-solid fa-sliders mr-2" style="color: var(--accent-violet);"></i> <span data-i18n="calc_params">Parámetros</span></h3><div class="flex items-center space-x-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="calc_currency">Moneda:</span><div class="flex p-1 rounded-lg border border-brand-border text-xs" style="background-color: var(--bg-secondary);"><button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button><button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">USD ($)</button><button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">MXN ($)</button></div></div></div>
+                    <div class="space-y-2"><div class="flex justify-between text-xs sm:text-sm font-semibold"><span style="color: var(--text-secondary);" data-i18n="calc_sections">Secciones:</span><span class="font-bold" id="calc-pages-text" style="color: var(--accent-violet);">1 Página (Landing)</span></div><input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg accent-violet-600 cursor-pointer" style="background-color: var(--bg-tertiary);"></div>
+                    
+                    <!-- Panel de Integraciones -->
+                    <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_integrations">Integraciones:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-form" style="color: var(--text-secondary);" data-i18n="addon_form">Formulario de Contacto (+$10.000)</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-whatsapp" style="color: var(--text-secondary);" data-i18n="addon_social">Botón de Redes Sociales (+$6.000)</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-seo" style="color: var(--text-secondary);" data-i18n="addon_domain">Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-email" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-email" style="color: var(--text-secondary);" data-i18n="addon_email">Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-multilang" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-multilang" style="color: var(--text-secondary);" data-i18n="addon_multilang">Web Multiidiomas (+$10.000 CLP) EN/ES/FR etc.</span></label>
+                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-accessibility" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-accessibility" style="color: var(--text-secondary);" data-i18n="addon_accessibility">Panel de Accesibilidad (+$8.000 CLP)</span></label>
+                    </div></div>
+                    
+                    <!-- Hosting con 2 opciones -->
+                    <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_hosting">Servidor:</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label onclick="selectHostingPlan('netlify')" id="plan-netlify-card" class="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all" style="background-color: var(--bg-secondary);">
+                            <span class="text-xs font-bold block" style="color: var(--text-primary);" data-i18n="hosting_netlify">Netlify</span>
+                            <span class="text-[9px] block mt-1" style="color: var(--accent-emerald);" data-i18n="hosting_free">Gratis</span>
+                        </label>
+                        <label onclick="selectHostingPlan('googlesites')" id="plan-googlesites-card" class="p-3 border border-brand-border rounded-xl cursor-pointer text-center block transition-all" style="background-color: var(--bg-secondary);">
+                            <span class="text-xs font-bold block" style="color: var(--text-primary);" data-i18n="hosting_googlesites">Google Sites</span>
+                            <span class="text-[9px] block mt-1" style="color: var(--accent-emerald);" data-i18n="hosting_free">Gratis</span>
+                        </label>
+                    </div></div>
+                    
+                    <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4"><div><span class="text-[10px] font-bold uppercase tracking-wider block" style="color: var(--text-muted);" data-i18n="calc_estimate">Presupuesto</span><span class="text-3xl sm:text-4xl font-black" id="calc-final-price" style="color: var(--text-primary);">$40.000 CLP</span></div>
+                    <button id="apply-budget-btn" onclick="transferBudgetToForm()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all shadow-lg shadow-violet-600/20" data-i18n="calc_apply">Aplicar Presupuesto <i class="fa-solid fa-chevron-right ml-1"></i></button></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- CONTACT FORM - NETLIFY FORMS READY         -->
-    <!-- ========================================== -->
     <section id="contacto" class="py-24 relative border-t border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-4 mb-12">
-                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);">Pide tu Sitio</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);">¡Inicia tu Proyecto Web Hoy Mismo!</h2>
-                <p class="text-sm sm:text-base" style="color: var(--text-muted);">Completa el formulario y crearemos el diseño perfecto para tu marca.</p>
+                <span class="font-bold uppercase tracking-wider text-xs" style="color: var(--accent-violet);" data-i18n="contact_badge">Pide tu Sitio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold" style="color: var(--text-primary);" data-i18n="contact_title">¡Inicia tu Proyecto Web Hoy Mismo!</h2>
+                <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="contact_desc">Completa el formulario y crearemos el diseño perfecto para tu marca.</p>
             </div>
-
-            <!-- 
-                ============================================
-                FORMULARIO CONFIGURADO PARA NETLIFY FORMS
-                - name="contacto": Identifica el formulario en el dashboard de Netlify
-                - netlify: Habilita el procesamiento automático de Netlify
-                ============================================
-            -->
-            <form 
-                name="contacto" 
-                netlify 
-                onsubmit="submitContactForm(event)" 
-                class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" 
-                style="background-color: var(--bg-secondary);"
-            >
-                <!-- CAMPO OCULTO OBLIGATORIO PARA NETLIFY -->
+            <form name="contacto" netlify onsubmit="submitContactForm(event)" class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" style="background-color: var(--bg-secondary);">
                 <input type="hidden" name="form-name" value="contacto" />
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Tu Nombre</label>
-                        <input type="text" id="form-name" name="nombre" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="Ej: Juan Pérez">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Correo Electrónico</label>
-                        <input type="email" id="form-email" name="correo" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="juan@negocio.com">
-                    </div>
+                    <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_name">Tu Nombre</label><input type="text" id="form-name" name="nombre" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="Ej: Juan Pérez"></div>
+                    <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_email">Correo Electrónico</label><input type="email" id="form-email" name="correo" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="juan@negocio.com"></div>
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">WhatsApp o Teléfono</label>
-                        <input type="tel" id="form-phone" name="telefono" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="+56 9 1234 5678">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Rubro Comercial</label>
-                        <select id="form-rubro" name="rubro" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500">
-                            <option value="Gastronomía">Gastronomía y Alimentos</option>
-                            <option value="Servicios">Abogados, Médicos y Consultores</option>
-                            <option value="Fitness">Gimnasios y Entrenadores</option>
-                            <option value="Odontología">Clínica Dental / Salud</option>
-                            <option value="Estética">Barbería / Belleza</option>
-                            <option value="Otro">Otros rubros comerciales</option>
-                        </select>
-                    </div>
+                    <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_phone">WhatsApp o Teléfono</label><input type="tel" id="form-phone" name="telefono" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="+56 9 1234 5678"></div>
+                    <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_industry">Rubro Comercial</label><select id="form-rubro" name="rubro" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500"><option value="Gastronomía" data-i18n="opt_food">Gastronomía y Alimentos</option><option value="Servicios" data-i18n="opt_services">Abogados, Médicos y Consultores</option><option value="Fitness" data-i18n="opt_fitness">Gimnasios y Entrenadores</option><option value="Odontología" data-i18n="opt_dental">Clínica Dental / Salud</option><option value="Estética" data-i18n="opt_beauty">Barbería / Belleza</option><option value="Otro" data-i18n="opt_other">Otros rubros comerciales</option></select></div>
                 </div>
-
-                <div class="space-y-2">
-                    <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Cotización Vinculada</label>
-                    <input type="text" id="form-pricing" name="cotizacion" readonly class="w-full rounded-xl px-4 py-3 font-mono font-bold text-sm cursor-not-allowed" style="color: var(--accent-violet); background-color: var(--input-bg);" value="$40.000 CLP (Configuración Inicial)">
-                </div>
-
-                <div class="space-y-2">
-                    <label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Breve descripción de los requisitos</label>
-                    <textarea id="form-description" name="mensaje" required rows="4" class="w-full rounded-xl p-4 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30">
-                    Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i>
-                </button>
+                <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_quote">Cotización Vinculada</label>
+                    <input type="text" id="form-pricing" name="cotizacion" readonly class="w-full rounded-xl px-4 py-3 font-mono font-bold text-sm cursor-not-allowed" style="color: var(--accent-violet); background-color: var(--input-bg);" value="$40.000 CLP (Configuración Inicial)"></div>
+                <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_message">Breve descripción de los requisitos</label><textarea id="form-description" name="mensaje" required rows="4" class="w-full rounded-xl p-4 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea></div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30" data-i18n="contact_submit">Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i></button>
             </form>
         </div>
     </section>
 
     <footer class="border-t border-brand-border py-12 text-xs sm:text-sm" style="background-color: var(--bg-secondary); color: var(--text-muted);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div class="flex items-center space-x-3"><img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-8 w-auto object-contain" onerror="this.src='https://placehold.co/80x30/8b5cf6/ffffff?text=Jeindex.cl'"><span class="font-extrabold" style="color: var(--text-primary);">Jeindex.cl</span></div>
-            <p>&copy; 2026 Jeindex.cl. Todos los derechos reservados. Desarrollado con HTML5 estático puro de alto rendimiento.</p>
+            <div class="flex items-center space-x-3">
+                <img src="https://iili.io/Bym6FY7.png" alt="Jeindex.cl Logo" class="h-10 w-auto object-contain logo-glow" onerror="this.src='https://placehold.co/100x30/ffffff/8b5cf6?text=Jeindex&font=roboto'">
+                <span class="font-extrabold" style="color: var(--text-primary);">Jeindex.cl</span>
+            </div>
+            <p>&copy; 2026 Jeindex.cl. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <span data-i18n="footer_tech">Desarrollado con HTML5 estático puro de alto rendimiento.</span></p>
             <div class="flex space-x-4">
-                <a href="https://github.com/joseespinozaf" target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-github text-lg"></i></a>
                 <a href="https://www.linkedin.com/in/jose-espinoza-figueroa" target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="https://m.me/soOx25" target="_blank" class="hover:text-blue-400 transition-colors" title="Chat por Messenger" style="color: var(--text-muted);"><i class="fa-brands fa-facebook-messenger text-lg"></i></a>
                 <a href="https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-whatsapp text-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <a href="https://m.me/soOx25" target="_blank" class="fixed bottom-6 right-6 z-50 md:hidden flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/40 transition-all transform hover:scale-110" title="Chat por Messenger"><i class="fa-brands fa-facebook-messenger text-2xl"></i></a>
+    <!-- Chat Flotante Interactivo -->
+    <div class="chat-widget">
+        <div class="chat-bubble" onclick="toggleChat()" title="Chat interactivo"><i class="fa-solid fa-comments"></i></div>
+        <div class="chat-panel" id="chat-panel">
+            <div class="chat-header"><h4 data-i18n="chat_title">Asistente Jeindex</h4><button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="chat-body" id="chat-body"><div class="chat-message bot" data-i18n="chat_welcome">¡Hola! 👋 Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div></div>
+            <div class="chat-options" id="chat-options">
+                <button class="chat-option" onclick="sendChatOption('pricing')" data-i18n="chat_opt_pricing">💰 Ver precios y planes</button>
+                <button class="chat-option" onclick="sendChatOption('showcase')" data-i18n="chat_opt_templates">🎨 Ver portafolio de proyectos</button>
+                <button class="chat-option" onclick="sendChatOption('contact')" data-i18n="chat_opt_contact">📞 Contactar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // ========== THEME & FONT SIZE ==========
+        // ========== TRADUCCIONES COMPLETAS ==========
+        const translations = {
+            es: {
+                nav_home:"Inicio", nav_code:"Código vs WordPress", nav_showcase:"Portafolio", nav_services:"Servicios", nav_calculator:"Calculadora",
+                accessibility:"A11y", theme:"Tema", theme_dark:"Oscuro", theme_light:"Claro", font_size:"Tamaño", font_small:"Pequeño", font_medium:"Mediano", font_large:"Grande", language:"Idioma",
+                hero_badge:"Código 100% Hecho a Mano", hero_title:"Páginas web a medida en 1 Día", hero_subtitle:"y en código HTML limpio", hero_domain:'Tu página web "www.tunegocio.cl" con dominio propio está a tan solo un paso!', hero_desc:"Entrega velocidad, seguridad absoluta y un SEO impecable con Jeindex.cl. Desarrollamos sitios profesionales utilizando código puro sin plantillas engorrosas de constructores.",
+                cta_preview:"Ver Portafolio de Proyectos", cta_calculate:"Simular Presupuesto", stat_speed:"Velocidad Móvil", stat_load:"Carga Inicial", stat_secure:"Inmune", stat_plugins:"A Virus de Plugins",
+                code_demo:"Tu Negocio al Siguiente Nivel", code_server:"Servidor Optimizado", code_standard:"Estándar",
+                compare_badge:"La Realidad Técnica", compare_title:"Código HTML vs Creadores de Plantillas", compare_desc:"Muchos negocios locales compran páginas lentas hechas en WordPress con decenas de plugins innecesarios. Nuestra propuesta es un diseño limpio, seguro y ultra rápido.",
+                advantage_speed:"Velocidad Increíble", advantage_speed_desc:"Los buscadores de Google priorizan las páginas que cargan al instante. Nuestros archivos HTML estáticos de peso ligero no hacen esperar al usuario.",
+                advantage_secure:"Cero Vulnerabilidades", advantage_secure_desc:"No hay bases de datos abiertas ni parches mensuales de WordPress que romper. Un sitio web de código puro es inmune a ataques automatizados comunes.",
+                advantage_seo:"Estructura SEO Limpia", advantage_seo_desc:"Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.",
+                speed_title:"Simulador de Velocidad de Servidor", speed_html:"Nuestra Programación HTML", speed_wp:"WordPress con Plugins / Elementor", speed_run:"Ejecutar Test de Carga",
+                showcase_badge:"Portafolio de Proyectos Reales", showcase_title:"Sitios Web Publicados y Funcionales", showcase_subtitle:"Hechos 100% con código HTML puro", showcase_desc:"Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.", showcase_cta:"¿Quieres un sitio como estos? ¡Cotiza ahora!",
+                site_triki_title:"Trikibarber", site_triki_desc:"Barbería moderna con estilo urbano.", site_jyg_title:"J&G Electric", site_jyg_desc:"Servicios eléctricos 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Alta cocina con menú digital.", site_fast:"Rápido", site_visit:"Visitar",
+                services_badge:"Desarrollo Profesional", services_title:"Nuestras Soluciones para Negocios", services_desc:"Creamos estructuras digitales ligeras que destacan sobre competidores locales.",
+                srv_landing:"Landings de Captación", srv_landing_desc:"Optimizadas para Facebook e Instagram Ads.", srv_multi:"Web Multi-Sección", srv_multi_desc:"Hasta 5 páginas con código estático ultra-seguro.", srv_shopify:"Tienda digital en Shopify", srv_shopify_desc:"Venta de productos con pedidos a WhatsApp.",
+                calc_badge:"Precios Honestos", calc_title:"Calculadora Inteligente de Cotización", calc_desc:"Obtén un presupuesto de desarrollo de forma inmediata.", calc_guarantee:"Nuestra Garantía", calc_mobile:"Optimización móvil", calc_w3c:"Código W3C", calc_speed:"Velocidad 95+",
+                calc_params:"Parámetros", calc_currency:"Moneda:", calc_sections:"Secciones:", calc_integrations:"Integraciones:", calc_hosting:"Servidor:", calc_estimate:"Presupuesto", calc_apply:"Aplicar Presupuesto", calc_promo:"No pagues de más, la solución es Jeindex.cl",
+                addon_form:"Formulario de Contacto (+$10.000)", addon_social:"Botón de Redes Sociales (+$6.000)", addon_domain:"Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual",
+                addon_email:'Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual',
+                addon_multilang:"Web Multiidiomas (+$10.000 CLP) EN/ES/FR etc.", addon_accessibility:"Panel de Accesibilidad (+$8.000 CLP)",
+                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratis",
+                contact_badge:"Pide tu Sitio", contact_title:"¡Inicia tu Proyecto Web Hoy Mismo!", contact_desc:"Completa el formulario y crearemos el diseño perfecto para tu marca.",
+                field_name:"Tu Nombre", field_email:"Correo Electrónico", field_phone:"WhatsApp o Teléfono", field_industry:"Rubro Comercial", field_quote:"Cotización Vinculada", field_message:"Breve descripción de los requisitos", contact_submit:"Enviar Solicitud de Desarrollo",
+                opt_food:"Gastronomía y Alimentos", opt_services:"Abogados, Médicos y Consultores", opt_fitness:"Gimnasios y Entrenadores", opt_dental:"Clínica Dental / Salud", opt_beauty:"Barbería / Belleza", opt_other:"Otros rubros comerciales",
+                footer_rights:"Todos los derechos reservados.", footer_tech:"Desarrollado con HTML5 estático puro de alto rendimiento.",
+                chat_title:"Asistente Jeindex", chat_welcome:"¡Hola! 👋 Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", chat_opt_pricing:"💰 Ver precios y planes", chat_opt_templates:"🎨 Ver portafolio de proyectos", chat_opt_contact:"📞 Contactar por WhatsApp",
+                chat_resp_pricing:"Nuestros planes parten desde $40.000 CLP para landings. ¿Te gustaría simular un presupuesto personalizado?",
+                chat_resp_templates:"¡Claro! En el Portafolio puedes ver 3 sitios reales publicados: Trikibarber, J&G Electric y Lumiere Gourmet. ¿Quieres visitar uno?",
+                chat_resp_contact:"¡Perfecto! 🎯 Te redirigiré a WhatsApp para conversar directamente. ¿Confirmas?",
+                chat_whatsapp_confirm:"Sí, contactar por WhatsApp", chat_whatsapp_cancel:"No, seguir preguntando",
+                toast_sent:"✅ ¡Solicitud enviada correctamente! Te contactaremos pronto.", toast_error:"❌ Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.", toast_applied:"✅ ¡Cotización aplicada correctamente al formulario!", toast_budget_first:"⚠️ Primero debes presionar el botón 'Aplicar Presupuesto' en la calculadora para actualizar tu cotización."
+            },
+            en: {
+                nav_home:"Home", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculator",
+                accessibility:"A11y", theme:"Theme", theme_dark:"Dark", theme_light:"Light", font_size:"Size", font_small:"Small", font_medium:"Medium", font_large:"Large", language:"Language",
+                hero_badge:"100% Hand-Coded", hero_title:"Custom web pages in 1 Day", hero_subtitle:"and in clean HTML code", hero_domain:'Your website "www.yourbusiness.cl" with custom domain is just one step away!', hero_desc:"Get speed, absolute security and impeccable SEO with Jeindex.cl. We develop professional sites using pure code without cumbersome builder templates.",
+                cta_preview:"View Project Portfolio", cta_calculate:"Simulate Budget", stat_speed:"Mobile Speed", stat_load:"Initial Load", stat_secure:"Immune", stat_plugins:"To Plugin Viruses",
+                code_demo:"Your Business to the Next Level", code_server:"Optimized Server", code_standard:"Standard",
+                compare_badge:"Technical Reality", compare_title:"HTML Code vs Template Builders", compare_desc:"Many local businesses buy slow pages made in WordPress with dozens of unnecessary plugins. Our proposal is a clean, secure and ultra-fast design.",
+                advantage_speed:"Incredible Speed", advantage_speed_desc:"Google search engines prioritize pages that load instantly. Our lightweight static HTML files don't make users wait.",
+                advantage_secure:"Zero Vulnerabilities", advantage_secure_desc:"No open databases or monthly WordPress patches to break. A pure code website is immune to common automated attacks.",
+                advantage_seo:"Clean SEO Structure", advantage_seo_desc:"We write semantic code so Google bots perfectly crawl content and place your services above the competition.",
+                speed_title:"Server Speed Simulator", speed_html:"Our HTML Programming", speed_wp:"WordPress with Plugins / Elementor", speed_run:"Run Load Test",
+                showcase_badge:"Real Projects Portfolio", showcase_title:"Published & Functional Websites", showcase_subtitle:"Made 100% with pure HTML code", showcase_desc:"Explore our latest published projects. Each site is optimized for speed, SEO and exceptional user experience.", showcase_cta:"Want a site like these? Get a quote now!",
+                site_triki_title:"Trikibarber", site_triki_desc:"Modern urban barbershop.", site_jyg_title:"J&G Electric", site_jyg_desc:"Electrical services 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Fine dining with digital menu.", site_fast:"Fast", site_visit:"Visit",
+                services_badge:"Professional Development", services_title:"Our Business Solutions", services_desc:"We create lightweight digital structures that stand out over local competitors.",
+                srv_landing:"Lead Capture Landings", srv_landing_desc:"Optimized for Facebook and Instagram Ads.", srv_multi:"Multi-Section Website", srv_multi_desc:"Up to 5 dedicated pages with ultra-secure static code.", srv_shopify:"Digital Store on Shopify", srv_shopify_desc:"Product sales with WhatsApp order forwarding.",
+                calc_badge:"Honest Pricing", calc_title:"Smart Quote Calculator", calc_desc:"Get a development budget immediately.", calc_guarantee:"Our Guarantee", calc_mobile:"Mobile optimization", calc_w3c:"W3C validated code", calc_speed:"Speed score 95+",
+                calc_params:"Parameters", calc_currency:"Currency:", calc_sections:"Sections:", calc_integrations:"Integrations:", calc_hosting:"Server:", calc_estimate:"Estimated Budget", calc_apply:"Apply Budget", calc_promo:"Don't overpay, Jeindex.cl is the solution",
+                addon_form:"Contact Form (+$10,000)", addon_social:"Social Media Button (+$6,000)", addon_domain:"Custom Domain www.yourbusiness.cl (+$16,000) Annual Renewal",
+                addon_email:'Custom corporate email "name@yourdomain.cl" (+$8,000 CLP) Monthly Renewal',
+                addon_multilang:"Multilingual Website (+$10,000 CLP) EN/ES/FR etc.", addon_accessibility:"Accessibility Panel (+$8,000 CLP)",
+                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Free",
+                contact_badge:"Order Your Site", contact_title:"Start Your Web Project Today!", contact_desc:"Complete the form and we'll create the perfect design in code for your brand.",
+                field_name:"Your Name", field_email:"Email Address", field_phone:"WhatsApp or Phone", field_industry:"Business Sector", field_quote:"Linked Quote", field_message:"Brief description of requirements", contact_submit:"Send Development Request",
+                opt_food:"Food & Gastronomy", opt_services:"Lawyers, Doctors & Consultants", opt_fitness:"Gyms & Trainers", opt_dental:"Dental Clinic / Health", opt_beauty:"Barbershop / Beauty", opt_other:"Other business sectors",
+                footer_rights:"All rights reserved.", footer_tech:"Developed with pure high-performance static HTML5.",
+                chat_title:"Jeindex Assistant", chat_welcome:"Hi! 👋 I'm your virtual assistant. How can I help you today?", chat_opt_pricing:"💰 View prices and plans", chat_opt_templates:"🎨 View project portfolio", chat_opt_contact:"📞 Contact via WhatsApp",
+                chat_resp_pricing:"Our plans start from $40,000 CLP for landings. Would you like to simulate a personalized budget?",
+                chat_resp_templates:"Sure! In the Portfolio you can see 3 real published sites: Trikibarber, J&G Electric and Lumiere Gourmet. Want to visit one?",
+                chat_resp_contact:"Perfect! 🎯 I'll redirect you to WhatsApp to chat directly. Do you confirm?",
+                chat_whatsapp_confirm:"Yes, contact via WhatsApp", chat_whatsapp_cancel:"No, keep asking",
+                toast_sent:"✅ Request sent successfully! We'll contact you soon.", toast_error:"❌ Error sending. Try again or contact us via WhatsApp.", toast_applied:"✅ Quote applied to contact form!", toast_budget_first:"⚠️ You must first press the 'Apply Budget' button in the calculator to update your quote."
+            },
+            fr: {
+                nav_home:"Accueil", nav_code:"Code vs WordPress", nav_showcase:"Portfolio", nav_services:"Services", nav_calculator:"Calculateur",
+                accessibility:"A11y", theme:"Thème", theme_dark:"Sombre", theme_light:"Clair", font_size:"Taille", font_small:"Petit", font_medium:"Moyen", font_large:"Grand", language:"Langue",
+                hero_badge:"Code 100% Fait Main", hero_title:"Pages web sur mesure en 1 Jour", hero_subtitle:"et en code HTML propre", hero_domain:'Votre site "www.votrebusiness.cl" avec domaine personnalisé est à un pas !', hero_desc:"Obtenez vitesse, sécurité absolue et SEO impeccable avec Jeindex.cl. Nous développons des sites professionnels en code pur sans modèles constructeurs encombrants.",
+                cta_preview:"Voir le Portfolio", cta_calculate:"Simuler un Devis", stat_speed:"Vitesse Mobile", stat_load:"Chargement Initial", stat_secure:"Immunisé", stat_plugins:"Contre Virus Plugins",
+                code_demo:"Votre Business au Niveau Supérieur", code_server:"Serveur Optimisé", code_standard:"Standard",
+                compare_badge:"Réalité Technique", compare_title:"Code HTML vs Constructeurs de Modèles", compare_desc:"Beaucoup d'entreprises locales achètent des pages lentes faites en WordPress avec des dizaines de plugins inutiles. Notre proposition est un design propre, sécurisé et ultra-rapide.",
+                advantage_speed:"Vitesse Incroyable", advantage_speed_desc:"Les moteurs de recherche Google privilégient les pages qui chargent instantanément. Nos fichiers HTML statiques légers ne font pas attendre l'utilisateur.",
+                advantage_secure:"Zéro Vulnérabilités", advantage_secure_desc:"Pas de bases de données ouvertes ni de correctifs WordPress mensuels à casser. Un site en code pur est immunisé contre les attaques automatisées courantes.",
+                advantage_seo:"Structure SEO Propre", advantage_seo_desc:"Nous écrivons du code sémantique pour que les robots Google parcourent parfaitement le contenu et placent vos services au-dessus de la concurrence.",
+                speed_title:"Simulateur de Vitesse Serveur", speed_html:"Notre Programmation HTML", speed_wp:"WordPress avec Plugins / Elementor", speed_run:"Exécuter Test de Charge",
+                showcase_badge:"Portfolio de Projets Réels", showcase_title:"Sites Web Publiés et Fonctionnels", showcase_subtitle:"Faits 100% avec code HTML pur", showcase_desc:"Explorez nos derniers projets publiés. Chaque site est optimisé pour la vitesse, le SEO et une expérience utilisateur exceptionnelle.", showcase_cta:"Vous voulez un site comme ceux-ci ? Demandez un devis !",
+                site_triki_title:"Trikibarber", site_triki_desc:"Barbier moderne style urbain.", site_jyg_title:"J&G Electric", site_jyg_desc:"Services électriques 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Haute cuisine avec menu digital.", site_fast:"Rapide", site_visit:"Visiter",
+                services_badge:"Développement Professionnel", services_title:"Nos Solutions pour Entreprises", services_desc:"Nous créons des structures digitales légères qui se démarquent des concurrents locaux.",
+                srv_landing:"Landings de Capture", srv_landing_desc:"Optimisées pour Facebook et Instagram Ads.", srv_multi:"Site Multi-Sections", srv_multi_desc:"Jusqu'à 5 pages dédiées avec code statique ultra-sécurisé.", srv_shopify:"Boutique Digitale Shopify", srv_shopify_desc:"Vente de produits avec commandes vers WhatsApp.",
+                calc_badge:"Prix Honnêtes", calc_title:"Calculateur Intelligent de Devis", calc_desc:"Obtenez un budget de développement immédiatement.", calc_guarantee:"Notre Garantie", calc_mobile:"Optimisation mobile", calc_w3c:"Code validé W3C", calc_speed:"Score vitesse 95+",
+                calc_params:"Paramètres", calc_currency:"Devise:", calc_sections:"Sections:", calc_integrations:"Intégrations:", calc_hosting:"Serveur:", calc_estimate:"Budget Estimé", calc_apply:"Appliquer le Devis", calc_promo:"Ne payez pas trop, Jeindex.cl est la solution",
+                addon_form:"Formulaire de Contact (+10.000$)", addon_social:"Bouton Réseaux Sociaux (+6.000$)", addon_domain:"Domaine Personnalisé www.votrebusiness.cl (+16.000$) Renouvellement Annuel",
+                addon_email:'Email corporatif personnalisé "nom@votredomaine.cl" (+8.000$ CLP) Renouvellement Mensuel',
+                addon_multilang:"Site Multilingue (+10.000$ CLP) FR/EN/ES etc.", addon_accessibility:"Panneau d\'Accessibilité (+8.000$ CLP)",
+                hosting_netlify:"Netlify", hosting_googlesites:"Google Sites", hosting_free:"Gratuit",
+                contact_badge:"Commandez Votre Site", contact_title:"Démarrez Votre Projet Web Aujourd\'hui !", contact_desc:"Remplissez le formulaire et nous créerons le design parfait en code pour votre marque.",
+                field_name:"Votre Nom", field_email:"Adresse Email", field_phone:"WhatsApp ou Téléphone", field_industry:"Secteur d\'Activité", field_quote:"Devis Lié", field_message:"Brève description des besoins", contact_submit:"Envoyer la Demande",
+                opt_food:"Gastronomie et Alimentation", opt_services:"Avocats, Médecins et Consultants", opt_fitness:"Salles de Sport et Coachs", opt_dental:"Clinique Dentaire / Santé", opt_beauty:"Barbier / Beauté", opt_other:"Autres secteurs commerciaux",
+                footer_rights:"Tous droits réservés.", footer_tech:"Développé avec HTML5 statique pur haute performance.",
+                chat_title:"Assistant Jeindex", chat_welcome:"Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd\'hui ?", chat_opt_pricing:"💰 Voir les prix et plans", chat_opt_templates:"🎨 Voir le portfolio de projets", chat_opt_contact:"📞 Contacter via WhatsApp",
+                chat_resp_pricing:"Nos plans commencent à 40 000 CLP pour les landings. Souhaitez-vous simuler un budget personnalisé ?",
+                chat_resp_templates:"Bien sûr ! Dans le Portfolio vous pouvez voir 3 sites réels publiés : Trikibarber, J&G Electric et Lumiere Gourmet. Voulez-vous en visiter un ?",
+                chat_resp_contact:"Parfait ! 🎯 Je vous redirige vers WhatsApp pour discuter directement. Vous confirmez ?",
+                chat_whatsapp_confirm:"Oui, contacter par WhatsApp", chat_whatsapp_cancel:"Non, continuer à demander",
+                toast_sent:"✅ Demande envoyée avec succès ! Nous vous contacterons bientôt.", toast_error:"❌ Erreur d\'envoi. Réessayez ou contactez-nous via WhatsApp.", toast_applied:"✅ Devis appliqué au formulaire !", toast_budget_first:"⚠️ Vous devez d\'abord appuyer sur le bouton \'Appliquer le Devis\' dans le calculateur pour mettre à jour votre devis."
+            }
+        };
+
+        // ========== FUNCIONES BASE ==========
         function initPreferences() {
             const savedTheme = localStorage.getItem('jeindex-theme') || 'dark';
             const savedFontSize = localStorage.getItem('jeindex-fontsize') || 'base';
-            setTheme(savedTheme);
-            setFontSize(savedFontSize);
-            updateFontSizeDropdown();
+            const savedLang = localStorage.getItem('jeindex-lang') || 'es';
+            setTheme(savedTheme); setFontSize(savedFontSize); setLanguage(savedLang);
+            updateFontSizeDropdown(); updateThemeDropdown(); updateLangDropdown();
         }
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            localStorage.setItem('jeindex-theme', newTheme);
-            showToast(`Modo ${newTheme === 'dark' ? 'Oscuro' : 'Claro'} activado`, 'info');
+        function toggleTheme() { const t = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark'; setTheme(t); localStorage.setItem('jeindex-theme', t); updateThemeDropdown(); showToast(getText('theme_dark')+' / '+getText('theme_light')+': '+(t==='dark'?getText('theme_dark'):getText('theme_light')), 'info'); }
+        function setTheme(t) { document.documentElement.setAttribute('data-theme', t); document.querySelectorAll('#theme-label, #theme-label-mobile').forEach(l => l.textContent = t==='dark'?getText('theme_dark'):getText('theme_light')); if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}else{document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');} }
+        function setFontSize(s) { document.documentElement.setAttribute('data-font-size', s); localStorage.setItem('jeindex-fontsize', s); updateFontSizeDropdown(); updateMobileFontLabel(); showToast(getText('font_size')+': '+getText('font_'+(s==='small'?'small':s==='large'?'large':'medium')), 'info'); }
+        function cycleFontSize() { const sizes=['small','base','large']; const c=document.documentElement.getAttribute('data-font-size')||'base'; setFontSize(sizes[(sizes.indexOf(c)+1)%sizes.length]); }
+        function updateMobileFontLabel() { const l=document.getElementById('font-label-mobile'); if(l){const s=document.documentElement.getAttribute('data-font-size')||'base'; l.textContent=s==='small'?'A-':s==='large'?'A+':'Aa';} }
+        function toggleAccessibilityDropdown() { document.getElementById('accessibility-menu').classList.toggle('show'); }
+        function updateFontSizeDropdown() { const c=document.documentElement.getAttribute('data-font-size')||'base'; ['small','base','large'].forEach(s=>{const chk=document.getElementById(`check-font-${s}`),itm=document.querySelector(`.dropdown-item[data-size="${s}"]`); if(chk&&itm){s===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
+        function updateThemeDropdown() { const c=document.documentElement.getAttribute('data-theme')||'dark'; ['dark','light'].forEach(t=>{const chk=document.getElementById(`check-theme-${t}`),itm=document.querySelector(`.dropdown-item[data-theme="${t}"]`); if(chk&&itm){t===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
+        function updateLangDropdown() { const c=document.documentElement.getAttribute('data-lang')||'es'; ['es','en','fr'].forEach(l=>{const chk=document.getElementById(`check-lang-${l}`),itm=document.querySelector(`.dropdown-item[data-lang="${l}"]`); if(chk&&itm){l===c?(chk.classList.remove('opacity-0'),itm.classList.add('active')):(chk.classList.add('opacity-0'),itm.classList.remove('active'));}}); }
+        document.addEventListener('click', e => { if(!document.getElementById('accessibility-dropdown').contains(e.target)) document.getElementById('accessibility-menu').classList.remove('show'); });
+
+        // ========== IDIOMAS ==========
+        function setLanguage(lang) { 
+            document.documentElement.setAttribute('data-lang', lang); 
+            localStorage.setItem('jeindex-lang', lang); 
+            updateLangDropdown(); 
+            applyTranslations(lang); 
+            updateChat();
+            updateCalculatorLabels();
         }
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            document.querySelectorAll('#theme-label, #theme-label-mobile').forEach(l => l.textContent = theme === 'dark' ? 'Oscuro' : 'Claro');
-            if (theme === 'light') { document.documentElement.classList.remove('dark'); document.documentElement.classList.add('light'); }
-            else { document.documentElement.classList.remove('light'); document.documentElement.classList.add('dark'); }
+        function getText(key) { const lang=document.documentElement.getAttribute('data-lang')||'es'; return translations[lang]?.[key] || translations.es[key] || key; }
+        
+        function applyTranslations(lang) { 
+            document.querySelectorAll('[data-i18n]').forEach(el=>{
+                const key=el.getAttribute('data-i18n'); 
+                if(translations[lang]?.[key]){
+                    if(el.tagName==='INPUT'&&el.placeholder) el.placeholder=translations[lang][key]; 
+                    else if(el.tagName==='OPTION') el.textContent=translations[lang][key]; 
+                    else el.textContent=translations[lang][key];
+                }
+            });
+            updateCalculatorLabels();
         }
-        function setFontSize(size) {
-            document.documentElement.setAttribute('data-font-size', size);
-            localStorage.setItem('jeindex-fontsize', size);
-            updateFontSizeDropdown();
-            updateMobileFontLabel();
-            showToast(`Tamaño de fuente: ${getFontSizeLabel(size)}`, 'info');
-        }
-        function cycleFontSize() {
-            const sizes = ['small', 'base', 'large'];
-            const current = document.documentElement.getAttribute('data-font-size') || 'base';
-            setFontSize(sizes[(sizes.indexOf(current) + 1) % sizes.length]);
-        }
-        function getFontSizeLabel(size) { return { small: 'Pequeño', base: 'Mediano', large: 'Grande' }[size] || 'Mediano'; }
-        function updateMobileFontLabel() {
-            const label = document.getElementById('font-label-mobile');
-            if (label) { const s = document.documentElement.getAttribute('data-font-size') || 'base'; label.textContent = s === 'small' ? 'A-' : s === 'large' ? 'A+' : 'Aa'; }
-        }
-        function toggleFontSizeDropdown() { document.getElementById('font-size-menu').classList.toggle('show'); }
-        function updateFontSizeDropdown() {
-            const current = document.documentElement.getAttribute('data-font-size') || 'base';
-            ['small', 'base', 'large'].forEach(s => {
-                const check = document.getElementById(`check-${s}`), item = document.querySelector(`.dropdown-item[data-size="${s}"]`);
-                if (check && item) { s === current ? (check.classList.remove('opacity-0'), item.classList.add('active')) : (check.classList.add('opacity-0'), item.classList.remove('active')); }
+        
+        function updateCalculatorLabels() {
+            const labels = {
+                'label-addon-form': 'addon_form',
+                'label-addon-whatsapp': 'addon_social',
+                'label-addon-seo': 'addon_domain',
+                'label-addon-email': 'addon_email',
+                'label-addon-multilang': 'addon_multilang',
+                'label-addon-accessibility': 'addon_accessibility'
+            };
+            Object.entries(labels).forEach(([id, key]) => {
+                const el = document.getElementById(id);
+                if(el) el.textContent = getText(key);
             });
         }
-        document.addEventListener('click', e => { if (!document.getElementById('font-size-dropdown').contains(e.target)) document.getElementById('font-size-menu').classList.remove('show'); });
 
-        // ========== TEMPLATES ==========
-        const templates = {
-            restaurant: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-stone-900 text-stone-100"><nav class="flex justify-between items-center p-4 bg-stone-950 border-b border-stone-800"><span class="font-bold text-amber-500">🍝 Don Peppe Gourmet</span><button class="px-4 py-2 bg-amber-600 text-stone-900 rounded-lg text-xs font-bold">Reservar</button></nav><main class="max-w-4xl mx-auto p-6"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop" class="w-full h-64 object-cover rounded-xl mb-6"><div class="flex gap-2 mb-4"><button onclick="filter('all')" class="px-3 py-1 bg-amber-600 text-stone-900 rounded-lg text-xs font-bold">Todos</button><button onclick="filter('pasta')" class="px-3 py-1 bg-stone-800 rounded-lg text-xs font-bold">Pastas</button><button onclick="filter('pizza')" class="px-3 py-1 bg-stone-800 rounded-lg text-xs font-bold">Pizzas</button></div><div id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="menu-item flex gap-4 p-4 bg-stone-800 rounded-xl" data-cat="pasta"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=100&h=100&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div class="flex-1"><div class="flex justify-between"><span class="font-bold">Fettuccine Alfredo</span><span class="text-amber-400 font-bold">$14.500</span></div><p class="text-xs text-stone-400 mt-1">Pasta fresca con trufa negra</p></div></div><div class="menu-item flex gap-4 p-4 bg-stone-800 rounded-xl" data-cat="pizza"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=100&h=100&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div class="flex-1"><div class="flex justify-between"><span class="font-bold">Pizza Margherita</span><span class="text-amber-400 font-bold">$11.900</span></div><p class="text-xs text-stone-400 mt-1">Mozzarella de búfala fresca</p></div></div><div class="menu-item flex gap-4 p-4 bg-stone-800 rounded-xl" data-cat="pasta"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=100&h=100&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div class="flex-1"><div class="flex justify-between"><span class="font-bold">Lasagna de Asado</span><span class="text-amber-400 font-bold">$13.800</span></div><p class="text-xs text-stone-400 mt-1">Capas de pasta artesanal</p></div></div><div class="menu-item flex gap-4 p-4 bg-stone-800 rounded-xl" data-cat="pizza"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=100&h=100&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div class="flex-1"><div class="flex justify-between"><span class="font-bold">Tiramisú</span><span class="text-amber-400 font-bold">$6.200</span></div><p class="text-xs text-stone-400 mt-1">Receta tradicional italiana</p></div></div></div><div id="msg" class="hidden mt-4 p-4 bg-emerald-900/30 border border-emerald-700 rounded-lg text-center"><p class="text-sm text-emerald-300">✅ ¡Reserva confirmada!</p></div></main><script>function filter(c){document.querySelectorAll('.menu-item').forEach(i=>{if(c==='all'||i.dataset.cat===c)i.classList.remove('hidden');else i.classList.add('hidden')})}<\/script></body></html>`,
-            gym: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-zinc-950 text-white"><nav class="flex justify-between items-center p-4 bg-zinc-900 border-b border-zinc-800"><span class="font-black text-red-500 italic">🏋️ IRONFIT</span><button class="px-4 py-2 bg-red-600 rounded-lg text-xs font-bold">ÚNETE</button></nav><main class="max-w-4xl mx-auto p-6"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&h=400&fit=crop" class="w-full h-64 object-cover rounded-xl mb-6"><div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 mb-6"><h3 class="font-bold text-red-500 mb-3">Calculadora IMC</h3><div class="grid grid-cols-2 gap-3"><input type="number" id="w" placeholder="Peso (kg)" class="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-sm"><input type="number" id="h" placeholder="Altura (cm)" class="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-sm"></div><button onclick="calc()" class="mt-3 w-full py-2 bg-red-600 rounded-lg text-xs font-bold">Calcular</button><div id="r" class="hidden mt-3 p-3 bg-zinc-950 border border-zinc-800 rounded-lg"><p class="text-sm" id="rv"></p></div></div><div class="grid grid-cols-2 gap-4"><div class="p-5 bg-zinc-900 rounded-xl border border-zinc-800"><h4 class="font-bold text-zinc-400 text-xs">PLAN BASIC</h4><p class="text-2xl font-black mt-1">$19.900</p><ul class="text-xs text-zinc-500 mt-2 space-y-1"><li>✓ Acceso L-V</li><li>✓ Evaluación inicial</li></ul></div><div class="p-5 bg-zinc-900 rounded-xl border-2 border-red-500"><h4 class="font-bold text-red-500 text-xs">PLAN PREMIUM</h4><p class="text-2xl font-black mt-1">$29.900</p><ul class="text-xs text-zinc-500 mt-2 space-y-1"><li>✓ Acceso 24/7</li><li>✓ Clases grupales</li><li>✓ Coach personal</li></ul></div></div></main><script>function calc(){const w=+document.getElementById('w').value,h=+document.getElementById('h').value/100;if(!w||!h)return;const imc=(w/(h*h)).toFixed(1);document.getElementById('rv').textContent='IMC: '+imc;document.getElementById('r').classList.remove('hidden')}<\/script></body></html>`,
-            lawyer: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-slate-50 text-slate-800"><nav class="flex justify-between items-center p-4 bg-slate-900 text-white border-b border-slate-800"><span class="font-bold">⚖️ Gómez & Asociados</span><button class="px-4 py-2 bg-amber-500 text-slate-900 rounded-lg text-xs font-bold">Consulta</button></nav><main class="max-w-4xl mx-auto p-6"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop" class="w-full h-64 object-cover rounded-xl mb-6"><div class="grid grid-cols-3 gap-4 mb-6"><div class="p-4 bg-white rounded-xl border border-slate-200"><h4 class="font-bold text-xs">Corporativo</h4><p class="text-[10px] text-slate-500 mt-1">Empresas y contratos</p></div><div class="p-4 bg-white rounded-xl border border-slate-200"><h4 class="font-bold text-xs">Laboral</h4><p class="text-[10px] text-slate-500 mt-1">Despidos y derechos</p></div><div class="p-4 bg-white rounded-xl border border-slate-200"><h4 class="font-bold text-xs">Civil</h4><p class="text-[10px] text-slate-500 mt-1">Arriendos y sucesiones</p></div></div><div class="bg-white p-5 rounded-xl border border-slate-200"><h3 class="font-bold mb-3">Preguntas Frecuentes</h3><details class="group mb-2"><summary class="flex justify-between p-3 bg-slate-50 rounded-lg cursor-pointer"><span class="text-sm font-bold">¿Consulta gratuita?</span><i class="fa-solid fa-plus text-slate-400 group-open:rotate-45 transition"></i></summary><p class="text-xs text-slate-600 mt-2 px-3">Sí, la primera consulta de 30 min es gratis.</p></details><details class="group"><summary class="flex justify-between p-3 bg-slate-50 rounded-lg cursor-pointer"><span class="text-sm font-bold">¿Atienden urgencias?</span><i class="fa-solid fa-plus text-slate-400 group-open:rotate-45 transition"></i></summary><p class="text-xs text-slate-600 mt-2 px-3">Línea 24/7 para casos críticos.</p></details></div></main></body></html>`,
-            dentist: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-slate-50 text-slate-800"><nav class="flex justify-between items-center p-4 bg-white border-b border-cyan-100 shadow-sm"><span class="font-bold text-cyan-600">🦷 OdontoSana</span><button class="px-4 py-2 bg-cyan-600 text-white rounded-lg text-xs font-bold">Agendar</button></nav><main class="max-w-4xl mx-auto p-6"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=400&fit=crop" class="w-full h-64 object-cover rounded-xl mb-6"><div class="grid grid-cols-2 gap-4 mb-6"><div class="flex gap-3 p-4 bg-white rounded-xl border border-slate-200"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=80&h=80&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div><h4 class="font-bold text-sm">Limpieza</h4><p class="text-xs text-slate-500">$18.000</p></div></div><div class="flex gap-3 p-4 bg-white rounded-xl border border-slate-200"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=80&h=80&fit=crop" class="w-16 h-16 rounded-lg object-cover"><div><h4 class="font-bold text-sm">Blanqueamiento</h4><p class="text-xs text-slate-500">$45.000</p></div></div></div><div class="bg-white p-5 rounded-xl border border-slate-200"><h3 class="font-bold text-cyan-600 mb-3">Agendar Cita</h3><select id="t" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm mb-3"><option>Selecciona tratamiento</option><option>Ortodoncia</option><option>Limpieza</option><option>Blanqueamiento</option></select><input id="n" placeholder="Tu nombre" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm mb-3"><button onclick="book()" class="w-full py-2 bg-cyan-600 text-white rounded-lg text-xs font-bold">Confirmar</button><div id="ok" class="hidden mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-center"><p class="text-sm text-emerald-800">✅ ¡Cita agendada!</p></div></div></main><script>function book(){if(!document.getElementById('t').value||!document.getElementById('n').value)return;document.getElementById('ok').classList.remove('hidden')}<\/script></body></html>`,
-            barber: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-neutral-950 text-amber-100"><nav class="flex justify-between items-center p-4 bg-neutral-900 border-b border-neutral-800"><span class="font-black text-amber-400 uppercase">✂️ Barbería Leyendas</span><button class="px-4 py-2 border border-amber-400 text-amber-400 rounded-lg text-xs font-bold">Reservar</button></nav><main class="max-w-4xl mx-auto p-6"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&h=400&fit=crop" class="w-full h-64 object-cover rounded-xl mb-6"><div class="space-y-2 mb-6"><label class="flex items-center justify-between p-3 bg-neutral-900 border border-neutral-800 rounded-xl"><div class="flex items-center gap-2"><input type="checkbox" onchange="calc()" value="12000" id="c1" class="accent-amber-400"><span class="font-bold text-sm">Corte Premium</span></div><span class="text-amber-400 font-bold text-sm">$12.000</span></label><label class="flex items-center justify-between p-3 bg-neutral-900 border border-neutral-800 rounded-xl"><div class="flex items-center gap-2"><input type="checkbox" onchange="calc()" value="8000" id="c2" class="accent-amber-400"><span class="font-bold text-sm">Perfilado Barba</span></div><span class="text-amber-400 font-bold text-sm">$8.000</span></label><label class="flex items-center justify-between p-3 bg-neutral-900 border border-neutral-800 rounded-xl"><div class="flex items-center gap-2"><input type="checkbox" onchange="calc()" value="3000" id="c3" class="accent-amber-400"><span class="font-bold text-sm">Lavado + Masaje</span></div><span class="text-amber-400 font-bold text-sm">$3.000</span></label></div><div class="flex justify-between items-center pt-4 border-t border-neutral-800"><div><span class="text-xs text-neutral-500 uppercase">Total</span><span class="text-2xl font-black block" id="total">$0</span></div><button onclick="reserve()" class="px-6 py-3 bg-amber-400 text-neutral-950 rounded-lg text-xs font-black uppercase">Reservar</button></div><div class="grid grid-cols-4 gap-2 mt-6"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=150&h=150&fit=crop" class="w-full h-20 object-cover rounded-lg"><img src="https://images.unsplash.com/photo-1599351431751-6e5c5f8e2c0a?w=150&h=150&fit=crop" class="w-full h-20 object-cover rounded-lg"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=150&h=150&fit=crop" class="w-full h-20 object-cover rounded-lg"><img src="https://images.unsplash.com/photo-1593702295094-aea2c835a79e?w=150&h=150&fit=crop" class="w-full h-20 object-cover rounded-lg"></div></main><script>function calc(){let t=0;if(document.getElementById('c1').checked)t+=12000;if(document.getElementById('c2').checked)t+=8000;if(document.getElementById('c3').checked)t+=3000;document.getElementById('total').textContent='$'+t.toLocaleString('es-CL')}function reserve(){const t=document.getElementById('total').textContent;if(t==='$0')return;alert('✂️ Reserva: '+t)}<\/script></body></html>`
-        };
+        // ========== CHAT ==========
+        let chatOpen=false, chatStep=0, selectedOption=null;
+        function toggleChat() { chatOpen=!chatOpen; document.getElementById('chat-panel').classList.toggle('show', chatOpen); if(chatOpen) updateChat(); }
+        function updateChat() { const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); body.innerHTML=`<div class="chat-message bot">${getText('chat_welcome')}</div>`; opts.style.display='flex'; chatStep=0; selectedOption=null; }
+        function sendChatOption(opt) { selectedOption=opt; const body=document.getElementById('chat-body'), opts=document.getElementById('chat-options'); const userMsg=document.createElement('div'); userMsg.className='chat-message user'; userMsg.textContent=opt==='pricing'?getText('chat_opt_pricing').replace('💰','').trim():opt==='showcase'?getText('chat_opt_templates').replace('🎨','').trim():getText('chat_opt_contact').replace('📞','').trim(); body.appendChild(userMsg); body.scrollTop=body.scrollHeight; opts.style.display='none'; setTimeout(()=>{const botMsg=document.createElement('div'); botMsg.className='chat-message bot'; if(opt==='pricing'){botMsg.textContent=getText('chat_resp_pricing'); opts.innerHTML=`<button class="chat-option" onclick="sendChatOption('contact')">${getText('chat_opt_contact')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;}else if(opt==='showcase'){botMsg.textContent=getText('chat_resp_templates'); opts.innerHTML=`<button class="chat-option" onclick="document.getElementById('showcase').scrollIntoView({behavior:'smooth'});toggleChat();">👁️ ${getText('nav_showcase')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;}else if(opt==='contact'){botMsg.textContent=getText('chat_resp_contact'); opts.innerHTML=`<button class="chat-option whatsapp" onclick="window.open('https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web.','_blank')">${getText('chat_whatsapp_confirm')}</button><button class="chat-option" onclick="updateChat()">${getText('chat_whatsapp_cancel')}</button>`;} body.appendChild(botMsg); body.scrollTop=body.scrollHeight; opts.style.display='flex';},600); }
 
-        let testActive = false;
-        function startSpeedTest() {
-            if (testActive) return; testActive = true;
-            const hBar = document.getElementById('html-bar'), wBar = document.getElementById('wp-bar');
-            const hTimer = document.getElementById('html-timer'), wTimer = document.getElementById('wp-timer');
-            hBar.style.width = '0%'; wBar.style.width = '0%';
-            hTimer.innerText = '0.0 Segundos'; wTimer.innerText = '0.0 Segundos';
-            setTimeout(() => { hBar.style.width = '100%'; hTimer.innerText = '0.3 Segundos (Excelente)'; }, 100);
-            let p = 0; const int = setInterval(() => { p += 4; if (p <= 100) { wBar.style.width = p + '%'; wTimer.innerText = (p * 0.034).toFixed(1) + ' Segundos'; } else { clearInterval(int); wTimer.innerText = '3.4 Segundos (Fallo)'; testActive = false; } }, 120);
+        // ========== SPEED TEST ==========
+        let testActive=false;
+        function startSpeedTest() { if(testActive)return; testActive=true; const hBar=document.getElementById('html-bar'),wBar=document.getElementById('wp-bar'),hTimer=document.getElementById('html-timer'),wTimer=document.getElementById('wp-timer'); hBar.style.width='0%';wBar.style.width='0%';hTimer.innerText='0.0 Segundos';wTimer.innerText='0.0 Segundos'; setTimeout(()=>{hBar.style.width='100%';hTimer.innerText='0.3 Segundos (Excelente)';},100); let p=0;const int=setInterval(()=>{p+=4;if(p<=100){wBar.style.width=p+'%';wTimer.innerText=(p*0.034).toFixed(1)+' Segundos';}else{clearInterval(int);wTimer.innerText='3.4 Segundos (Fallo)';testActive=false;}},120); }
+
+        // ========== CALCULADORA - CORREGIDO CON VALIDACIÓN NULL-SAFE ==========
+        let selectedCurrency='CLP'; const EXCHANGE_RATES={CLP:1,USD:950,MXN:53}; 
+        // CORRECCIÓN: Eliminado addonDark que ya no existe
+        const BASE_VALUES_CLP={landing:40000,extraPage:12000,addonForm:10000,addonWhatsapp:6000,addonSeo:16000,hostNetlify:0,hostGoogleSites:0,addonEmail:8000,addonMultilang:10000,addonAccessibility:8000};
+        
+        function formatPrice(v) { 
+            if(selectedCurrency==='CLP')return'$'+v.toLocaleString('es-CL')+' CLP'; 
+            if(selectedCurrency==='USD')return'$'+Math.round(v/EXCHANGE_RATES.USD).toLocaleString('en-US')+' USD'; 
+            return'$'+Math.round(v/EXCHANGE_RATES.MXN).toLocaleString('es-MX')+' MXN'; 
+        }
+        let selectedHostingPlan='netlify';
+        
+        function selectCurrency(c) { 
+            selectedCurrency=c; 
+            ['clp','usd','mxn'].forEach(x=>{
+                const b=document.getElementById(`btn-curr-${x}`); 
+                if(b){
+                    if(x===c.toLowerCase()){b.className="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white";}
+                    else{b.className="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white";b.style.color='var(--text-muted)';}
+                }
+            }); 
+            const prices = ['serv-price-1','serv-price-2','serv-price-3'];
+            prices.forEach((id,i)=>{const el=document.getElementById(id); if(el) el.innerText=`Desde ${formatPrice([40000,88000,136000][i])}`;});
+            updateCalculatorLabels(); 
+            updatePriceEstimate(); 
         }
 
-        let currentSelectedTemplate = 'restaurant';
-        function loadTemplate(key) {
-            currentSelectedTemplate = key;
-            const loader = document.getElementById('sandbox-loader'), iframe = document.getElementById('sandbox-iframe');
-            const addressMock = document.getElementById('mock-address');
-            ['restaurant', 'gym', 'lawyer', 'dentist', 'barber'].forEach(t => {
-                const btn = document.getElementById(`btn-${t}`);
-                if (t === key) { btn.classList.add('active'); btn.style.backgroundColor = 'var(--card-bg)'; }
-                else { btn.classList.remove('active'); btn.style.backgroundColor = t === 'restaurant' ? 'var(--card-bg)' : 'var(--bg-secondary)'; }
+        function selectHostingPlan(plan) { 
+            selectedHostingPlan=plan; 
+            ['netlify','googlesites'].forEach(p => {
+                const card=document.getElementById(`plan-${p}-card`);
+                if(card){
+                    card.className="p-3 border border-brand-border rounded-xl cursor-pointer text-center block transition-all"; 
+                    card.style.backgroundColor='var(--bg-secondary)';
+                }
             });
-            addressMock.innerText = `https://jeindex.cl/${key}-preview`;
-            loader.classList.remove('hidden');
-            setTimeout(() => { iframe.srcdoc = templates[key]; loader.classList.add('hidden'); }, 300);
+            const selectedCard=document.getElementById(`plan-${plan}-card`);
+            if(selectedCard){
+                selectedCard.className="p-3 border border-violet-500 rounded-xl cursor-pointer text-center block transition-all";
+                selectedCard.style.backgroundColor='var(--bg-secondary)';
+            }
+            updatePriceEstimate(); 
         }
 
-        let selectedCurrency = 'CLP';
-        const EXCHANGE_RATES = { CLP: 1, USD: 950, MXN: 53 };
-        const BASE_VALUES_CLP = { landing: 40000, extraPage: 12000, addonForm: 9000, addonWhatsapp: 6000, addonSeo: 16000, addonDark: 10000, hostEco: 0, hostPro: 8000, hostEdge: 16000 };
-
-        function formatPrice(clpValue) {
-            if (selectedCurrency === 'CLP') return '$' + clpValue.toLocaleString('es-CL') + ' CLP';
-            if (selectedCurrency === 'USD') return '$' + Math.round(clpValue / EXCHANGE_RATES.USD).toLocaleString('en-US') + ' USD';
-            return '$' + Math.round(clpValue / EXCHANGE_RATES.MXN).toLocaleString('es-MX') + ' MXN';
-        }
-
-        let selectedHostingPlan = 'eco';
-        function selectCurrency(currency) {
-            selectedCurrency = currency;
-            ['clp', 'usd', 'mxn'].forEach(c => {
-                const btn = document.getElementById(`btn-curr-${c}`);
-                if (c === currency.toLowerCase()) { btn.className = "px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white"; }
-                else { btn.className = "px-3 py-1.5 rounded-md font-bold transition-all hover:text-white"; btn.style.color = 'var(--text-muted)'; }
-            });
-            document.getElementById('serv-price-1').innerText = `Desde ${formatPrice(40000)}`;
-            document.getElementById('serv-price-2').innerText = `Desde ${formatPrice(88000)}`;
-            document.getElementById('serv-price-3').innerText = `Desde ${formatPrice(136000)}`;
-            document.getElementById('label-addon-form').innerText = `Reservaciones Online (+${formatPrice(BASE_VALUES_CLP.addonForm)})`;
-            document.getElementById('label-addon-whatsapp').innerText = `Boton WhatsApp Pro (+${formatPrice(BASE_VALUES_CLP.addonWhatsapp)})`;
-            document.getElementById('label-addon-seo').innerText = `SEO Avanzado Integrado (+${formatPrice(BASE_VALUES_CLP.addonSeo)})`;
-            document.getElementById('label-addon-dark').innerText = `Modo Claro/Oscuro (+${formatPrice(BASE_VALUES_CLP.addonDark)})`;
-            document.getElementById('label-plan-eco').innerText = `Netlify (${formatPrice(0)})`;
-            document.getElementById('label-plan-pro').innerText = `Cloudflare (+${formatPrice(BASE_VALUES_CLP.hostPro)})`;
-            document.getElementById('label-plan-edge').innerText = `Vercel Edge (+${formatPrice(BASE_VALUES_CLP.hostEdge)})`;
-            updatePriceEstimate();
-        }
-
-        function selectHostingPlan(plan) {
-            selectedHostingPlan = plan;
-            ['eco', 'pro', 'edge'].forEach(p => {
-                const card = document.getElementById(`plan-${p}-card`);
-                card.className = "p-3 border border-brand-border rounded-xl cursor-pointer text-center block"; card.style.backgroundColor = 'var(--bg-secondary)';
-            });
-            document.getElementById(`plan-${plan}-card`).classList.add('border-violet-500');
-            updatePriceEstimate();
-        }
-
-        function updatePriceEstimate() {
-            const pages = parseInt(document.getElementById('slider-pages').value);
-            const addForm = document.getElementById('add-form').checked, addWhatsapp = document.getElementById('add-whatsapp').checked;
-            const addSeo = document.getElementById('add-seo').checked, addDark = document.getElementById('add-dark').checked;
-            document.getElementById('calc-pages-text').innerText = pages === 1 ? "1 Página (Landing Page)" : `${pages} Secciones / Páginas`;
-            let totalCLP = BASE_VALUES_CLP.landing;
-            if (pages > 1) totalCLP += (pages - 1) * BASE_VALUES_CLP.extraPage;
-            if (addForm) totalCLP += BASE_VALUES_CLP.addonForm; if (addWhatsapp) totalCLP += BASE_VALUES_CLP.addonWhatsapp;
-            if (addSeo) totalCLP += BASE_VALUES_CLP.addonSeo; if (addDark) totalCLP += BASE_VALUES_CLP.addonDark;
-            if (selectedHostingPlan === 'pro') totalCLP += BASE_VALUES_CLP.hostPro; else if (selectedHostingPlan === 'edge') totalCLP += BASE_VALUES_CLP.hostEdge;
-            document.getElementById('calc-final-price').innerText = formatPrice(totalCLP);
-        }
-
-        function transferBudgetToForm() {
-            const priceStr = document.getElementById('calc-final-price').innerText;
-            document.getElementById('form-pricing').value = `${priceStr} (Configurado por Calculadora)`;
-            document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
-            showToast("Cotización aplicada al formulario de contacto.", "info");
-        }
-
-        // ========== FORM SUBMISSION HANDLER ==========
-        // Cuando Netlify procesa el formulario, este handler se ejecuta
-        // para mostrar el toast y redirigir a WhatsApp
-        function submitContactForm(e) {
-            e.preventDefault();
+        // CORRECCIÓN: Función con validación null-safe para todos los elementos
+        function updatePriceEstimate() { 
+            const pagesInput=document.getElementById('slider-pages');
+            const pages = pagesInput ? parseInt(pagesInput.value) : 1;
             
-            const form = e.target;
-            const formData = new FormData(form);
-            const name = formData.get('nombre') || document.getElementById('form-name').value;
-            const calculatedPrice = formData.get('cotizacion') || document.getElementById('form-pricing').value;
-
-            // Enviar datos a Netlify Forms
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => {
-                showToast("✅ ¡Solicitud enviada correctamente! Te contactaremos pronto.", "success");
-                // Redirigir a WhatsApp después de 2 segundos
-                setTimeout(() => {
-                    const waUrl = `https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20mi%20nombre%20es%20${encodeURIComponent(name)}.%20Cotización:%20${encodeURIComponent(calculatedPrice)}.`;
-                    window.open(waUrl, '_blank');
-                }, 2000);
-                form.reset();
-            })
-            .catch((error) => {
-                showToast("❌ Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.", "error");
-                console.error('Error:', error);
-            });
+            // CORRECCIÓN: Validación null-safe para todos los checkboxes
+            const addForm = document.getElementById('add-form')?.checked || false;
+            const addWhatsapp = document.getElementById('add-whatsapp')?.checked || false;
+            const addSeo = document.getElementById('add-seo')?.checked || false;
+            const addEmail = document.getElementById('add-email')?.checked || false;
+            const addMultilang = document.getElementById('add-multilang')?.checked || false;
+            const addAccessibility = document.getElementById('add-accessibility')?.checked || false;
+            
+            const pagesText = document.getElementById('calc-pages-text');
+            if(pagesText) pagesText.innerText = pages===1 ? "1 Página (Landing Page)" : `${pages} Secciones / Páginas`;
+            
+            let totalCLP = BASE_VALUES_CLP.landing; 
+            if(pages>1) totalCLP += (pages-1)*BASE_VALUES_CLP.extraPage; 
+            if(addForm) totalCLP += BASE_VALUES_CLP.addonForm; 
+            if(addWhatsapp) totalCLP += BASE_VALUES_CLP.addonWhatsapp; 
+            if(addSeo) totalCLP += BASE_VALUES_CLP.addonSeo;
+            if(addEmail) totalCLP += BASE_VALUES_CLP.addonEmail; 
+            if(addMultilang) totalCLP += BASE_VALUES_CLP.addonMultilang; 
+            if(addAccessibility) totalCLP += BASE_VALUES_CLP.addonAccessibility;
+            
+            // Hosting gratis para ambas opciones
+            if(selectedHostingPlan==='netlify' || selectedHostingPlan==='googlesites') totalCLP += 0;
+            
+            const finalPrice = document.getElementById('calc-final-price');
+            if(finalPrice) finalPrice.innerText = formatPrice(totalCLP); 
         }
 
-        function showToast(message, type = "success") {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            let bgClass = "border-slate-700", iconClass = "fa-bell text-violet-400", textColor = "text-slate-100";
-            if (type === "success") { bgClass = "border-emerald-800"; iconClass = "fa-circle-check text-emerald-400"; textColor = "text-emerald-200"; }
-            else if (type === "error") { bgClass = "border-rose-800"; iconClass = "fa-circle-exclamation text-rose-400"; textColor = "text-rose-200"; }
-            else if (type === "info") { bgClass = "border-indigo-800"; iconClass = "fa-circle-info text-indigo-400"; textColor = "text-indigo-200"; }
-            toast.className = `flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`;
-            toast.style.backgroundColor = 'var(--card-bg)';
-            toast.innerHTML = `<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`;
-            container.appendChild(toast);
-            setTimeout(() => toast.classList.remove('translate-x-12', 'opacity-0'), 50);
-            setTimeout(() => { toast.classList.add('opacity-0', 'translate-x-12'); setTimeout(() => toast.remove(), 300); }, 4000);
+        function transferBudgetToForm() { 
+            const priceEl = document.getElementById('calc-final-price');
+            const priceStr = priceEl ? priceEl.innerText : '$40.000 CLP';
+            
+            const pricingField = document.getElementById('form-pricing');
+            if(pricingField) pricingField.value = priceStr;
+            
+            const applyBtn = document.getElementById('apply-budget-btn');
+            if(pricingField) pricingField.classList.remove('pricing-field-error');
+            if(applyBtn) applyBtn.classList.remove('apply-btn-highlight');
+            
+            const contacto = document.getElementById('contacto');
+            if(contacto) contacto.scrollIntoView({behavior:'smooth'}); 
+            
+            showToast(getText('toast_applied'), "success");
         }
 
-        window.onload = function() {
-            initPreferences();
-            const btn = document.getElementById('mobile-menu-btn'), drawer = document.getElementById('mobile-menu');
-            if (btn && drawer) btn.addEventListener('click', () => drawer.classList.toggle('hidden'));
-            loadTemplate('restaurant');
-            selectCurrency('CLP');
+        // ========== FORMULARIO NETLIFY CON VALIDACIÓN ==========
+        function submitContactForm(e) { 
+            e.preventDefault(); 
+            
+            const pricingField = document.getElementById('form-pricing');
+            const calculatedPriceEl = document.getElementById('calc-final-price');
+            
+            if(!pricingField || !calculatedPriceEl) {
+                showToast("Error: No se pudo validar la cotización", "error");
+                return;
+            }
+            
+            const pricingFieldValue = pricingField.value;
+            const calculatedPrice = calculatedPriceEl.innerText;
+            
+            if (pricingFieldValue !== calculatedPrice) {
+                showToast(getText('toast_budget_first'), "error");
+                pricingField.classList.add('pricing-field-error');
+                setTimeout(() => pricingField.classList.remove('pricing-field-error'), 2000);
+                
+                const applyBtn = document.getElementById('apply-budget-btn');
+                if(applyBtn){
+                    applyBtn.classList.add('apply-btn-highlight');
+                    setTimeout(() => {
+                        const calculadora = document.getElementById('calculadora');
+                        if(calculadora) calculadora.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                    setTimeout(() => applyBtn.classList.remove('apply-btn-highlight'), 5000);
+                }
+                return false;
+            }
+            
+            const form = e.target; 
+            const formData = new FormData(form); 
+            const nameField = document.getElementById('form-name');
+            const name = formData.get('nombre') || (nameField ? nameField.value : '');
+            const calculatedPriceFinal = formData.get('cotizacion') || pricingField.value; 
+            
+            fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() })
+            .then(() => { 
+                showToast(getText('toast_sent'), "success"); 
+                setTimeout(() => { 
+                    const waUrl = `https://wa.me/56945192851?text=Hola%20Jeindex.cl,%20mi%20nombre%20es%20${encodeURIComponent(name)}.%20Cotización:%20${encodeURIComponent(calculatedPriceFinal)}.`; 
+                    window.open(waUrl, '_blank'); 
+                }, 2000); 
+                if(form) form.reset(); 
+            })
+            .catch((error) => { 
+                showToast(getText('toast_error'), "error"); 
+                console.error('Error:', error); 
+            }); 
+        }
+
+        // ========== TOAST ==========
+        function showToast(message, type="success") { 
+            const container=document.getElementById('toast-container');
+            if(!container) return;
+            const toast=document.createElement('div'); 
+            let bgClass="border-slate-700", iconClass="fa-bell text-violet-400", textColor="text-slate-100"; 
+            if(type==="success"){bgClass="border-emerald-800";iconClass="fa-circle-check text-emerald-400";textColor="text-emerald-200";}
+            else if(type==="error"){bgClass="border-rose-800";iconClass="fa-circle-exclamation text-rose-400";textColor="text-rose-200";}
+            else if(type==="info"){bgClass="border-indigo-800";iconClass="fa-circle-info text-indigo-400";textColor="text-indigo-200";} 
+            toast.className=`flex items-center gap-3 p-4 rounded-xl border shadow-xl transition-all duration-300 transform translate-x-12 opacity-0 pointer-events-auto max-w-sm ${bgClass} ${textColor}`; 
+            toast.style.backgroundColor='var(--card-bg)'; 
+            toast.innerHTML=`<i class="fa-solid ${iconClass} text-lg shrink-0"></i><span class="text-xs font-bold leading-relaxed">${message}</span><button onclick="this.parentElement.remove()" class="ml-auto text-xs font-bold" style="color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>`; 
+            container.appendChild(toast); 
+            setTimeout(()=>toast.classList.remove('translate-x-12','opacity-0'),50); 
+            setTimeout(()=>{toast.classList.add('opacity-0','translate-x-12');setTimeout(()=>toast.remove(),300);},4000); 
+        }
+
+        // ========== INICIALIZACIÓN ==========
+        window.onload = function() { 
+            initPreferences(); 
+            const btn=document.getElementById('mobile-menu-btn'), drawer=document.getElementById('mobile-menu'); 
+            if(btn&&drawer)btn.addEventListener('click',()=>drawer.classList.toggle('hidden')); 
+            selectCurrency('CLP'); 
         };
     </script>
 </body>
