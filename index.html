@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CAMBIO #1: Favicon actualizado -->
     <link rel="icon" type="image/png" href="https://iili.io/C9F3fiF.th.png">
     <title>Jeindex.cl | Portafolio de Páginas Web en Código HTML Puro</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -151,6 +150,37 @@
         .form-success-message { display: none; text-align: center; padding: 2rem; }
         .form-success-message.show { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* ===== CAMBIO #3: Botones de integración seleccionables ===== */
+        .integration-btn {
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .integration-btn:hover {
+            background-color: var(--bg-tertiary);
+            border-color: var(--accent-violet);
+        }
+        .integration-btn.active {
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)) !important;
+            border-color: var(--accent-violet) !important;
+            color: white !important;
+            font-weight: 600;
+        }
+        .integration-btn.active i {
+            color: white !important;
+        }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
@@ -218,7 +248,6 @@
                     <select onchange="setLanguage(this.value)" class="p-2 rounded-lg text-xs font-bold" style="background-color: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-color);"><option value="es">ES</option><option value="en">EN</option><option value="fr">FR</option></select>
                 </div>
             </div>
-            <!-- WhatsApp actualizado -->
             <a href="https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="block text-center py-3 bg-violet-600 text-white rounded-lg font-bold mt-2" data-i18n="cta_quote">Cotizar Proyecto</a>
         </div>
     </header>
@@ -298,7 +327,6 @@
                     <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-muted);" data-i18n="advantage_seo_desc">Escribimos código semántico para que los robots de Google rastreen perfectamente el contenido y coloquen tus servicios arriba de la competencia.</p>
                 </div>
             </div>
-            <!-- Simulador de Velocidad - Ambos timers comienzan en 0.0 -->
             <div class="mt-16 rounded-2xl p-6 sm:p-10 border border-brand-border max-w-3xl mx-auto" style="background-color: var(--card-bg);">
                 <h3 class="text-lg font-bold text-center mb-6" style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i> <span data-i18n="speed_title">Simulador de Velocidad de Servidor</span></h3>
                 <div class="space-y-6">
@@ -310,7 +338,7 @@
         </div>
     </section>
 
-    <!-- PORTAFOLIO SECTION - Previews 1:1 (square) -->
+    <!-- PORTAFOLIO SECTION -->
     <section id="showcase" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -324,11 +352,9 @@
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="showcase_desc">Explora nuestros últimos proyectos publicados. Cada sitio está optimizado para velocidad, SEO y experiencia de usuario excepcional.</p>
             </div>
 
-            <!-- Grid de tarjetas con previews 1:1 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Trikibarber -->
                 <div class="group relative bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:transform hover:-translate-y-1">
-                    <!-- Preview 1:1 (aspect-square) -->
                     <div class="relative aspect-square overflow-hidden bg-slate-900">
                         <iframe src="https://trikibarber.netlify.app/" class="absolute inset-0 w-full h-full border-0 scale-50 origin-top" style="pointer-events: none;"></iframe>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60"></div>
@@ -413,7 +439,7 @@
         </div>
     </section>
 
-    <!-- CALCULADORA SECTION - Precios en tiempo real -->
+    <!-- CALCULADORA SECTION -->
     <section id="calculadora" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -434,15 +460,14 @@
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-brand-border"><h3 class="text-lg font-bold" style="color: var(--text-primary);"><i class="fa-solid fa-sliders mr-2" style="color: var(--accent-violet);"></i> <span data-i18n="calc_params">Parámetros</span></h3><div class="flex items-center space-x-2"><span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="calc_currency">Moneda:</span><div class="flex p-1 rounded-lg border border-brand-border text-xs" style="background-color: var(--bg-secondary);"><button onclick="selectCurrency('CLP')" id="btn-curr-clp" class="px-3 py-1.5 rounded-md font-bold transition-all bg-violet-600 text-white">CLP ($)</button><button onclick="selectCurrency('USD')" id="btn-curr-usd" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">USD ($)</button><button onclick="selectCurrency('MXN')" id="btn-curr-mxn" class="px-3 py-1.5 rounded-md font-bold transition-all hover:text-white" style="color: var(--text-muted);">MXN ($)</button></div></div></div>
                     <div class="space-y-2"><div class="flex justify-between text-xs sm:text-sm font-semibold"><span style="color: var(--text-secondary);" data-i18n="calc_sections">Secciones:</span><span class="font-bold" id="calc-pages-text" style="color: var(--accent-violet);">1 Página (Landing)</span></div><input oninput="updatePriceEstimate()" type="range" id="slider-pages" min="1" max="10" value="1" class="w-full h-2 rounded-lg accent-violet-600 cursor-pointer" style="background-color: var(--bg-tertiary);"></div>
                     
-                    <!-- Integraciones con precios dinámicos -->
+                    <!-- CAMBIO #3: Integraciones como botones seleccionables (sin checkboxes) -->
                     <div class="space-y-3"><span class="text-xs sm:text-sm font-semibold block" style="color: var(--text-secondary);" data-i18n="calc_integrations">Integraciones:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-form" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-form" style="color: var(--text-secondary);"></span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-whatsapp" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-whatsapp" style="color: var(--text-secondary);"></span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-seo" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-seo" style="color: var(--text-secondary);"></span></label>
-                        <!-- CAMBIOS #2, #3, #4: Textos corregidos sin precio duplicado -->
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-email" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-email" style="color: var(--text-secondary);"></span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-multilang" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-multilang" style="color: var(--text-secondary);"></span></label>
-                        <label class="flex items-center space-x-3 p-3 border border-brand-border rounded-xl cursor-pointer" style="background-color: var(--bg-secondary);"><input onchange="updatePriceEstimate()" type="checkbox" id="add-accessibility" class="w-4 h-4 accent-violet-600 rounded"><span class="text-xs" id="label-addon-accessibility" style="color: var(--text-secondary);"></span></label>
+                        <button type="button" onclick="toggleIntegration('form')" id="btn-addon-form" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-form"></i><span id="label-addon-form"></span></button>
+                        <button type="button" onclick="toggleIntegration('whatsapp')" id="btn-addon-whatsapp" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-whatsapp"></i><span id="label-addon-whatsapp"></span></button>
+                        <button type="button" onclick="toggleIntegration('seo')" id="btn-addon-seo" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-seo"></i><span id="label-addon-seo"></span></button>
+                        <button type="button" onclick="toggleIntegration('email')" id="btn-addon-email" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-email"></i><span id="label-addon-email"></span></button>
+                        <button type="button" onclick="toggleIntegration('multilang')" id="btn-addon-multilang" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-multilang"></i><span id="label-addon-multilang"></span></button>
+                        <button type="button" onclick="toggleIntegration('accessibility')" id="btn-addon-accessibility" class="integration-btn"><i class="fa-regular fa-square" id="icon-addon-accessibility"></i><span id="label-addon-accessibility"></span></button>
                     </div></div>
                     
                     <!-- Hosting con 2 opciones gratis -->
@@ -465,7 +490,7 @@
         </div>
     </section>
 
-    <!-- CONTACTO SECTION - Formulario con mensaje de éxito (SIN fetch) -->
+    <!-- CONTACTO SECTION -->
     <section id="contacto" class="py-24 relative border-t border-brand-border" style="background-color: var(--bg-tertiary);">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-4 mb-12">
@@ -474,7 +499,7 @@
                 <p class="text-sm sm:text-base" style="color: var(--text-muted);" data-i18n="contact_desc">Completa el formulario y crearemos el diseño perfecto para tu marca.</p>
             </div>
             
-            <!-- Formulario con atributo netlify para procesamiento automático -->
+            <!-- Formulario con atributo netlify -->
             <form name="contacto" netlify onsubmit="submitContactForm(event)" id="contact-form" class="border border-brand-border rounded-3xl p-6 sm:p-10 space-y-6" style="background-color: var(--bg-secondary);">
                 <input type="hidden" name="form-name" value="contacto" />
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -485,13 +510,14 @@
                     <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_phone">WhatsApp o Teléfono</label><input type="tel" id="form-phone" name="telefono" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500" placeholder="+56 9 1234 5678"></div>
                     <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_industry">Rubro Comercial</label><select id="form-rubro" name="rubro" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-500"><option value="Gastronomía" data-i18n="opt_food">Gastronomía y Alimentos</option><option value="Servicios" data-i18n="opt_services">Abogados, Médicos y Consultores</option><option value="Fitness" data-i18n="opt_fitness">Gimnasios y Entrenadores</option><option value="Odontología" data-i18n="opt_dental">Clínica Dental / Salud</option><option value="Estética" data-i18n="opt_beauty">Barbería / Belleza</option><option value="Otro" data-i18n="opt_other">Otros rubros comerciales</option></select></div>
                 </div>
+                <!-- CAMBIO #2: Cotización Vinculada con texto inicial "Aplicar Presupuesto" -->
                 <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_quote">Cotización Vinculada</label>
-                    <input type="text" id="form-pricing" name="cotizacion" readonly class="w-full rounded-xl px-4 py-3 font-mono font-bold text-sm cursor-not-allowed" style="color: var(--accent-violet); background-color: var(--input-bg);" value="$40.000 CLP (Configuración Inicial)"></div>
+                    <input type="text" id="form-pricing" name="cotizacion" readonly class="w-full rounded-xl px-4 py-3 font-mono font-bold text-sm cursor-not-allowed" style="color: var(--accent-violet); background-color: var(--input-bg);" value="Aplicar Presupuesto"></div>
                 <div class="space-y-2"><label class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);" data-i18n="field_message">Breve descripción de los requisitos</label><textarea id="form-description" name="mensaje" required rows="4" class="w-full rounded-xl p-4 text-sm focus:outline-none focus:border-violet-500 placeholder-slate-600" placeholder="Ej: Me interesa un diseño adaptado para mi restaurante de asados similar al modelo Gourmet..."></textarea></div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold transition-all shadow-xl shadow-violet-600/30" data-i18n="contact_submit">Enviar Solicitud de Desarrollo <i class="fa-solid fa-paper-plane ml-2"></i></button>
             </form>
             
-            <!-- Mensaje de éxito (oculto por defecto) -->
+            <!-- Mensaje de éxito -->
             <div id="form-success" class="form-success-message border border-brand-border rounded-3xl p-6 sm:p-10" style="background-color: var(--bg-secondary);">
                 <div class="text-center space-y-4">
                     <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -504,7 +530,7 @@
         </div>
     </section>
 
-    <!-- FOOTER - WhatsApp actualizado -->
+    <!-- FOOTER - CAMBIO #4: Íconos centrados -->
     <footer class="border-t border-brand-border py-12 text-xs sm:text-sm" style="background-color: var(--bg-secondary); color: var(--text-muted);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-3">
@@ -512,15 +538,15 @@
                 <span class="font-extrabold" style="color: var(--text-primary);">Jeindex.cl</span>
             </div>
             <p>&copy; 2026 Jeindex.cl. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <span data-i18n="footer_tech">Desarrollado con HTML5 estático puro de alto rendimiento.</span></p>
-            <div class="flex space-x-4">
+            <!-- CAMBIO #4: Íconos centrados con flex -->
+            <div class="flex justify-center items-center space-x-4">
                 <a href="https://www.linkedin.com/in/jose-espinoza-figueroa" target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <!-- WhatsApp actualizado -->
                 <a href="https://wa.me/56936307107?text=Hola%20Jeindex.cl,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20web." target="_blank" class="hover:text-white transition-colors" style="color: var(--text-muted);"><i class="fa-brands fa-whatsapp text-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Chat Flotante Interactivo - WhatsApp actualizado -->
+    <!-- Chat Flotante Interactivo -->
     <div class="chat-widget">
         <div class="chat-bubble" onclick="toggleChat()" title="Chat interactivo"><i class="fa-solid fa-comments"></i></div>
         <div class="chat-panel" id="chat-panel">
@@ -548,31 +574,31 @@
         
         const EXCHANGE_RATES = { CLP: 1, USD: 950, MXN: 53 };
         
-        // Textos de integraciones por idioma - CAMBIOS #2, #3, #4: Sin precio duplicado
+        // CAMBIO #1: Textos base SIN precio (el precio se agrega dinámicamente)
         const ADDON_TEXTS = {
             es: {
-                form: 'Formulario de Contacto', whatsapp: 'Botón de Redes Sociales',
-                seo: 'Dominio Personalizado www.tunegocio.cl (+$16.000) Renovación Anual',
-                // CAMBIO #2: Sin "(+$8.000 CLP)" duplicado al final
-                email: 'Correo corporativo personalizado "nombre@tudominio.cl" (+$8.000 CLP) Renovación Mensual',
-                // CAMBIO #3: "Multi-idiomas" con guión, sin precio duplicado
-                multilang: 'Web Multi-idiomas (+$10.000 CLP) EN/ES/FR etc.',
-                // CAMBIO #4: Sin precio duplicado
-                accessibility: 'Panel de Accesibilidad (+$8.000 CLP)'
+                form: { text: 'Formulario de Contacto', info: '' },
+                whatsapp: { text: 'Botón de Redes Sociales', info: '' },
+                seo: { text: 'Dominio Personalizado www.tunegocio.cl', info: 'Renovación Anual' },
+                email: { text: 'Correo corporativo personalizado "nombre@tudominio.cl"', info: 'Renovación Mensual' },
+                multilang: { text: 'Web Multi-idiomas', info: 'EN/ES/FR etc.' },
+                accessibility: { text: 'Panel de Accesibilidad', info: '' }
             },
             en: {
-                form: 'Contact Form', whatsapp: 'Social Media Button',
-                seo: 'Custom Domain www.yourbusiness.cl (+$16,000) Annual Renewal',
-                email: 'Custom corporate email "name@yourdomain.cl" (+$8,000 CLP) Monthly Renewal',
-                multilang: 'Multilingual Website (+$10,000 CLP) EN/ES/FR etc.',
-                accessibility: 'Accessibility Panel (+$8,000 CLP)'
+                form: { text: 'Contact Form', info: '' },
+                whatsapp: { text: 'Social Media Button', info: '' },
+                seo: { text: 'Custom Domain www.yourbusiness.cl', info: 'Annual Renewal' },
+                email: { text: 'Custom corporate email "name@yourdomain.cl"', info: 'Monthly Renewal' },
+                multilang: { text: 'Multilingual Website', info: 'EN/ES/FR etc.' },
+                accessibility: { text: 'Accessibility Panel', info: '' }
             },
             fr: {
-                form: 'Formulaire de Contact', whatsapp: 'Bouton Réseaux Sociaux',
-                seo: 'Domaine Personnalisé www.votrebusiness.cl (+16.000$) Renouvellement Annuel',
-                email: 'Email corporatif personnalisé "nom@votredomaine.cl" (+8.000$ CLP) Renouvellement Mensuel',
-                multilang: 'Site Multi-langues (+10.000$ CLP) FR/EN/ES etc.',
-                accessibility: 'Panneau d\'Accessibilité (+8.000$ CLP)'
+                form: { text: 'Formulaire de Contact', info: '' },
+                whatsapp: { text: 'Bouton Réseaux Sociaux', info: '' },
+                seo: { text: 'Domaine Personnalisé www.votrebusiness.cl', info: 'Renouvellement Annuel' },
+                email: { text: 'Email corporatif personnalisé "nom@votredomaine.cl"', info: 'Renouvellement Mensuel' },
+                multilang: { text: 'Site Multi-langues', info: 'FR/EN/ES etc.' },
+                accessibility: { text: 'Panneau d\'Accessibilité', info: '' }
             }
         };
 
@@ -647,7 +673,7 @@
                 speed_title:"Simulateur de Vitesse Serveur", speed_html:"Notre Programmation HTML", speed_wp:"WordPress avec Plugins / Elementor", speed_run:"Exécuter Test de Charge",
                 showcase_badge:"Portfolio de Projets Réels", showcase_title:"Sites Web Publiés et Fonctionnels", showcase_subtitle:"Faits 100% avec code HTML pur", showcase_desc:"Explorez nos derniers projets publiés. Chaque site est optimisé pour la vitesse, le SEO et une expérience utilisateur exceptionnelle.", showcase_cta:"Vous voulez un site comme ceux-ci ? Demandez un devis !",
                 site_triki_title:"Trikibarber", site_triki_desc:"Barbier moderne style urbain.", site_jyg_title:"J&G Electric", site_jyg_desc:"Services électriques 24/7.", site_lumiere_title:"Lumiere Gourmet", site_lumiere_desc:"Haute cuisine avec menu digital.", site_fast:"Rapide", site_visit:"Visiter",
-                services_badge:"Développement Professionnel", services_title:"Nos Solutions pour Entreprises", services_desc:"Nous créons des structures digitales légères qui se démarquent des concurrents locaux.",
+                services_badge:"Développement Professionnel", services_title:"Nos Solutions pour Entreprises", services_desc:"Nous créons des estructuras digitales légères qui se démarquent des concurrents locaux.",
                 srv_landing:"Landings de Capture", srv_landing_desc:"Optimisées pour Facebook et Instagram Ads.", srv_multi:"Site Multi-Sections", srv_multi_desc:"Jusqu'à 5 pages dédiées avec code statique ultra-sécurisé.", srv_shopify:"Boutique Digitale Shopify", srv_shopify_desc:"Vente de produits avec commandes vers WhatsApp.",
                 calc_badge:"Prix Honnêtes", calc_title:"Calculateur Intelligent de Devis", calc_desc:"Obtenez un budget de développement immédiatement.", calc_guarantee:"Notre Garantie", calc_mobile:"Optimisation mobile", calc_w3c:"Code validé W3C", calc_speed:"Score vitesse 95+",
                 calc_params:"Paramètres", calc_currency:"Devise:", calc_sections:"Sections:", calc_integrations:"Intégrations:", calc_hosting:"Serveur:", calc_estimate:"Budget Estimé", calc_apply:"Appliquer le Devis", calc_promo:"Ne payez pas trop, Jeindex.cl est la solution",
@@ -669,6 +695,8 @@
         let selectedHostingPlan = 'netlify';
         let chatOpen = false, chatStep = 0, selectedOption = null;
         let testActive = false;
+        // CAMBIO #3: Estado de integraciones seleccionadas
+        let selectedIntegrations = {};
 
         // ===== INICIALIZACIÓN =====
         function initPreferences() {
@@ -757,35 +785,47 @@
             updateCalculatorLabels();
         }
         
-        // ===== CALCULADORA - Conversión en tiempo real =====
+        // ===== CAMBIO #1 & #3: CALCULADORA - Precios sin duplicar + botones seleccionables =====
         function updateCalculatorLabels() {
             const lang = document.documentElement.getAttribute('data-lang') || 'es';
-            const labels = {
-                'label-addon-form': { key: 'form', price: PRICING.addons.form },
-                'label-addon-whatsapp': { key: 'whatsapp', price: PRICING.addons.whatsapp },
-                'label-addon-seo': { key: 'seo', price: PRICING.addons.seo, fixed: true },
-                'label-addon-email': { key: 'email', price: PRICING.addons.email },
-                'label-addon-multilang': { key: 'multilang', price: PRICING.addons.multilang },
-                'label-addon-accessibility': { key: 'accessibility', price: PRICING.addons.accessibility }
-            };
+            const addons = ['form', 'whatsapp', 'seo', 'email', 'multilang', 'accessibility'];
             
-            Object.entries(labels).forEach(([id, config]) => {
-                const el = document.getElementById(id);
-                if(!el) return;
+            addons.forEach(key => {
+                const labelEl = document.getElementById(`label-addon-${key}`);
+                const iconEl = document.getElementById(`icon-addon-${key}`);
+                const btnEl = document.getElementById(`btn-addon-${key}`);
+                if(!labelEl || !iconEl) return;
                 
-                const baseText = ADDON_TEXTS[lang]?.[config.key] || ADDON_TEXTS.es[config.key];
+                const config = ADDON_TEXTS[lang]?.[key] || ADDON_TEXTS.es[key];
+                const price = PRICING.addons[key];
                 
-                if(config.fixed) {
-                    el.textContent = baseText;
-                } else {
-                    let convertedPrice;
-                    if(selectedCurrency === 'CLP') convertedPrice = `$${config.price.toLocaleString('es-CL')} CLP`;
-                    else if(selectedCurrency === 'USD') convertedPrice = `$${Math.round(config.price/EXCHANGE_RATES.USD).toLocaleString('en-US')} USD`;
-                    else convertedPrice = `$${Math.round(config.price/EXCHANGE_RATES.MXN).toLocaleString('es-MX')} MXN`;
-                    
-                    el.textContent = `${baseText} (+${convertedPrice})`;
+                // CAMBIO #1: Construir texto sin duplicar precio
+                let fullText = config.text;
+                if(selectedCurrency === 'CLP') fullText += ` (+$${price.toLocaleString('es-CL')} CLP)`;
+                else if(selectedCurrency === 'USD') fullText += ` (+$${Math.round(price/EXCHANGE_RATES.USD).toLocaleString('en-US')} USD)`;
+                else fullText += ` (+$${Math.round(price/EXCHANGE_RATES.MXN).toLocaleString('es-MX')} MXN)`;
+                if(config.info) fullText += ` ${config.info}`;
+                
+                labelEl.textContent = fullText;
+                
+                // CAMBIO #3: Actualizar estado visual del botón
+                if(btnEl) {
+                    if(selectedIntegrations[key]) {
+                        btnEl.classList.add('active');
+                        iconEl.className = 'fa-solid fa-square-check';
+                    } else {
+                        btnEl.classList.remove('active');
+                        iconEl.className = 'fa-regular fa-square';
+                    }
                 }
             });
+        }
+
+        // CAMBIO #3: Función para toggle de integraciones
+        function toggleIntegration(key) {
+            selectedIntegrations[key] = !selectedIntegrations[key];
+            updateCalculatorLabels();
+            updatePriceEstimate();
         }
 
         function formatPrice(clpValue) { 
@@ -830,12 +870,13 @@
             const pagesInput=document.getElementById('slider-pages');
             const pages = pagesInput ? parseInt(pagesInput.value) : 1;
             
-            const addForm = document.getElementById('add-form')?.checked || false;
-            const addWhatsapp = document.getElementById('add-whatsapp')?.checked || false;
-            const addSeo = document.getElementById('add-seo')?.checked || false;
-            const addEmail = document.getElementById('add-email')?.checked || false;
-            const addMultilang = document.getElementById('add-multilang')?.checked || false;
-            const addAccessibility = document.getElementById('add-accessibility')?.checked || false;
+            // CAMBIO #3: Usar selectedIntegrations en lugar de checkboxes
+            const addForm = selectedIntegrations['form'] || false;
+            const addWhatsapp = selectedIntegrations['whatsapp'] || false;
+            const addSeo = selectedIntegrations['seo'] || false;
+            const addEmail = selectedIntegrations['email'] || false;
+            const addMultilang = selectedIntegrations['multilang'] || false;
+            const addAccessibility = selectedIntegrations['accessibility'] || false;
             
             const pagesText = document.getElementById('calc-pages-text');
             if(pagesText) pagesText.innerText = pages===1 ? "1 Página (Landing Page)" : `${pages} Secciones / Páginas`;
@@ -855,10 +896,12 @@
             if(finalPrice) finalPrice.innerText = formatPrice(totalCLP); 
         }
 
+        // CAMBIO #2: Transferir presupuesto actualiza el campo con el monto
         function transferBudgetToForm() { 
             const priceEl = document.getElementById('calc-final-price');
             const priceStr = priceEl ? priceEl.innerText : '$40.000 CLP';
             
+            // CAMBIO #2: Actualizar campo de cotización con el monto presupuestado
             const pricingField = document.getElementById('form-pricing');
             if(pricingField) pricingField.value = priceStr;
             
@@ -872,7 +915,7 @@
             showToast(getText('toast_applied'), "success");
         }
 
-        // ===== FORMULARIO - CORREGIDO: SIN fetch, Netlify procesa automáticamente =====
+        // ===== FORMULARIO =====
         function submitContactForm(e) { 
             e.preventDefault(); 
             
@@ -887,7 +930,8 @@
             const pricingFieldValue = pricingField.value;
             const calculatedPrice = calculatedPriceEl.innerText;
             
-            if (pricingFieldValue !== calculatedPrice) {
+            // Validar que se haya aplicado el presupuesto
+            if (pricingFieldValue === "Aplicar Presupuesto" || pricingFieldValue !== calculatedPrice) {
                 showToast(getText('toast_budget_first'), "error");
                 pricingField.classList.add('pricing-field-error');
                 setTimeout(() => pricingField.classList.remove('pricing-field-error'), 2000);
@@ -904,9 +948,7 @@
                 return false;
             }
             
-            // ✅ Netlify procesa el formulario automáticamente con el atributo "netlify"
-            // No necesitamos fetch(), solo mostramos el mensaje de éxito
-            
+            // Netlify procesa automáticamente
             const contactForm = document.getElementById('contact-form');
             const successMsg = document.getElementById('form-success');
             
@@ -918,14 +960,13 @@
             showToast(getText('toast_sent'), "success");
         }
 
-        // ===== SPEED TEST - Ambos timers desde 0.0 =====
+        // ===== SPEED TEST =====
         function startSpeedTest() { 
             if(testActive) return; 
             testActive = true; 
             const hBar = document.getElementById('html-bar'), wBar = document.getElementById('wp-bar');
             const hTimer = document.getElementById('html-timer'), wTimer = document.getElementById('wp-timer');
             
-            // Ambos comienzan en 0.0
             hBar.style.width = '0%'; wBar.style.width = '0%';
             hTimer.innerText = '0.0 Segundos'; wTimer.innerText = '0.0 Segundos';
             
